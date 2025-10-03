@@ -44,3 +44,26 @@
   border-color: #EE684C;
 }
 /* END FOOTER */
+
+
+
+/* FAQs Bootstrap */
+.accordion-button {
+  background-color: #a67856;
+}
+
+.accordion-button:not(.collapsed) {
+  background-color: #a67856;
+  box-shadow: none;
+}
+
+.accordion-button:focus {
+  box-shadow: none;
+  border-color: transparent;
+}
+
+.accordion-item {
+  background-color: #e6cdb6;
+}
+
+/* END FAQs */
