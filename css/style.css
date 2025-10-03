@@ -1,0 +1,24 @@
+/* FOOTER */
+.custom-footer{
+    background-color: #F8E1C7;
+}
+.footer-icons i {
+  color: #000; 
+  transition: color 0.3s;
+}
+
+.footer-icons i:hover {
+  color: #EE684C;
+}
+
+.btn-dark {
+  background-color: #000;   
+  border-color: #000;
+  transition: all 0.3s ease;
+}
+
+.btn-dark:hover {
+  background-color: #EE684C;  
+  border-color: #EE684C;
+}
+/* END FOOTER */
