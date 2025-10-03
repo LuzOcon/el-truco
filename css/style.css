@@ -1,9 +1,71 @@
+@import url('https://fonts.googleapis.com/css2?family=Vina+Sans:wght@400;600;700&family=Bowlby+One&display=swap');
+
+:root {
+  /* Colores */
+  --black-color: #000000;
+  --white-color: #ffffff;
+
+  --color-bg: #fff2e0;
+  --color-bg-alt: #f8e1c7;
+
+  --color-card-1: #e6cdb6;
+  --color-card-2: #ffd1b3;
+  --color-card-3: #f7b58a;
+
+  --text-color-alt: #a67856;
+  --text-highlight: #eb4a3f;
+  --text-highlight-alt: #ee684c;
+
+  --btn-primary: #ff9b73;
+  --btn-secondary: #c5d6a2;
+
+  --shadow-card: 0 4px 12px rgba(0, 0, 0, 0.1);
+
+  /* Tipografía */
+  --font-h1: 'Vina Sans', sans-serif;
+  --font-h2-h3: 'Bowlby One', sans-serif;
+  --font-body: 'Arial', sans-serif;
+
+  --h1-size: 2.5rem;
+  --h2-size: 2rem;
+  --h3-size: 2.5rem; /* corregido según guía */
+  --normal-size: 1rem;
+  --small-size: 0.875rem;
+
+  --font-regular: 400;
+  --font-semi-bold: 600;
+  --font-bold: 700;
+}
+/* Fuente y tamaño h2 */
+h2 {
+  font-family: var(--font-h2-h3);
+  font-size: var(--h2-size);
+}
+
+/* Fuente y tamaño texto boy */
+body{
+    background-color: var(--color-bg);
+    font-family: var(--font-body);
+    font-size: var(--normal-size);
+    color: var(--black-color);
+    line-height: 1.6;
+}
+
+/* Formato imágenes About Us */
+.imagen-columna-ajustada {
+  height: 200px;       /* alto fijo  */
+  width: 75%;         /* ocupa todo el ancho disponible */
+  object-fit: cover;   /* mantiene proporciones recortando si es necesario */
+  border-radius: 15px;
+}
 
 .imagen-ajustada {
-  height: 350px;       /* alto fijo  */
+  height: 340px;       /* alto fijo  */
   width: 100%;         /* ocupa todo el ancho disponible */
   object-fit: cover;   /* mantiene proporciones recortando si es necesario */
+  border-radius: 15px;
 }
+
 
 /* Convertir una imagen a fondo (Marca de agua) */
 .contenedor {
@@ -15,7 +77,7 @@
   right: 0;             /* la alinea a la derecha */
   top: 0;               /* empieza desde arriba */
   height: 100%;         /* alto ajustado a tamaño del contenedor */
-  opacity: 0.299;       /* baja opacidad */
+  opacity: 0.35;       /* baja opacidad */
   z-index: -1;          /* la pone detrás del texto */
   border-radius: 100%;  /* pone borde a la imagen */
 }
@@ -44,3 +106,52 @@
   border-color: #EE684C;
 }
 /* END FOOTER */
+
+/* PRODUCT VIEW */
+.img-product{
+    width: 100%;
+    height: 500px;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+.product-container {
+    margin-top: 50px;
+}
+.price {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #779047;
+}
+.btn-verde{
+    background-color: #779047;   
+    color: white;
+    transition: all 0.3s ease;
+}
+.btn-verde:hover {
+  background-color: #384520;  
+  color: white;
+}
+/* END PRODUCT VIEW */
+
+
+/* FAQs Bootstrap */
+.accordion-button {
+  background-color: #a67856;
+}
+
+.accordion-button:not(.collapsed) {
+  background-color: #a67856;
+  box-shadow: none;
+}
+
+.accordion-button:focus {
+  box-shadow: none;
+  border-color: transparent;
+}
+
+.accordion-item {
+  background-color: #e6cdb6;
+}
+
+/* END FAQs */
