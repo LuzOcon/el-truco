@@ -4,102 +4,192 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>FAQs</title>
-  <link rel="stylesheet" href="faqs.css">
+  
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="../css/style.css">
 </head>
 <body>
 
-  <section class="faqs">
-    <h2>PREGUNTAS FRECUENTES</h2>
-    <p>¡Aquí hay una lista de preguntas que más nos hacen nuestros clientes!</p>
+  <section class="container my-5 py-5">
+    <div class="row justify-content-center">
+      <div class="col-lg-8">
+        
+        <!-- Header -->
+        <div class="text-center mb-5">
+          <h2 class="fw-bold mb-3">PREGUNTAS FRECUENTES</h2>
+          <p class="text-muted">¡Aquí hay una lista de preguntas que más nos hacen nuestros clientes!</p>
+        </div>
 
-    <div class="faq-item">
-      <button class="faq-question">¿Realizan envíos a domicilio y qué cobertura tienen?</button>
-      <div class="faq-answer">
-        <p>Sí, realizamos envíos a domicilio en toda la zona local sin costo adicional en pedidos mínimos establecidos. Para clientes al rededor del territorio nacional, contamos con envios por paqueterías que permiten entregar nuestros productos en condiciones óptimas. Siempre procuramos que los productos lleguen frescos y en el menor tiempo posible.</p>
+        <!-- Accordion FAQs -->
+        <div class="accordion" id="faqAccordion">
+          
+          <!-- FAQ 1 -->
+          <div class="accordion-item mb-3 border-0 rounded-3 shadow-sm">
+            <h2 class="accordion-header">
+              <button class="accordion-button rounded-3 fw-semibold" type="button" data-bs-toggle="collapse" data-bs-target="#faq1">
+                ¿Realizan envíos a domicilio y qué cobertura tienen?
+              </button>
+            </h2>
+            <div id="faq1" class="accordion-collapse collapse show" data-bs-parent="#faqAccordion">
+              <div class="accordion-body text-muted">
+                Sí, realizamos envíos a domicilio en toda la zona local sin costo adicional en pedidos mínimos establecidos. Para clientes al rededor del territorio nacional, contamos con envios por paqueterías que permiten entregar nuestros productos en condiciones óptimas. Siempre procuramos que los productos lleguen frescos y en el menor tiempo posible.
+              </div>
+            </div>
+          </div>
+
+          <!-- FAQ 2 -->
+          <div class="accordion-item mb-3 border-0 rounded-3 shadow-sm">
+            <h2 class="accordion-header">
+              <button class="accordion-button collapsed rounded-3 fw-semibold" type="button" data-bs-toggle="collapse" data-bs-target="#faq2">
+                ¿Qué diferencia tienen sus huevos orgánicos frente a los convencionales?
+              </button>
+            </h2>
+            <div id="faq2" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+              <div class="accordion-body text-muted">
+                Nuestras gallinas son criadas libres, con alimentación natural a base de granos y sin el uso de hormonas ni antibióticos. Esto se traduce en huevos más nutritivos, con yemas de color intenso, mejor sabor y un mayor aporte de vitaminas. Además, el proceso de producción respeta el bienestar animal y el medio ambiente.
+              </div>
+            </div>
+          </div>
+
+          <!-- FAQ 3 -->
+          <div class="accordion-item mb-3 border-0 rounded-3 shadow-sm">
+            <h2 class="accordion-header">
+              <button class="accordion-button collapsed rounded-3 fw-semibold" type="button" data-bs-toggle="collapse" data-bs-target="#faq3">
+                ¿Cómo se entrega el abono orgánico y para qué cultivos es recomendable?
+              </button>
+            </h2>
+            <div id="faq3" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+              <div class="accordion-body text-muted">
+                El abono se entrega en costales sellados de diferentes presentaciones (desde 10 kg hasta 50 kg). Es ideal para huertos caseros, jardines, frutales y cultivos de mayor escala. Al ser 100% natural, mejora la fertilidad del suelo, incrementa la retención de agua y fortalece el crecimiento de plantas sin químicos dañinos.
+              </div>
+            </div>
+          </div>
+
+          <!-- FAQ 4 -->
+          <div class="accordion-item mb-3 border-0 rounded-3 shadow-sm">
+            <h2 class="accordion-header">
+              <button class="accordion-button collapsed rounded-3 fw-semibold" type="button" data-bs-toggle="collapse" data-bs-target="#faq4">
+                ¿Cómo garantizan la frescura de los productos durante el envío?
+              </button>
+            </h2>
+            <div id="faq4" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+              <div class="accordion-body text-muted">
+                Usamos empaques especiales que protegen los huevos y conservan la calidad del pollo y el abono. Además, programamos las entregas para que el tiempo de traslado sea lo más corto posible.
+              </div>
+            </div>
+          </div>
+
+          <!-- FAQ 5 -->
+          <div class="accordion-item mb-3 border-0 rounded-3 shadow-sm">
+            <h2 class="accordion-header">
+              <button class="accordion-button collapsed rounded-3 fw-semibold" type="button" data-bs-toggle="collapse" data-bs-target="#faq5">
+                ¿Qué diferencia tiene su abono frente a los fertilizantes químicos?
+              </button>
+            </h2>
+            <div id="faq5" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+              <div class="accordion-body text-muted">
+                Nuestro abono mejora la salud del suelo a largo plazo, ayuda a regenerar nutrientes de forma natural y no contamina el agua ni el ambiente, a diferencia de los fertilizantes químicos que suelen degradar la tierra con el tiempo.
+              </div>
+            </div>
+          </div>
+
+          <!-- FAQ 6 -->
+          <div class="accordion-item mb-3 border-0 rounded-3 shadow-sm">
+            <h2 class="accordion-header">
+              <button class="accordion-button collapsed rounded-3 fw-semibold" type="button" data-bs-toggle="collapse" data-bs-target="#faq6">
+                ¿Qué métodos de pago están disponibles y son seguros?
+              </button>
+            </h2>
+            <div id="faq6" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+              <div class="accordion-body text-muted">
+                <p>Ofrecemos varias opciones de pago para tu comodidad:</p>
+                <ul>
+                  <li>Transferencia bancaria</li>
+                  <li>Pago en efectivo contra entrega (solo zona local)</li>
+                  <li>Pagos con tarjeta mediante plataformas seguras en línea</li>
+                </ul>
+                <p class="mb-0">Todos nuestros sistemas de cobro están encriptados y certificados para proteger tus datos financieros.</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- FAQ 7 -->
+          <div class="accordion-item mb-3 border-0 rounded-3 shadow-sm">
+            <h2 class="accordion-header">
+              <button class="accordion-button collapsed rounded-3 fw-semibold" type="button" data-bs-toggle="collapse" data-bs-target="#faq7">
+                ¿Qué política de garantía y devoluciones manejan?
+              </button>
+            </h2>
+            <div id="faq7" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+              <div class="accordion-body text-muted">
+                La satisfacción de nuestros clientes es fundamental. Si alguno de nuestros productos (huevos, abono o pollo) llega en mal estado o no corresponde a lo solicitado, puedes notificarlo dentro de las 24 horas posteriores a la entrega. Te ofrecemos reposición del producto o reembolso, según tu preferencia.
+              </div>
+            </div>
+          </div>
+
+          <!-- FAQ 8 -->
+          <div class="accordion-item mb-3 border-0 rounded-3 shadow-sm">
+            <h2 class="accordion-header">
+              <button class="accordion-button collapsed rounded-3 fw-semibold" type="button" data-bs-toggle="collapse" data-bs-target="#faq8">
+                ¿Cómo puedo comunicarme con ustedes en caso de dudas o pedidos especiales?
+              </button>
+            </h2>
+            <div id="faq8" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+              <div class="accordion-body text-muted">
+                <p>Puedes contactarnos a través de:</p>
+                <ul>
+                  <li><strong>WhatsApp</strong>: para pedidos rápidos y consultas inmediatas</li>
+                  <li><strong>Teléfono</strong>: para atención directa con nuestro equipo</li>
+                  <li><strong>Correo electrónico</strong>: ideal para pedidos especiales o facturación</li>
+                </ul>
+                <p class="mb-0">Además, en nuestra página encontrarás un formulario de contacto para mensajes rápidos.</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- FAQ 9 -->
+          <div class="accordion-item mb-3 border-0 rounded-3 shadow-sm">
+            <h2 class="accordion-header">
+              <button class="accordion-button collapsed rounded-3 fw-semibold" type="button" data-bs-toggle="collapse" data-bs-target="#faq9">
+                ¿Puedo visitar el lugar donde crían a las gallinas y producen el abono?
+              </button>
+            </h2>
+            <div id="faq9" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+              <div class="accordion-body text-muted">
+                Sí. Creemos en la transparencia, por lo que organizamos visitas programadas para que nuestros clientes puedan conocer el proceso de producción y comprobar que todo se realiza de manera natural y responsable.
+              </div>
+            </div>
+          </div>
+
+          <!-- FAQ 10 -->
+          <div class="accordion-item mb-3 border-0 rounded-3 shadow-sm">
+            <h2 class="accordion-header">
+              <button class="accordion-button collapsed rounded-3 fw-semibold" type="button" data-bs-toggle="collapse" data-bs-target="#faq10">
+                ¿Ofrecen entregas recurrentes o suscripciones?
+              </button>
+            </h2>
+            <div id="faq10" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+              <div class="accordion-body text-muted">
+                Sí. Sabemos que muchos clientes prefieren tener siempre huevos frescos en casa, por eso ofrecemos planes de suscripción semanal o quincenal. Esto garantiza que recibas tus productos sin necesidad de hacer pedidos constantemente. También puedes personalizar la suscripción incluyendo abono o pollo de temporada cuando esté disponible.
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Footer -->
+        <div class="text-center mt-5 pt-4">
+          <h3 class="fw-bold mb-3">¿TIENES ALGUNA DUDA O PREGUNTA EXTERNA?</h3>
+          <p class="text-muted">No dudes en contactarte con nosotros, estamos para ayudarte.</p>
+        </div>
+
       </div>
-    </div>
-
-    <div class="faq-item">
-      <button class="faq-question">¿Qué diferencia tienen sus huevos orgánicos frente a los convencionales?</button>
-      <div class="faq-answer">
-        <p>Nuestras gallinas son criadas libres, con alimentación natural a base de granos y sin el uso de hormonas ni antibióticos. Esto se traduce en huevos más nutritivos, con yemas de color intenso, mejor sabor y un mayor aporte de vitaminas. Además, el proceso de producción respeta el bienestar animal y el medio ambiente.</p>
-      </div>
-    </div>
-
-    <div class="faq-item">
-      <button class="faq-question">¿Cómo se entrega el abono orgánico y para qué cultivos es recomendable?</button>
-      <div class="faq-answer">
-        <p>El abono se entrega en costales sellados de diferentes presentaciones (desde 10 kg hasta 50 kg). Es ideal para huertos caseros, jardines, frutales y cultivos de mayor escala. Al ser 100% natural, mejora la fertilidad del suelo, incrementa la retención de agua y fortalece el crecimiento de plantas sin químicos dañinos.</p>
-      </div>
-    </div>
-
-    <div class="faq-item">
-      <button class="faq-question">¿Cómo garantizan la frescura de los productos durante el envío?</button>
-      <div class="faq-answer">
-        <p>Usamos empaques especiales que protegen los huevos y conservan la calidad del pollo y el abono. Además, programamos las entregas para que el tiempo de traslado sea lo más corto posible.</p>
-      </div>
-    </div>
-
-    <div class="faq-item">
-      <button class="faq-question">¿Qué diferencia tiene su abono frente a los fertilizantes químicos?</button>
-      <div class="faq-answer">
-        <p>Nuestro abono mejora la salud del suelo a largo plazo, ayuda a regenerar nutrientes de forma natural y no contamina el agua ni el ambiente, a diferencia de los fertilizantes químicos que suelen degradar la tierra con el tiempo.</p>
-      </div>
-    </div>
-
-    <div class="faq-item">
-      <button class="faq-question">¿Qué métodos de pago están disponibles y son seguros?</button>
-      <div class="faq-answer">
-        <p>Ofrecemos varias opciones de pago para tu comodidad:</p>
-        <ul>
-          <li>Transferencia bancaria</li>
-          <li>Pago en efectivo contra entrega (solo zona local)</li>
-          <li>Pagos con tarjeta mediante plataformas seguras en línea</li>
-        </ul>
-        <p>Todos nuestros sistemas de cobro están encriptados y certificados para proteger tus datos financieros.</p>
-      </div>
-    </div>
-
-    <div class="faq-item">
-      <button class="faq-question">¿Qué política de garantía y devoluciones manejan?</button>
-      <div class="faq-answer">
-        <p>La satisfacción de nuestros clientes es fundamental. Si alguno de nuestros productos (huevos, abono o pollo) llega en mal estado o no corresponde a lo solicitado, puedes notificarlo dentro de las 24 horas posteriores a la entrega. Te ofrecemos reposición del producto o reembolso, según tu preferencia.</p>
-      </div>
-    </div>
-
-    <div class="faq-item">
-      <button class="faq-question">¿Cómo puedo comunicarme con ustedes en caso de dudas o pedidos especiales?</button>
-      <div class="faq-answer">
-        <p>Puedes contactarnos a través de:</p>
-        <ul>
-          <li><strong>WhatsApp</strong>: para pedidos rápidos y consultas inmediatas</li>
-          <li><strong>Teléfono</strong>: para atención directa con nuestro equipo</li>
-          <li><strong>Correo electrónico</strong>: ideal para pedidos especiales o facturación</li>
-        </ul>
-        <p>Además, en nuestra página encontrarás un formulario de contacto para mensajes rápidos.</p>
-      </div>
-    </div>
-
-    <div class="faq-item">
-      <button class="faq-question">¿Puedo visitar el lugar donde crían a las gallinas y producen el abono?</button>
-      <div class="faq-answer">
-        <p>Sí. Creemos en la transparencia, por lo que organizamos visitas programadas para que nuestros clientes puedan conocer el proceso de producción y comprobar que todo se realiza de manera natural y responsable.</p>
-      </div>
-    </div>
-
-    <div class="faq-item">
-      <button class="faq-question">¿Ofrecen entregas recurrentes o suscripciones?</button>
-      <div class="faq-answer">
-        <p>Sí. Sabemos que muchos clientes prefieren tener siempre huevos frescos en casa, por eso ofrecemos planes de suscripción semanal o quincenal. Esto garantiza que recibas tus productos sin necesidad de hacer pedidos constantemente. También puedes personalizar la suscripción incluyendo abono o pollo de temporada cuando esté disponible.</p>
-      </div>
-    </div>
-
-    <div class="faq-footer">
-      <h3>¿TIENES ALGUNA DUDA O PREGUNTA EXTERNA?</h3>
-      <p>No dudes en contactarte con nosotros, estamos para ayudarte.</p>
     </div>
   </section>
 
-  <script src="faqs.js"></script>
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
 </body>
 </html>
