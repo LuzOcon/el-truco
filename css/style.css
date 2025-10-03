@@ -45,6 +45,32 @@
 }
 /* END FOOTER */
 
+/* PRODUCT VIEW */
+.img-product{
+    width: 100%;
+    height: 500px;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+.product-container {
+    margin-top: 50px;
+}
+.price {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #779047;
+}
+.btn-verde{
+    background-color: #779047;   
+    color: white;
+    transition: all 0.3s ease;
+}
+.btn-verde:hover {
+  background-color: #384520;  
+  color: white;
+}
+/* END PRODUCT VIEW */
 
 
 /* FAQs Bootstrap */
