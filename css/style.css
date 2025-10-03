@@ -1,9 +1,22 @@
+body{
+    background-color: #FFF2E0;
+}
+
+/* Formato imágenes About Us */
+.imagen-columna-ajustada {
+  height: 200px;       /* alto fijo  */
+  width: 80%;         /* ocupa todo el ancho disponible */
+  object-fit: cover;   /* mantiene proporciones recortando si es necesario */
+  border-radius: 15px;
+}
 
 .imagen-ajustada {
-  height: 350px;       /* alto fijo  */
+  height: 340px;       /* alto fijo  */
   width: 100%;         /* ocupa todo el ancho disponible */
   object-fit: cover;   /* mantiene proporciones recortando si es necesario */
+  border-radius: 15px;
 }
+
 
 /* Convertir una imagen a fondo (Marca de agua) */
 .contenedor {
@@ -15,7 +28,7 @@
   right: 0;             /* la alinea a la derecha */
   top: 0;               /* empieza desde arriba */
   height: 100%;         /* alto ajustado a tamaño del contenedor */
-  opacity: 0.299;       /* baja opacidad */
+  opacity: 0.5;       /* baja opacidad */
   z-index: -1;          /* la pone detrás del texto */
   border-radius: 100%;  /* pone borde a la imagen */
 }
