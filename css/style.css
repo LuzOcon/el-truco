@@ -1,0 +1,21 @@
+.imagen-ajustada {
+  height: 350px;       /* alto fijo  */
+  width: 100%;         /* ocupa todo el ancho disponible */
+  object-fit: cover;   /* mantiene proporciones recortando si es necesario */
+}
+
+/* Convertir una imagen a fondo (Marca de agua) */
+.contenedor {
+  position: relative;   /* necesario para que la imagen se posicione dentro */
+}
+
+.fondo-img {
+  position: absolute;   /* saca la imagen del flujo normal */
+  right: 0;             /* la alinea a la derecha */
+  top: 0;               /* empieza desde arriba */
+  height: 100%;         /* alto ajustado a tamaño del contenedor */
+  opacity: 0.299;       /* baja opacidad */
+  z-index: -1;          /* la pone detrás del texto */
+  border-radius: 100%;  /* pone borde a la imagen */
+}
+
