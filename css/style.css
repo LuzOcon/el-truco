@@ -17,7 +17,7 @@
   --text-highlight-alt: #ee684c;
 
   --btn-primary: #ff9b73;
-  --btn-secondary: #c5d6a2;
+  --btn-secondary: #779047;
 
   --shadow-card: 0 4px 12px rgba(0, 0, 0, 0.1);
 
@@ -124,7 +124,7 @@ body{
     color: #779047;
 }
 .btn-verde{
-    background-color: #779047;   
+    background-color: #737f5d;   
     color: white;
     transition: all 0.3s ease;
 }
