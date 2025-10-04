@@ -17,7 +17,7 @@
   --text-highlight-alt: #ee684c;
 
   --btn-primary: #ff9b73;
-  --btn-secondary: #c5d6a2;
+  --btn-secondary: #779047;
 
   --shadow-card: 0 4px 12px rgba(0, 0, 0, 0.1);
 
@@ -124,7 +124,7 @@ body{
     color: #779047;
 }
 .btn-verde{
-    background-color: #779047;   
+    background-color: #737f5d;   
     color: white;
     transition: all 0.3s ease;
 }
@@ -155,3 +155,25 @@ body{
 }
 
 /* END FAQs */
+
+/* RECETAS */
+.recipe-card {
+  background-color: var(--color-bg-alt);
+}
+.recipe-card h3 {
+  color: var(--black-color);
+}
+
+.recipe-card-button {
+  border: none;
+  margin-top: auto;
+  background-color: var(--btn-secondary);
+  transition: all 0.3s ease;
+  color: var(--black-color);
+}
+
+.recipe-card-button:hover {
+  background-color: #adbc8f;
+  transform: scale(1.02);
+  color: var(--white-color);
+}
