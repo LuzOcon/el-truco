@@ -21,6 +21,8 @@
 
   --shadow-card: 0 4px 12px rgba(0, 0, 0, 0.1);
 
+  --navbar-color: #737F5D;
+
   /* Tipografía */
   --font-h1: 'Vina Sans', sans-serif;
   --font-h2-h3: 'Bowlby One', sans-serif;
@@ -177,3 +179,23 @@ body{
   transform: scale(1.02);
   color: var(--white-color);
 }
+
+/*NavBar*/
+.floatNavBar{
+  width: 95%;
+  background-color: var(--navbar-color);
+  border-radius: 7px;
+  }
+
+.floatNavBar a{
+  color: var(--color-bg);
+}
+
+.floatNavBar button{
+  color: var(--color-bg);
+}
+
+.floatNavBar icon{
+  color: var(--color-bg);
+}
+/*NavBar end*/
