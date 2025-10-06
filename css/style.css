@@ -44,7 +44,7 @@ h2 {
   font-size: var(--h2-size);
 }
 
-/* Fuente y tamaño texto boy */
+/* Fuente y tamaño texto body */
 body{
     background-color: var(--color-bg);
     font-family: var(--font-body);
@@ -53,16 +53,20 @@ body{
     line-height: 1.6;
 }
 
+.bg-alt {
+  background-color: var(--color-bg-alt);
+}
+
 /* Formato imágenes About Us */
 .imagen-columna-ajustada {
-  height: 200px;       /* alto fijo  */
-  width: 75%;         /* ocupa todo el ancho disponible */
+  height: 229px;       /* alto fijo  */
+  width: 80%;         /* ocupa todo el ancho disponible */
   object-fit: cover;   /* mantiene proporciones recortando si es necesario */
   border-radius: 15px;
 }
 
 .imagen-ajustada {
-  height: 340px;       /* alto fijo  */
+  height: 250px;       /* alto fijo  */
   width: 100%;         /* ocupa todo el ancho disponible */
   object-fit: cover;   /* mantiene proporciones recortando si es necesario */
   border-radius: 15px;
