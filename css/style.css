@@ -57,6 +57,50 @@ body{
   background-color: var(--color-bg-alt);
 }
 
+/* Formato Inicio */
+.hero-img {
+  object-fit: cover;
+  height: 100vh;  /*mantiene la imagen al 100% de la pantalla*/
+  filter: brightness(70%);  /* hace que la imagen sea más oscura para resaltar texto*/
+}
+
+.carousel-caption {
+  position: absolute;
+  bottom: 30%;
+  text-align: center;
+  color: var(--white-color);
+  text-shadow: 1px 1px 10px rgba(0,0,0,0.5);
+}
+
+.hero-section h1 {
+  font-family: var(--font-h2-h3);
+  font-size: var(--h1-size);
+  color: var(--color-bg);
+}
+
+.hero-section p {
+  font-family: var(--font-body);
+  font-size: 1.3rem;
+  color: var(--white-color);
+  margin-bottom: 20px;
+}
+
+.hero-btn {
+  background-color: var(--btn-primary);
+  border: none;
+  color: white;
+  padding: 12px 28px;
+  font-size: 1rem;
+  border-radius: 25px;
+  transition: all 0.3s ease;
+}
+
+.hero-btn:hover {
+  background-color: var(--text-highlight-alt);
+  transform: scale(1.05);
+}
+
+
 /* Formato imágenes About Us */
 .imagen-columna-ajustada {
   height: 229px;       /* alto fijo  */
