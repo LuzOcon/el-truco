@@ -104,7 +104,7 @@ body{
 /* Formato imágenes About Us */
 .imagen-columna-ajustada {
   height: 229px;       /* alto fijo  */
-  width: 80%;         /* ocupa todo el ancho disponible */
+  width: 80%;         /* ocupa 80% del ancho */
   object-fit: cover;   /* mantiene proporciones recortando si es necesario */
   border-radius: 15px;
 }
