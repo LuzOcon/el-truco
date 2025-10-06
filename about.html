@@ -3,7 +3,9 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Acerca de nosostros</title>
+    <title>Acerca de Nosotros</title>
+    <!-- FAVICON -->
+    <link rel="icon" href="./img/favicon.ico" type="image/x-icon">
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
     <!-- Bootstrap icons-->
@@ -13,11 +15,9 @@
   </head>
 
   <body>
-  <!--NavBar-->
+    <!--NavBar-->
     <div class="d-flex flex-column sticky-top py-3 ">
-     <nav class="navbar navbar-expand-lg navbar-custom px-4 d-flex align-self-center floatNavBar"  >
-      
-
+      <nav class="navbar navbar-expand-lg navbar-custom px-4 d-flex align-self-center floatNavBar"  >
         <a class="navbar-brand fw-bold px-4" href="index.html">El Truco</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
           <span class="navbar-toggler-icon"></span>
@@ -27,7 +27,7 @@
           <ul class="navbar-nav">
             <li class="nav-item"><a class="nav-link" href="index.html">Inicio</a></li>
             <li class="nav-item"><a class="nav-link" href="about.html">Acerca de Nosotros</a></li>
-            <li class="nav-item"><a class="nav-link" href="recetas.html">Recetas</a></li><!--dropbar>recipes,-->
+            <li class="nav-item"><a class="nav-link" href="recipes.html">Recetas</a></li><!--dropbar>recipes,-->
             <li class="nav-item"><a class="nav-link" href="contact.html">Contacto</a></li>
           </ul>
           <div class="d-flex align-items-center">
@@ -38,14 +38,16 @@
     
       </nav>
     </div>
-  <!--END NavBar-->
+    <!--END NavBar-->
 
     <!-- Primera Sección: HISTORIA -->
-    <section class="section bg-main text text-center">
+    <div class="bg-alt">
       <div class="container">
-        <h2 class="text-main">ACERCA DE NOSOTROS (HISTORIA)</h2>
-        <p class="text-body">
-          En <b>El Truco</b> nos dedicamos a ofrecer huevos frescos y nutritivos, producidos con calidad, frescura y respeto por nuestras gallinas. Combinamos tradición y tecnología para garantizar cuidado animal, responsabilidad sanitaria y un buen trato al consumidor, acercándote alimentos auténticos y confiables directamente de la granja a tu mesa.
+        <section class="section bg-main text text-center">
+          <div class="px-5">
+            <h2 class="text-main">ACERCA DE NOSOTROS (HISTORIA)</h2>
+            <p class="text-body">
+              En <b>El Truco</b> nos dedicamos a ofrecer huevos frescos y nutritivos, producidos con calidad, frescura y respeto por nuestras gallinas. Combinamos tradición y tecnología para garantizar cuidado animal, responsabilidad sanitaria y un buen trato al consumidor, acercándote alimentos auténticos y confiables directamente de la granja a tu mesa.
 
         </p>
       </div>
@@ -64,18 +66,27 @@
           El Truco nace de la pasión de la familia Trueba Contreras por ofrecer alimentos más sanos y responsables con la naturaleza. Inspirados en la tradición del campo oaxaqueño y en el compromiso de brindar productos frescos y confiables, decidimos dar vida a un proyecto que conecte directamente a las personas con la granja. Así, con dedicación diaria y el cuidado de nuestras gallinas, producimos huevos que conservan lo esencial: calidad, frescura y respeto por el consumidor y el medio ambiente.
       </div>
     </div>
-    </div>
-    <hr>
+
     <!-- Segunda Sección: MISION -->
-    <section class="section bg-main text text-center">
-      <div class="container">
-        <h2 class="text-main">MISIÓN</h2>
+    <div class="container">
+      <section class="section bg-main text text-center">
+        <div class="px-5">
+          <h2 class="text-main">MISIÓN</h2>
+        </div>
+      </section>
+      <!-- Descripción -->
+    
+      <div class="px-5">
+        <p>
+          En El Truco trabajamos para ofrecer huevos frescos, nutritivos y de alta calidad, producidos con el mínimo de químicos y bajo un modelo responsable con el medio ambiente. Cuidamos cada etapa del proceso, desde la alimentación de nuestras gallinas hasta la entrega del producto, garantizando confianza, transparencia y una experiencia cercana con nuestros clientes.
+          <br>
+          <br>
+          Nuestra misión no se limita a la venta de huevos: buscamos inspirar un consumo consciente, demostrando que es posible disfrutar de alimentos sanos y auténticos sin comprometer la naturaleza ni el bienestar animal. Apostamos por la innovación y la tecnología para mejorar nuestros procesos, siempre con el objetivo de que cada hogar disfrute de un producto seguro, fresco y responsable.
+        </p>
+        <div class="d-flex justify-content-center">
+          <img src="/img/imagen-mision.webp" alt="Imagen Mision" class="imagen-ajustada ">
+        </div>
       </div>
-    </section>
-    <!-- Descripción -->
-    <div>
-      <h4>
-        </h4>
     </div>
     
     <div class="container">
@@ -88,16 +99,26 @@
     <img src="./img/egg4.jpg" alt="Imagen Mision" class="imagen-ajustada">
     <hr>
     <!-- Tercera Sección: VISION -->
-    <section class="section bg-main text text-center">
+    <div class="bg-alt">
       <div class="container">
-        <h2 class="text-main">VISION</h2>
+        <hr>
+        <section class="section bg-main text text-center">
+          <div class="px-5">
+            <h2 class="text-main">VISION</h2>
+          </div>
+        </section>
+        <!-- Descripción -->
+        <div class="px-5">
+          <p>
+            Queremos consolidarnos como un referente nacional en la producción de huevos orgánicos, alcanzando un proceso 100% natural que garantice alimentos libres de químicos, frescos y con alto valor nutricional. Nos visualizamos como una empresa que combine tradición agrícola con innovación, generando confianza y contribuyendo al bienestar de las familias mexicanas.
+            <br>
+            <br>
+            Aspiramos a crecer de manera sostenible, ampliando nuestra oferta hacia carne y abono orgánico, además de crear experiencias educativas como talleres y visitas guiadas. Buscamos inspirar a la comunidad a valorar el campo y consumir de forma responsable, construyendo un futuro en el que El Truco sea sinónimo de frescura, calidad, respeto animal y compromiso con el entorno.
+          </p>
+          <img src="/img/imagen-vision.webp" alt="Imagen Mision" class="imagen-ajustada">
+        </div>
+        <hr>
       </div>
-    </section>
-  </div>
-    <!-- Descripción -->
-    <div>
-      <h4>
-        </h4>
     </div>
     <div class="container">
     <p>
@@ -109,13 +130,6 @@
     <img src="./img/egg5.jpg" alt="Imagen Mision" class="imagen-ajustada">
     <hr>
     <!-- Cuarta Sección: VALORES -->
-    <section class="section bg-main text text-center">
-      <div class="container">
-        <h2 class="text-main">VALORES DE LA EMPRESA</h2>
-      </div>
-    </section>
-    </div>
-    <!-- Descripción -->
     <div class="container">
     <div class="contenedor">
         <img src="./img/egg6.jpg" alt="Decoración" class="fondo-img">
@@ -127,7 +141,6 @@
       </p>
     </div>
     </div>
-    <!-- End Section -->
 
     <!-- FOOTER -->
     <footer class="footer mt-auto py-3 custom-footer">
@@ -157,7 +170,7 @@
                 <a href="proteccionDatos.html" class="text-decoration-none text-dark"> Protección de datos</a>
               </li>
               <li>
-                <a href="faq.html" class="text-decoration-none text-dark"> Preguntas Frecuentes</a>
+                <a href="faqs.html" class="text-decoration-none text-dark"> Preguntas Frecuentes</a>
               </li>
             </ul>
           </div>
@@ -178,15 +191,16 @@
           </div>
           <hr>
         </div>
-         <div class="text-center pb-3">
+        <div class="text-center pb-3">
           <small>Copyright © 2025. Todos los derechos reservados.</small>
         </div>
       </div>
-    </div>
     </footer>
     <!-- END FOOTER -->
 
-  <script src="./js/main.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+    <!-- Main JS -->
+    <script src="./js/main.js"></script>
   </body>
 </html>
