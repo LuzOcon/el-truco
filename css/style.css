@@ -172,7 +172,6 @@ body{
 
 .recipe-card-button {
   border: none;
-  margin-top: auto;
   background-color: var(--btn-secondary);
   transition: all 0.3s ease;
   color: var(--black-color);
@@ -183,6 +182,7 @@ body{
   transform: scale(1.02);
   color: var(--white-color);
 }
+/* RECETAS FIN */
 
 /*NavBar*/
 .floatNavBar{

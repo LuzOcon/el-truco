@@ -137,7 +137,8 @@ const recipes = [
 function generateRecipeCards(filteredRecipes) {
   recipesContainer.innerHTML = ''; // Limpiar el contenedor
   filteredRecipes.forEach((recipe) => {
-    const recipeSlug = recipe.name.toLowerCase().replace(/\s+/g, '-'); // Identificador único, para uso futuro en URL personalizada
+    // Identificador único, para uso futuro en URL personalizada
+    const recipeSlug = recipe.name.toLowerCase().replace(/\s+/g, '-'); 
     const cardHTML = `  
             <div class="col-lg-3 col-md-4 col-sm-6 mb-4">  
                 <div class="card h-100 recipe-card">  
@@ -145,7 +146,7 @@ function generateRecipeCards(filteredRecipes) {
                     <div class="card-body d-flex flex-column">  
                         <h3 class="card-title">${recipe.name}</h3>  
                         <p class="card-text">${recipe.description}</p>  
-                        <a href="recipe-template.html?recipe=${recipeSlug}" class="btn recipe-card-button">Ver Receta</a> 
+                        <a href="recipe-template.html?recipe=${recipeSlug}" class="btn mt-auto recipe-card-button">Ver Receta</a> 
                     </div>  
                 </div>  
             </div>  
