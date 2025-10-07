@@ -57,6 +57,48 @@ body{
   background-color: var(--color-bg-alt);
 }
 
+/* Diseño responsivo */
+/* Estilos generales (monitores grandes) */
+body {
+  font-size: 18px;
+  margin: 20px;
+}
+
+/* Tablets (pantallas medianas) */
+@media (max-width: 1024px) {
+  body {
+    font-size: 16px;
+    margin: 10px;
+  }
+}
+
+/* Celulares (pantallas pequeñas) */
+@media (max-width: 767px) {
+  body {
+    font-size: 14px;
+    margin: 5px;
+  }
+  .row {
+    flex-direction: column-reverse;
+  }
+  .fondo-img {
+    width: 100% !important;
+    height: auto !important;
+    bottom: 0;
+    left: 0;
+    right: 0;  
+  }
+}
+
+/* Imagenes ajustadas a la resposibidad */
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+
+
 /* Formato Inicio */
 .hero-img {
   object-fit: cover;
@@ -103,8 +145,8 @@ body{
 
 /* Formato imágenes About Us */
 .imagen-columna-ajustada {
-  height: 229px;       /* alto fijo  */
-  width: 80%;         /* ocupa 80% del ancho */
+  height: 90%;       /* alto fijo  */
+  width: auto;         /* ocupa 80% del ancho */
   object-fit: cover;   /* mantiene proporciones recortando si es necesario */
   border-radius: 15px;
 }
@@ -125,7 +167,8 @@ body{
 .fondo-img {
   position: absolute;   /* saca la imagen del flujo normal */
   right: 0;             /* la alinea a la derecha */
-  top: 0;               /* empieza desde arriba */
+  bottom: 0;               /* empieza desde arriba */
+  width: auto;
   height: 100%;         /* alto ajustado a tamaño del contenedor */
   opacity: 0.35;       /* baja opacidad */
   z-index: -1;          /* la pone detrás del texto */
