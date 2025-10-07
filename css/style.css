@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Vina+Sans:wght@400;600;700&family=Bowlby+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Vina+Sans:wght@400;600;700&family=Bowlby+One&display=swap&family=Nunito:wght@400;600&display=swap');
 
 :root {
   /* Colores */
@@ -26,11 +26,11 @@
   /* Tipografía */
   --font-h1: 'Vina Sans', sans-serif;
   --font-h2-h3: 'Bowlby One', sans-serif;
-  --font-body: 'Arial', sans-serif;
+  --font-body: 'Nunito', sans-serif;
 
   --h1-size: 2.5rem;
   --h2-size: 2rem;
-  --h3-size: 2.5rem; /* corregido según guía */
+  --h3-size: 1.3rem; 
   --normal-size: 1rem;
   --small-size: 0.875rem;
 
@@ -51,18 +51,26 @@ body{
     font-size: var(--normal-size);
     color: var(--black-color);
     line-height: 1.6;
+    margin: 0;
+    padding: 0;
 }
 
 .bg-alt {
   background-color: var(--color-bg-alt);
 }
+.section-title{
+  font-family: var(--font-h2-h3);
+  font-size: var(--h2-size);
+  color: var(--text-color-alt);
+}
+.section-subtitle{
+  font-family: var(--font-body);
+  font-size: 1rem;
+  color: #5a402e;
+  font-weight: 500;
+}
 
 /* Diseño responsivo */
-/* Estilos generales (monitores grandes) */
-body {
-  font-size: 18px;
-  margin: 20px;
-}
 
 /* Tablets (pantallas medianas) */
 @media (max-width: 1024px) {
@@ -99,7 +107,8 @@ img {
 
 
 
-/* Formato Inicio */
+/* INDEX */
+
 .hero-img {
   object-fit: cover;
   height: 100vh;  /*mantiene la imagen al 100% de la pantalla*/
@@ -142,6 +151,55 @@ img {
   transform: scale(1.05);
 }
 
+.card-img-products{
+  height: 350px;       
+  width: 100%;         
+  object-fit: cover;  
+  border-top-left-radius: 20px; 
+  border-top-right-radius: 20px; 
+}
+
+.producto-card {
+  background-color: var(--color-card-1);
+  border-radius: 20px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  transition: all 0.3s ease;
+  height: 100%; 
+  display: flex;
+  flex-direction: column;
+}
+.producto-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 18px rgba(255, 155, 115, 0.4);
+}
+.card-body {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  justify-content: space-between;
+}
+.card-title{
+  color: #2e2117;
+  font-size: 1.3rem;
+  min-height: 20px; /* iguala textos */
+  font-weight: var(--font-bold);
+
+}
+.card-text{
+  color: #2e2117;
+  flex-direction: column;
+  justify-content: space-between;
+  font-size: 0.95rem;
+  min-height: 60px; /* iguala textos */
+  font-weight: var(--font-semi-bold);
+}
+.card-price{
+  font-weight: 600;
+  color: var(--btn-secondary);
+  margin-bottom: 10px;
+}
+
+/* FIN INDEX */
 
 /* Formato imágenes About Us */
 .imagen-columna-ajustada {
@@ -217,7 +275,7 @@ img {
     color: #779047;
 }
 .btn-verde{
-    background-color: #737f5d;   
+    background-color: var(--btn-secondary);   
     color: white;
     transition: all 0.3s ease;
 }

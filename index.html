@@ -17,7 +17,7 @@
   <body>
   
     <!--NavBar-->
-    <div class="d-flex flex-column sticky-top py-3 ">
+    <div class="d-flex flex-column sticky-top ">
       <nav class="navbar navbar-expand-lg navbar-custom px-4 d-flex align-self-center floatNavBar"  >
         <a class="navbar-brand fw-bold px-4" href="index.html">El Truco</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
@@ -74,43 +74,61 @@
 
     <!--Catalogo-->
     <section class="container my-5" id="catalogo">
-      <h2 class="text-center mb-4 fw-bold">Nuestros Productos</h2>
-      <p class="text-center text-muted mb-5">
+      <h2 class="text-center mb-2 section-title">Nuestros productos más vendidos</h2>
+      <p class="text-center mb-3 section-subtitle">
         Productos 100% orgánicos, provenientes de nuestras gallinas alimentadas de forma natural.
       </p>
 
       <div class="row g-4 justify-content-center">
         <!-- Producto 1: Huevos orgánicos -->
-        <div class="col-md-5 col-lg-4">
-          <div class="card h-100 shadow-sm border-0">
-            <img src="/img/huevos-pack6.jpg" alt="Huevos">
+        <div class="col-md-4 col-lg-4">
+          <div class="card border-0 producto-card">
+            <img src="/img/huevos-pack6.jpg" alt="Paquete de 6 huevos" class="card-img-products">
             <div class="card-body text-center">
-              <h5 class="card-title fw-bold">Huevos Orgánicos</h5>
-              <p class="card-text text-muted">
-                Huevos frescos y naturales, producidos por gallinas criadas libremente y alimentadas sin químicos.
+              <h5 class="card-title">Paquete de 6 huevos frescos</h5>
+              <p class="card-text">
+                Perfectos para consumo diario, libres de químicos y con frescura garantizada.
               </p>
-              <p class="fw-bold fs-5 text-success">6, 12, 24, 360 piezas</p>
-              <button class="btn btn-success btn-sm">Agregar al carrito</button>
+              <p class="card-price">$24.00 MXN</p>
+              <button class="btn btn-verde">Agregar al carrito</button>
             </div>
           </div>
         </div>
 
         <!-- Producto 2: Abono orgánico -->
-        <div class="col-md-5 col-lg-4">
-          <div class="card h-100 shadow-sm border-0">
-            <img src="/img/Fertilizante.png" alt="Fertilizante">
+        <div class="col-md-4 col-lg-4">
+          <div class="card border-0 producto-card">
+            <img src="/img/huevos-pack6.jpg" alt="Fertilizante" class="card-img-products">
             <div class="card-body text-center">
-              <h5 class="card-title fw-bold">Abono Orgánico</h5>
-              <p class="card-text text-muted">
+              <h5 class="card-title">Abono Orgánico (1 kg)</h5>
+              <p class="card-text">
                 Fertilizante natural proveniente del estiércol de nuestras gallinas. Ideal para nutrir tus cultivos y jardines.
               </p>
-              <p class="fw-bold fs-5 text-success">por costales de 10 kg</p>
-              <button class="btn btn-success btn-sm">Agregar al carrito</button>
+              <p class="card-price" >$80.00 MXN</p>
+              <button class="btn btn-verde">Agregar al carrito</button>
             </div>
           </div>
         </div>
-      </div>
+        <!-- Producto 3 -->
+        <div class="col-md-4 col-lg-4">
+          <div class="card border-0 producto-card">
+            <img src="/img/Fertilizante.png" alt="Fertilizante" class="card-img-products">
+            <div class="card-body text-center">
+              <h5 class="card-title">Paquete de 12 huevos frescos</h5>
+              <p class="card-text">
+                Perfectos para consumo diario, libres de químicos y con frescura garantizada.
+              </p>
+              <p class="card-price">$40.00 MXN</p>
+              <button class="btn btn-verde">Agregar al carrito</button>
+            </div>
+          </div>
+        </div>
+    </div>
+    <div class="text-center mt-4">
+  <a href="products.html" class="btn btn-outline-dark">Ver todo el catálogo</a>
+</div>
     </section>
+
     <!--Fin catalago-->
 
     <!-- FOOTER -->
