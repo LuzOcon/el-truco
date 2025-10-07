@@ -32,9 +32,18 @@ body {
   margin: auto;
 }
 
-/* Información */
-.contact-info {
+/* ============================================
+   ESTRUCTURA DE COLUMNAS
+   ============================================ */
+.contact-left {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
   flex: 1 1 45%;
+}
+
+.contact-info {
+  margin-bottom: 40px;
   color: var(--black-color);
 }
 
@@ -52,7 +61,9 @@ body {
   color: var(--black-color);
 }
 
-/* Formulario */
+/* ============================================
+   FORMULARIO
+   ============================================ */
 .contact-form {
   flex: 1 1 45%;
   background-color: var(--color-card-1);
@@ -112,22 +123,10 @@ body {
   transform: scale(1.02);
 }
 
-/* Responsive */
-@media (max-width: 768px) {
-  .contact-container {
-    flex-direction: column;
-    text-align: center;
-  }
-
-  .contact-info,
-  .contact-form {
-    flex: 1 1 100%;
-  }
-}
- /* Botton faqs/avisos*/
-
- .contact-navigation {
-  margin-top: 30px;
+/* ============================================
+   BOTONES DE NAVEGACIÓN (FAQ / AVISOS)
+   ============================================ */
+.contact-navigation {
   display: flex;
   flex-direction: column;
   gap: 15px;
@@ -189,18 +188,27 @@ body {
   margin-left: 15px;
 }
 
-/* Responsive */
+/* ============================================
+   RESPONSIVE
+   ============================================ */
 @media (max-width: 768px) {
+  .contact-container {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .contact-left,
+  .contact-form {
+    flex: 1 1 100%;
+  }
+
   .nav-link-item {
     flex-direction: column;
     text-align: center;
   }
-  
+
   .nav-link-item i {
     margin-left: 0;
     margin-top: 10px;
   }
 }
-
-
-/* END Botton faqs/avisos*/
