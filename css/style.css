@@ -290,3 +290,94 @@ img {
   color: var(--color-bg);
 }
 /*NavBar end*/
+
+/*NavBar end*/
+
+/* =================================== */
+/* AVISOS LEGALES STYLES */
+/* =================================== */
+
+body {
+  background-color: #FFF2E0;
+}
+
+/* Accordion Avisos */
+.accordion-button {
+  background-color: #A67856;
+  color: #000000;
+  font-weight: 500;
+}
+
+.accordion-button:not(.collapsed) {
+  background-color: #A67856;
+  color: #000000;
+  box-shadow: none;
+}
+
+.accordion-button:focus {
+  box-shadow: none;
+  border-color: transparent;
+}
+
+.accordion-item {
+  background-color: #C5D6A2;
+}
+
+.accordion-body {
+  background-color: #FFF2E0;
+  color: #333;
+}
+
+.accordion-body h5 {
+  color: #737F5D;
+}
+
+.accordion-body ul,
+.accordion-body ol {
+  color: #555;
+}
+
+.accordion-body li {
+  margin-bottom: 8px;
+}
+
+.accordion-body p {
+  line-height: 1.7;
+  text-align: justify;
+}
+
+/* Botones */
+.btn-avisos {
+  background-color: #EE684C;
+  color: white;
+  border: none;
+  padding: 10px 25px;
+  border-radius: 8px;
+  font-weight: 500;
+  transition: all 0.3s;
+}
+
+.btn-avisos:hover {
+  background-color: #EB4A3F;
+  color: white;
+}
+
+.btn-outline-avisos {
+  border: 2px solid #C5D6A2;
+  color: #737F5D;
+  background-color: transparent;
+  padding: 10px 25px;
+  border-radius: 8px;
+  font-weight: 500;
+  transition: all 0.3s;
+}
+
+.btn-outline-avisos:hover {
+  background-color: #C5D6A2;
+  border-color: #C5D6A2;
+  color: white;
+}
+
+/* =================================== */
+/* AVISOS LEGALES STYLES END */
+/* =================================== */
