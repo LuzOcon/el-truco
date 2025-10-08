@@ -32,9 +32,18 @@ body {
   margin: auto;
 }
 
-/* Información */
-.contact-info {
+/* ============================================
+   ESTRUCTURA DE COLUMNAS
+   ============================================ */
+.contact-left {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
   flex: 1 1 45%;
+}
+
+.contact-info {
+  margin-bottom: 40px;
   color: var(--black-color);
 }
 
@@ -52,7 +61,9 @@ body {
   color: var(--black-color);
 }
 
-/* Formulario */
+/* ============================================
+   FORMULARIO
+   ============================================ */
 .contact-form {
   flex: 1 1 45%;
   background-color: var(--color-card-1);
@@ -112,15 +123,92 @@ body {
   transform: scale(1.02);
 }
 
-/* Responsive */
+/* ============================================
+   BOTONES DE NAVEGACIÓN (FAQ / AVISOS)
+   ============================================ */
+.contact-navigation {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.nav-link-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px 25px;
+  background-color: transparent;
+  border: 2px solid #C5D6A2;
+  border-radius: 10px;
+  text-decoration: none;
+  color: #333;
+  transition: all 0.3s ease;
+}
+
+.nav-link-item:hover {
+  background-color: #C5D6A2;
+  border-color: #A67856;
+  transform: translateX(5px);
+  box-shadow: 0 4px 12px rgba(197, 214, 162, 0.3);
+}
+
+.nav-link-item:hover .nav-link-content h5 {
+  color: #fff;
+}
+
+.nav-link-item:hover .nav-link-content p {
+  color: #fff;
+}
+
+.nav-link-item:hover i {
+  color: #fff;
+  transform: translateX(5px);
+}
+
+.nav-link-content {
+  flex: 1;
+}
+
+.nav-link-content h5 {
+  font-weight: 600;
+  color: #737F5D;
+  transition: color 0.3s;
+}
+
+.nav-link-content p {
+  color: #666;
+  font-size: 0.9rem;
+  line-height: 1.4;
+  transition: color 0.3s;
+}
+
+.nav-link-item i {
+  color: #A67856;
+  transition: all 0.3s;
+  margin-left: 15px;
+}
+
+/* ============================================
+   RESPONSIVE
+   ============================================ */
 @media (max-width: 768px) {
   .contact-container {
     flex-direction: column;
     text-align: center;
   }
 
-  .contact-info,
+  .contact-left,
   .contact-form {
     flex: 1 1 100%;
+  }
+
+  .nav-link-item {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .nav-link-item i {
+    margin-left: 0;
+    margin-top: 10px;
   }
 }
