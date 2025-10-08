@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Vina+Sans:wght@400;600;700&family=Bowlby+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Vina+Sans:wght@400;600;700&family=Bowlby+One&display=swap&family=Nunito:wght@400;600&display=swap');
 
 :root {
   /* Colores */
@@ -26,11 +26,11 @@
   /* Tipografía */
   --font-h1: 'Vina Sans', sans-serif;
   --font-h2-h3: 'Bowlby One', sans-serif;
-  --font-body: 'Arial', sans-serif;
+  --font-body: 'Nunito', sans-serif;
 
   --h1-size: 2.5rem;
   --h2-size: 2rem;
-  --h3-size: 2.5rem; /* corregido según guía */
+  --h3-size: 1.3rem; 
   --normal-size: 1rem;
   --small-size: 0.875rem;
 
@@ -51,16 +51,206 @@ body{
     font-size: var(--normal-size);
     color: var(--black-color);
     line-height: 1.6;
+    margin: 0;
+    padding: 0;
 }
 
 .bg-alt {
   background-color: var(--color-bg-alt);
 }
 
+.section-title{
+  font-family: var(--font-h2-h3);
+  font-size: var(--h2-size);
+  color: var(--text-highlight-alt);
+}
+.section-title-brown{
+  font-family: var(--font-h2-h3);
+  font-size: var(--h2-size);
+  color: var(--text-color-alt);
+}
+.section-subtitle{
+  font-family: var(--font-body);
+  font-size: 1rem;
+  color: #5a402e;
+  font-weight: 500;
+}
+
+/* Diseño responsivo */
+
+/* Tablets (pantallas medianas) */
+@media (max-width: 1024px) {
+  body {
+    font-size: 16px;
+    margin: 10px;
+  }
+}
+
+/* Celulares (pantallas pequeñas) */
+@media (max-width: 767px) {
+  body {
+    font-size: 14px;
+    margin: 5px;
+  }
+  .row {
+    flex-direction: column-reverse;
+  }
+  .fondo-img {
+    width: 100% !important;
+    height: auto !important;
+    bottom: 0;
+    left: 0;
+    right: 0;  
+  }
+}
+
+/* Imagenes ajustadas a la resposibidad */
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+
+
+/* INDEX */
+
+.hero-img {
+  object-fit: cover;
+  height: 100vh;  /*mantiene la imagen al 100% de la pantalla*/
+  filter: brightness(70%);  /* hace que la imagen sea más oscura para resaltar texto*/
+}
+
+.carousel-caption {
+  position: absolute;
+  bottom: 30%;
+  text-align: center;
+  color: var(--white-color);
+  text-shadow: 1px 1px 10px rgba(57, 34, 19, 0.596);
+}
+
+.hero-section h1 {
+  font-family: var(--font-h2-h3);
+  font-size: var(--h1-size);
+  color: var(--white-color);
+}
+
+.hero-section p {
+  font-family: var(--font-body);
+  font-size: 1.3rem;
+  color: var(--white-color);
+  margin-bottom: 20px;
+}
+
+.hero-btn {
+  background-color: #F89B61;
+  border: none;
+  color: white;
+  padding: 12px 28px;
+  font-size: 1rem;
+  border-radius: 25px;
+  transition: all 0.3s ease;
+}
+
+.hero-btn:hover {
+  background-color: var(--text-highlight-alt);
+  transform: scale(1.05);
+}
+
+.card-img-products{
+  height: 350px;       
+  width: 100%;         
+  object-fit: cover;  
+  border-top-left-radius: 20px; 
+  border-top-right-radius: 20px; 
+}
+
+.producto-card {
+  background-color: var(--color-card-1);
+  border-radius: 20px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  transition: all 0.3s ease;
+  height: 100%; 
+  display: flex;
+  flex-direction: column;
+}
+.producto-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 18px rgba(45, 27, 20, 0.4);
+}
+.card-body {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  justify-content: space-between;
+}
+.card-title{
+  color: #2e2117;
+  font-size: 1.3rem;
+  min-height: 20px; /* iguala textos */
+  font-weight: var(--font-bold);
+
+}
+.card-text{
+  color: #2e2117;
+  flex-direction: column;
+  justify-content: space-between;
+  font-size: 0.95rem;
+  min-height: 60px; /* iguala textos */
+  font-weight: var(--font-semi-bold);
+}
+.card-price{
+  font-weight: 600;
+  color: var(--btn-secondary);
+  margin-bottom: 10px;
+}
+
+.about-title {
+  margin-top: 100px;
+  font-family: 'Bowlby One', sans-serif;
+  font-size: var(--h1-size);
+  color: var(--text-highlight-alt);
+  margin-bottom: 1rem;
+}
+.about-text {
+  margin-top: 15px;
+  font-size: 1.1rem;
+  line-height: 1.7;
+  color: #2e2117;
+  max-width: 90%;
+}
+
+.aboutFarm-img{
+  width: 100%;
+  max-width: 800px;
+  height: auto;
+  object-fit: cover;
+}
+
+.gallery-scroll {
+  display: flex;
+  gap: 0.5rem;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+}
+.gallery-scroll img {
+  width: 100%;
+  height: auto;
+  max-height: 200px;
+  object-fit: cover;
+  scroll-snap-align: start;
+}
+.gallery-scroll::-webkit-scrollbar {
+  display: none;
+}
+
+
+/* FIN INDEX */
+
 /* Formato imágenes About Us */
 .imagen-columna-ajustada {
-  height: 229px;       /* alto fijo  */
-  width: 80%;         /* ocupa todo el ancho disponible */
+  height: 90%;       /* alto fijo  */
+  width: auto;         /* ocupa 80% del ancho */
   object-fit: cover;   /* mantiene proporciones recortando si es necesario */
   border-radius: 15px;
 }
@@ -81,7 +271,8 @@ body{
 .fondo-img {
   position: absolute;   /* saca la imagen del flujo normal */
   right: 0;             /* la alinea a la derecha */
-  top: 0;               /* empieza desde arriba */
+  bottom: 0;               /* empieza desde arriba */
+  width: auto;
   height: 100%;         /* alto ajustado a tamaño del contenedor */
   opacity: 0.35;       /* baja opacidad */
   z-index: -1;          /* la pone detrás del texto */
@@ -130,7 +321,7 @@ body{
     color: #779047;
 }
 .btn-verde{
-    background-color: #737f5d;   
+    background-color: var(--btn-secondary);   
     color: white;
     transition: all 0.3s ease;
 }
@@ -203,3 +394,94 @@ body{
   color: var(--color-bg);
 }
 /*NavBar end*/
+
+/*NavBar end*/
+
+/* =================================== */
+/* AVISOS LEGALES STYLES */
+/* =================================== */
+
+body {
+  background-color: #FFF2E0;
+}
+
+/* Accordion Avisos */
+.accordion-button {
+  background-color: #A67856;
+  color: #000000;
+  font-weight: 500;
+}
+
+.accordion-button:not(.collapsed) {
+  background-color: #A67856;
+  color: #000000;
+  box-shadow: none;
+}
+
+.accordion-button:focus {
+  box-shadow: none;
+  border-color: transparent;
+}
+
+.accordion-item {
+  background-color: #C5D6A2;
+}
+
+.accordion-body {
+  background-color: #FFF2E0;
+  color: #333;
+}
+
+.accordion-body h5 {
+  color: #737F5D;
+}
+
+.accordion-body ul,
+.accordion-body ol {
+  color: #555;
+}
+
+.accordion-body li {
+  margin-bottom: 8px;
+}
+
+.accordion-body p {
+  line-height: 1.7;
+  text-align: justify;
+}
+
+/* Botones */
+.btn-avisos {
+  background-color: #EE684C;
+  color: white;
+  border: none;
+  padding: 10px 25px;
+  border-radius: 8px;
+  font-weight: 500;
+  transition: all 0.3s;
+}
+
+.btn-avisos:hover {
+  background-color: #EB4A3F;
+  color: white;
+}
+
+.btn-outline-avisos {
+  border: 2px solid #C5D6A2;
+  color: #737F5D;
+  background-color: transparent;
+  padding: 10px 25px;
+  border-radius: 8px;
+  font-weight: 500;
+  transition: all 0.3s;
+}
+
+.btn-outline-avisos:hover {
+  background-color: #C5D6A2;
+  border-color: #C5D6A2;
+  color: white;
+}
+
+/* =================================== */
+/* AVISOS LEGALES STYLES END */
+/* =================================== */

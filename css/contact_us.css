@@ -1,85 +1,96 @@
+/* ===============================
+   CONTACT PAGE STYLES
+   =============================== */
+
+/* Fondo general igual al index */
 body {
-  font-family: Arial, sans-serif;
-  background: #f5f5f5;
+  background-color: var(--color-bg);
+  font-family: var(--font-body);
+  color: var(--black-color);
 }
 
-.container {
+/* Centrado de la sección */
+.contact-section {
   display: flex;
-  max-width: 900px;
-  margin: 40px auto;
-  background: white;
-  border-radius: 12px;
-  box-shadow: 8px 8px 0px #000;
-  overflow: hidden;
-}
-
-.left {
-  background: #e9e9e9;
-  display: flex;
-  flex-direction: column;
+  justify-content: center;
   align-items: center;
-  place-content: center;
-  padding: 30px;
-  width: 40%;
-  text-align: center;
+  min-height: calc(100vh - 200px);
+  padding: 40px 0;
 }
 
-.left h1 {
-  margin: 6px 0;
+/* Contenedor principal */
+.contact-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 50px;
+  background-color: var(--color-bg-alt);
+  border-radius: 20px;
+  box-shadow: var(--shadow-card);
+  padding: 40px 50px;
+  max-width: 1100px;
+  width: 90%;
+  margin: auto;
 }
 
-.left h2 {
-  font-size: 22px;
-  margin: 6px 0;
-}
-
-.left p {
-  font-size: 14px;
-  margin: 6px 0;
-}
-
-.right {
-  width: 60%;
-  padding: 30px;
-}
-
-form {
+/* ============================================
+   ESTRUCTURA DE COLUMNAS
+   ============================================ */
+.contact-left {
   display: flex;
   flex-direction: column;
-  gap: 15px;
+  justify-content: space-between;
+  flex: 1 1 45%;
 }
 
-label {
-  font-size: 14px;
+.contact-info {
+  margin-bottom: 40px;
+  color: var(--black-color);
+}
+
+.contact-info h2 {
+  color: var(--text-highlight-alt);
+}
+
+.contact-info h1 {
+  font-family: var(--font-h1);
+  font-size: var(--h1-size);
+  color: var(--black-color);
+}
+
+.contact-info p {
+  color: var(--black-color);
+}
+
+/* ============================================
+   FORMULARIO
+   ============================================ */
+.contact-form {
+  flex: 1 1 45%;
+  background-color: var(--color-card-1);
+  border-radius: 15px;
+  padding: 30px;
+  box-shadow: var(--shadow-card);
+}
+
+.contact-form label {
   font-weight: bold;
-  margin-bottom: 4px;
+  color: var(--black-color);
 }
 
-input,
-textarea {
-  padding: 10px;
+.contact-form input,
+.contact-form textarea {
+  border-radius: 10px;
   border: 1px solid #ccc;
-  border-radius: 6px;
-  font-size: 14px;
+  padding: 10px;
   width: 100%;
   box-sizing: border-box;
 }
 
-.row {
-  display: flex;
-  gap: 10px;
+.contact-form textarea {
+  resize: none;
 }
 
-.row input {
-  flex: 1;
-}
-
-textarea {
-  min-height: 100px;
-  resize: vertical;
-  position: relative;
-}
-
+/* Contador de palabras (extra) */
 .textarea-wrapper {
   position: relative;
   width: 100%;
@@ -94,16 +105,110 @@ textarea {
   pointer-events: none;
 }
 
-button {
-  background: black;
-  color: white;
-  padding: 10px;
+/* Botón */
+.contact-form button {
+  margin-top: 10px;
+  background-color: var(--btn-secondary);
+  color: var(--white-color);
   border: none;
-  border-radius: 6px;
-  cursor: pointer;
+  border-radius: 10px;
+  padding: 10px 20px;
   font-weight: bold;
+  transition: all 0.3s ease;
+  width: 100%;
 }
 
-button:hover {
-  background: #333;
+.contact-form button:hover {
+  background-color: #384520;
+  transform: scale(1.02);
+}
+
+/* ============================================
+   BOTONES DE NAVEGACIÓN (FAQ / AVISOS)
+   ============================================ */
+.contact-navigation {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.nav-link-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px 25px;
+  background-color: transparent;
+  border: 2px solid #C5D6A2;
+  border-radius: 10px;
+  text-decoration: none;
+  color: #333;
+  transition: all 0.3s ease;
+}
+
+.nav-link-item:hover {
+  background-color: #C5D6A2;
+  border-color: #A67856;
+  transform: translateX(5px);
+  box-shadow: 0 4px 12px rgba(197, 214, 162, 0.3);
+}
+
+.nav-link-item:hover .nav-link-content h5 {
+  color: #fff;
+}
+
+.nav-link-item:hover .nav-link-content p {
+  color: #fff;
+}
+
+.nav-link-item:hover i {
+  color: #fff;
+  transform: translateX(5px);
+}
+
+.nav-link-content {
+  flex: 1;
+}
+
+.nav-link-content h5 {
+  font-weight: 600;
+  color: #737F5D;
+  transition: color 0.3s;
+}
+
+.nav-link-content p {
+  color: #666;
+  font-size: 0.9rem;
+  line-height: 1.4;
+  transition: color 0.3s;
+}
+
+.nav-link-item i {
+  color: #A67856;
+  transition: all 0.3s;
+  margin-left: 15px;
+}
+
+/* ============================================
+   RESPONSIVE
+   ============================================ */
+@media (max-width: 768px) {
+  .contact-container {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .contact-left,
+  .contact-form {
+    flex: 1 1 100%;
+  }
+
+  .nav-link-item {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .nav-link-item i {
+    margin-left: 0;
+    margin-top: 10px;
+  }
 }
