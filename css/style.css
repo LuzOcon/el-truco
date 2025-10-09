@@ -79,7 +79,7 @@ body{
 /* Diseño responsivo */
 
 /* Tablets (pantallas medianas) */
-@media (max-width: 1024px) {
+@media (max-width: 992px) {
   body {
     font-size: 16px;
     margin: 10px;
@@ -109,7 +109,6 @@ body{
     width: 100% !important;
     height: auto !important;
     bottom: 0;
-    left: 0;
     right: 0;  
   }
 }
@@ -257,6 +256,10 @@ img {
 
 /* FIN INDEX */
 
+/* =================================== */
+/* FORMATOS IMAGENES */
+/* =================================== */
+
 /* Formato imágenes About Us */
 .imagen-columna-ajustada {
   height: 90%;       /* alto fijo  */
@@ -265,8 +268,9 @@ img {
   border-radius: 15px;
 }
 
+/* Formato imagenes banner About US */
 .imagen-ajustada {
-  height: 250px;       /* alto fijo  */
+  max-height: 210px;
   width: 100%;         /* ocupa todo el ancho disponible */
   object-fit: cover;   /* mantiene proporciones recortando si es necesario */
   border-radius: 15px;
@@ -288,6 +292,28 @@ img {
   z-index: -1;          /* la pone detrás del texto */
   border-radius: 100%;  /* pone borde a la imagen */
 }
+
+/* Formato marca de agua con SVG */
+
+
+.fondo-svg {
+  position: absolute;
+  max-width: 450px;
+  width: auto;
+  height: 80%;
+  opacity: 0.07;
+  transform: rotate(20deg);
+  z-index: -1;          /* la pone detrás del texto */
+
+}
+
+.marca-1{  right: 0; top: 100px;}
+.marca-2{  left: 0;  top: 550px;}
+.marca-3{  right: 0;  top: 950px;}
+.marca-4{  left: 0;  top: 1380px;}
+.marca-5{  right: 0;  top: 1880px;}
+.marca-6{  left: 0;  top: 2350px;}
+
 
 /* FOOTER */
 .custom-footer{
