@@ -60,3 +60,46 @@ if (navbarContainer && navCollapse) {
     });
 }
 /* OCULTAR NAVBAR FIN */
+
+
+// AVISOS LEGALES - Abrir acordeones desde enlaces Footer
+function abrirAcordeonDesdeHash() {
+  const hash = window.location.hash;
+  
+  if (hash) {
+    setTimeout(() => {
+      const targetElement = document.querySelector(hash);
+      
+      if (targetElement && targetElement.classList.contains('accordion-item')) {
+        const accordionButton = targetElement.querySelector('.accordion-button');
+        const accordionCollapse = targetElement.querySelector('.accordion-collapse');
+        
+        if (accordionButton && accordionCollapse) {
+          // Forzar apertura usando Bootstrap
+          const bsCollapse = new bootstrap.Collapse(accordionCollapse, {
+            toggle: false
+          });
+          
+          // Mostrar el acordeón
+          bsCollapse.show();
+          
+          // Hacer scroll después de abrir
+          setTimeout(() => {
+            window.scrollTo({
+              top: targetElement.offsetTop - 100,
+              behavior: 'smooth'
+            });
+          }, 400);
+        }
+      }
+    }, 300);
+  }
+}
+
+// Ejecutar al cargar la página
+document.addEventListener('DOMContentLoaded', abrirAcordeonDesdeHash);
+
+// Ejecutar también cuando cambia el hash
+window.addEventListener('hashchange', abrirAcordeonDesdeHash);
+
+// END AVISOS LEGALES
