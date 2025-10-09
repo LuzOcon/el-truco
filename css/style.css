@@ -86,6 +86,16 @@ body{
   }
 }
 
+/* Pantallas grandes (lg = 992px o más) */
+@media (min-width: 992px) {
+  /* Aplicamos solo en pantallas grandes para evitar errores */
+  .navbar-nav-absolute-centered {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+}
+
 /* Celulares (pantallas pequeñas) */
 @media (max-width: 767px) {
   body {
@@ -375,35 +385,67 @@ img {
 }
 /* RECETAS FIN */
 
-/*NavBar*/
-.floatNavBar{
+/* NavBar */
+/* Define el ancho, centrado y la animación de transición. */ 
+.navbar-container {
   width: 95%;
+  margin-left: auto;
+  margin-right: auto;
+  transition: transform 0.3s ease-in-out;
+}
+
+/* Clase para ocultar el Navbar con JavaScript */
+.navbar--hidden {
+  transform: translateY(-110%);
+}
+
+/* Estilos personalizados del Navbar */
+.navbar-farm {
   background-color: var(--navbar-color);
   border-radius: 7px;
-  }
-
-.floatNavBar a{
-  color: var(--color-bg);
+  box-shadow:  6px 6px 0px #53573C;
+  
+  /* Sobrescribe las variables de Bootstrap para el color del texto */
+  --bs-navbar-color: var(--color-bg); 
+  --bs-navbar-hover-color: var(--black-color);
+}
+/* Estilo hover para los enlaces principales del navbar */
+.navbar-farm .navbar-nav .nav-link {
+  transition: background-color 0.2s ease-in-out;
+  border-radius: 7px;
 }
 
-.floatNavBar button{
-  color: var(--color-bg);
+.navbar-farm .navbar-nav .nav-link:hover {
+  background-color: #53573C;
 }
 
-.floatNavBar icon{
+/* Estilos para los iconos del navbar */
+.navbar-icon{
   color: var(--color-bg);
 }
-/*NavBar end*/
+.navbar-icon:hover{
+  color: var(--black-color);
+}
 
+/* Estilos para el menú desplegable del navbar (Blog) */
+.navbar-farm .dropdown-menu {
+  background-color: var(--navbar-color);
+  border: none;
+}
+.navbar-farm .dropdown-item{
+  color: var(--color-bg);
+  border-radius: 7px;
+}
+/* Estilo al pasar el mouse sobre un elemento del dropdown */
+.navbar-farm .dropdown-item:hover {
+  background-color: #53573C;
+  color: var(--black-color);
+}
 /*NavBar end*/
 
 /* =================================== */
 /* AVISOS LEGALES STYLES */
 /* =================================== */
-
-body {
-  background-color: #FFF2E0;
-}
 
 /* Accordion Avisos */
 .accordion-button {
