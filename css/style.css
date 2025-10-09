@@ -92,7 +92,7 @@ body{
     font-size: 14px;
     margin: 5px;
   }
-  .row {
+  .row-responsiva {
     flex-direction: column-reverse;
   }
   .fondo-img {
