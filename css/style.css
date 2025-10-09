@@ -167,7 +167,7 @@ img {
 }
 
 .card-img-products{
-  height: 350px;       
+  height: 300px;       
   width: 100%;         
   object-fit: cover;  
   border-top-left-radius: 20px; 
@@ -252,7 +252,10 @@ img {
 .gallery-scroll::-webkit-scrollbar {
   display: none;
 }
-
+.button-container {
+  display: flex;
+  gap: 5px;
+}
 
 /* FIN INDEX */
 
@@ -328,16 +331,6 @@ img {
   color: #EE684C;
 }
 
-.btn-dark {
-  background-color: #000;   
-  border-color: #000;
-  transition: all 0.3s ease;
-}
-
-.btn-dark:hover {
-  background-color: #EE684C;  
-  border-color: #EE684C;
-}
 /* END FOOTER */
 
 /* PRODUCT VIEW */
@@ -355,15 +348,6 @@ img {
     font-size: 1.5rem;
     font-weight: bold;
     color: #779047;
-}
-.btn-verde{
-    background-color: var(--btn-secondary);   
-    color: white;
-    transition: all 0.3s ease;
-}
-.btn-verde:hover {
-  background-color: #384520;  
-  color: white;
 }
 /* END PRODUCT VIEW */
 
@@ -547,6 +531,34 @@ img {
 .btn-outline-avisos:hover {
   background-color: #C5D6A2;
   border-color: #C5D6A2;
+  color: white;
+}
+.btn-brown{
+    background-color: #84624a;  
+    color: white;
+    transition: all 0.3s ease;
+}
+.btn-brown:hover {
+  background-color: #5a402e; 
+  color: white;
+}
+.btn-dark {
+  background-color: #000;   
+  border-color: #000;
+  transition: all 0.3s ease;
+}
+
+.btn-dark:hover {
+  background-color: #EE684C;  
+  border-color: #EE684C;
+}
+.btn-verde{
+    background-color: var(--btn-secondary);   
+    color: white;
+    transition: all 0.3s ease;
+}
+.btn-verde:hover {
+  background-color: #384520;  
   color: white;
 }
 

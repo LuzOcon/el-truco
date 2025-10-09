@@ -3,16 +3,70 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Huevos</title>
+    <title>El Truco | Bolsaza de abono orgánico 6 Kilos</title>
+    <!-- FAVICON -->
+    <link rel="icon" href="../img/favicon.ico" type="image/x-icon">
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
     <!-- Bootstrap icons-->
      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.css">
     <!-- Styles CSS -->
-    <link rel="stylesheet" href="./css/style.css" />
+    <link rel="stylesheet" href="../css/style.css" />
 </head>
 <body>
+ <!--NavBar-->
+    <div class="navbar-container sticky-top py-3">
+      <nav class="navbar navbar-expand-lg navbar-dark navbar-farm px-4">
+        <a class="navbar-brand fw-bold" href="../index.html">El Truco</a>
 
+        <a href="#" class="navbar-icon ms-auto me-3 d-lg-none" aria-label="Ver carrito de compras">
+            <i class="bi bi-basket2-fill fs-5"></i>
+        </a>
+
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav navbar-nav-absolute-centered">
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="../index.html">Inicio</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="../index.html#galeria">Catálogo</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="../about.html">Acerca de Nosotros</a>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                Blog
+              </a>
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="../recipes.html">Recetas</a></li>
+                <li><a class="dropdown-item" href="#">Nuestras Gallinas</a></li>
+              </ul>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="../contact.html">Contacto</a>
+            </li>
+            <li class="nav-item d-lg-none">
+              <a class="nav-link" href="#">Usuario</a>
+            </li>
+          </ul>
+          
+          <div class="d-none d-lg-flex align-items-center ms-auto">
+            <a href="#" class="me-3 navbar-icon" aria-label="Iniciar sesión">
+              <i class="bi bi-person-fill fs-5"></i>
+            </a>
+            <a href="#" class="navbar-icon" aria-label="Ver carrito de compras">
+              <i class="bi bi-basket2-fill fs-5"></i>
+            </a>
+          </div>
+        </div>
+      </nav>
+    </div>
+    <!--END NavBar-->
     <!-- PRODUCT VIEW -->
     <div class="container product-container">
         <div class="row justify-content-around">
@@ -20,13 +74,13 @@
                 <div id="carouselProductos" class="carousel slide">
                     <div class="carousel-inner">
                         <div class="carousel-item active">
-                        <img class="img-product" src="img/huevos-pack12.jpg"alt="Descripcion de imagen">
+                        <img class="img-product" src="../img/gallinaza.webp"alt="Descripcion de imagen">
                         </div>
                         <div class="carousel-item">
-                        <img class="img-product" src="img/gallinas.jpg" alt="Descripcion de imagen">
+                        <img class="img-product" src="../img/chicken-bg2.webp" alt="Descripcion de imagen">
                         </div>
                         <div class="carousel-item">
-                        <img class="img-product" src="img/huevos.webp" alt="Descripcion de imagen">
+                        <img class="img-product" src="../img/granja.webp" alt="Descripcion de imagen">
                         </div>
                     </div>
                     <button class="carousel-control-prev" type="button" data-bs-target="#carouselProductos" data-bs-slide="prev">
@@ -41,20 +95,21 @@
             </div>
 
             <div class="col-md-5 mb-3">
-                <h2>Paquete de 12 Huevos Frescos</h2>
-                <p class="price">$40.00 MXN</p>
-                <p>Nuestros huevos provienen de gallinas criadas con mínimo uso de químicos, en un ambiente cuidado y natural. Cada pieza garantiza frescura, sabor auténtico y calidad nutritiva, ideales para tu mesa y tus recetas del día a día.</p>
+                <h2>Bolsaza de abono orgánico 1 Kilo</h2>
+                <p class="price">$280.00 MXN</p>
+                <p>Nutre tus plantas de forma natural con nuestro abono orgánico elaborado a partir del estiércol compostado de gallinas criadas al aire libre. Rico en nitrógeno, fósforo y potasio.</p>
+                <p>Libre de químicos y procesos industriales, es ideal para huertos caseros, jardines y producción agrícola sostenible.</p>
                 <ul>
-                    <li>Origen local: producción responsable en nuestra granja.</li>
-                    <li>Naturales y nutritivos: sin químicos innecesarios.</li>
-                    <li>Empaque seguro y resistente para que lleguen intactos.</li>
+                    <li>Enriquece el suelo con nutrientes esenciales.</li>
+                    <li>Mejora la retención de humedad.</li>
+                    <li>Favorece el desarrollo de raíces fuertes.</li>
                 </ul>
-                <p>Recomendación: consúmelos en un plazo de 10-14 días para aprovechar al máximo su frescura.</p>
+                <p> <strong> Origen: </strong>De nuestra granja “El Truco”, donde cada recurso se aprovecha responsablemente.</p>
                 <div class="mb-3">
                     <label for="quantity" class="form-label">Cantidad:</label>
                     <input type="number" id="quantity" class="form-control w-25" value="1" min="1" max="10">
                 </div>
-                <button class="btn btn-verde">Agregar al carrito</button>
+                <button class="btn btn-verde"> Agregar al carrito <i class="bi bi-basket2-fill fs-5"></i> </button>
             </div>
         </div>
     </div>
@@ -80,16 +135,16 @@
           <div class="col-md-2 mb-3">
             <ul class="list-unstyled">
               <li>
-                <a href="terminos.html" class="text-decoration-none text-dark"> Terminos y Condiciones</a>
+                <a href="../terminos.html" class="text-decoration-none text-dark"> Terminos y Condiciones</a>
               </li>
               <li>
-                <a href="politicasDevoluciones.html" class="text-decoration-none text-dark"> Políticas de Devolución</a>
+                <a href="../politicasDevoluciones.html" class="text-decoration-none text-dark"> Políticas de Devolución</a>
               </li>
               <li>
-                <a href="proteccionDatos.html" class="text-decoration-none text-dark"> Protección de datos</a>
+                <a href="../proteccionDatos.html" class="text-decoration-none text-dark"> Protección de datos</a>
               </li>
               <li>
-                <a href="faq.html" class="text-decoration-none text-dark"> Preguntas Frecuentes</a>
+                <a href="../faqs.html" class="text-decoration-none text-dark"> Preguntas Frecuentes</a>
               </li>
             </ul>
           </div>
@@ -120,6 +175,6 @@
     <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
     <!-- Main JS -->
-    <script src="./js/main.js"></script>
+    <script src="../js/main.js"></script>
 </body>
 </html>
