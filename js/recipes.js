@@ -139,18 +139,28 @@ function generateRecipeCards(filteredRecipes) {
   filteredRecipes.forEach((recipe) => {
     // Identificador único, para uso futuro en URL personalizada
     const recipeSlug = recipe.name.toLowerCase().replace(/\s+/g, '-'); 
-    const cardHTML = `  
-            <div class="col-lg-3 col-md-4 col-sm-6 mb-4">  
-                <div class="card h-100 recipe-card">  
-                    <img loading="lazy" src="${recipe.image}" class="card-img-top"  alt="${recipe.name}">  
-                    <div class="card-body d-flex flex-column">  
-                        <h3 class="card-title">${recipe.name}</h3>  
-                        <p class="card-text">${recipe.description}</p>  
-                        <a href="recipe-template.html?recipe=${recipeSlug}" class="btn mt-auto recipe-card-button">Ver Receta</a> 
-                    </div>  
-                </div>  
-            </div>  
-        `;
+    const cardHTML = ` 
+        <div class="col-lg-3 col-md-4 col-sm-6 mb-4"> 
+          <div class="card h-100 recipe-card"> 
+            
+            <div class="ratio ratio-4x3"> 
+              <img 
+                loading="lazy" 
+                src="${recipe.image}" 
+                class="card-img-top object-fit-cover" 
+                alt="${recipe.name}"
+              > 
+            </div> 
+            
+            <div class="card-body d-flex flex-column"> 
+              <h3 class="card-title">${recipe.name}</h3> 
+              <p class="card-text">${recipe.description}</p> 
+              <a href="recipe-template.html?recipe=${recipeSlug}" class="btn mt-auto recipe-card-button">Ver Receta</a> 
+            </div> 
+
+          </div> 
+        </div> 
+    `;
     recipesContainer.innerHTML += cardHTML;
   });
 }
