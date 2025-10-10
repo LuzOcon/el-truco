@@ -429,7 +429,42 @@ img {
 .accordion-item {
   background-color: #e6cdb6;
 }
+/* Botones FAQs */
+.btn-faq {
+  background-color: #EE684C;
+  color: white;
+  border: none;
+  padding: 12px 30px;
+  border-radius: 8px;
+  font-weight: 500;
+  transition: all 0.3s;
+  text-decoration: none;
+}
 
+.btn-faq:hover {
+  background-color: #EB4A3F;
+  color: white;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(238, 104, 76, 0.4);
+}
+
+.btn-outline-faq {
+  border: 2px solid #C5D6A2;
+  color: #737F5D;
+  background-color: transparent;
+  padding: 12px 30px;
+  border-radius: 8px;
+  font-weight: 500;
+  transition: all 0.3s;
+  text-decoration: none;
+}
+
+.btn-outline-faq:hover {
+  background-color: #C5D6A2;
+  border-color: #C5D6A2;
+  color: white;
+  transform: translateY(-2px);
+}
 /* END FAQs */
 
 /* RECETAS */

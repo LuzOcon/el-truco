@@ -12,8 +12,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.css">
     <!-- Styles CSS -->
     <link rel="stylesheet" href="./css/style.css" />
-    <!-- Avisos CSS -->
-    <link rel="stylesheet" href="./css/avisos.css" />
+    
   </head>
   <body>
     <!--NavBar-->
@@ -84,13 +83,13 @@
           <div class="accordion" id="avisosAccordion">
             
             <!-- AVISO DE PRIVACIDAD -->
-            <div class="accordion-item mb-3 border-0 rounded-3 shadow-sm">
+             <div id="seccion-privacidad" class="accordion-item mb-3 border-0 rounded-3 shadow-sm">
               <h2 class="accordion-header">
-                <button class="accordion-button rounded-3" type="button" data-bs-toggle="collapse" data-bs-target="#avisoPrivacidad">
+                <button class="accordion-button collapsed rounded-3" type="button" data-bs-toggle="collapse" data-bs-target="#avisoPrivacidad">
                   <i class="bi bi-shield-lock me-2"></i> Aviso de Privacidad
                 </button>
               </h2>
-              <div id="avisoPrivacidad" class="accordion-collapse collapse show" data-bs-parent="#avisosAccordion">
+              <div id="avisoPrivacidad" class="accordion-collapse collapse" data-bs-parent="#avisosAccordion">
                 <div class="accordion-body">
                   
                   <h5 class="fw-bold mt-3 mb-2">1. Responsable del Tratamiento de Datos</h5>
@@ -141,7 +140,7 @@
             </div>
 
             <!-- POLÍTICA DE DEVOLUCIÓN -->
-            <div class="accordion-item mb-3 border-0 rounded-3 shadow-sm">
+            <div id="seccion-devolucion" class="accordion-item mb-3 border-0 rounded-3 shadow-sm">
               <h2 class="accordion-header">
                 <button class="accordion-button collapsed rounded-3" type="button" data-bs-toggle="collapse" data-bs-target="#politicaDevolucion">
                   <i class="bi bi-arrow-return-left me-2"></i> Política de Devolución
@@ -202,7 +201,7 @@
             </div>
 
             <!-- TÉRMINOS Y CONDICIONES -->
-            <div class="accordion-item mb-3 border-0 rounded-3 shadow-sm">
+            <div id="seccion-terminos" class="accordion-item mb-3 border-0 rounded-3 shadow-sm">
               <h2 class="accordion-header">
                 <button class="accordion-button collapsed rounded-3" type="button" data-bs-toggle="collapse" data-bs-target="#terminosCondiciones">
                   <i class="bi bi-file-text me-2"></i> Términos y Condiciones
@@ -305,13 +304,13 @@
           <div class="col-md-2 mb-3">
             <ul class="list-unstyled">
               <li>
-                <a href="terminos.html" class="text-decoration-none text-dark">Términos y Condiciones</a>
+                <a href="avisos.html#seccion-privacidad" class="text-decoration-none text-dark">Aviso de Privacidad</a>
               </li>
               <li>
-                <a href="politicasDevoluciones.html" class="text-decoration-none text-dark">Políticas de Devolución</a>
+                <a href="avisos.html#seccion-devolucion" class="text-decoration-none text-dark">Políticas de Devolución</a>
               </li>
               <li>
-                <a href="proteccionDatos.html" class="text-decoration-none text-dark">Protección de datos</a>
+                <a href="avisos.html#seccion-terminos" class="text-decoration-none text-dark">Términos y Condiciones</a>
               </li>
               <li>
                 <a href="faqs.html" class="text-decoration-none text-dark">Preguntas Frecuentes</a>
@@ -344,6 +343,7 @@
 
     <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  
     <!-- Main JS -->
     <script src="./js/main.js"></script>
 
