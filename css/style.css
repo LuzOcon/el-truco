@@ -42,10 +42,22 @@
 h2 {
   font-family: var(--font-h2-h3);
   font-size: var(--h2-size);
+  color: #5e684e;
+}
+
+.text-left {
+  text-align: left;
+}
+
+h1 {
+  font-family: var(--font-h2-h3);
+  font-size: var(--h1-size);
+  color: #8c4731;
 }
 
 /* Fuente y tamaño texto body */
 body{
+  
     background-color: var(--color-bg);
     font-family: var(--font-body);
     font-size: var(--normal-size);
@@ -84,6 +96,10 @@ body{
     font-size: 16px;
     margin: 10px;
   }
+  .fondo-img{
+    max-height: 250px;
+    max-width: 250px;
+  }
 }
 
 /* Pantallas grandes (lg = 992px o más) */
@@ -93,6 +109,9 @@ body{
     position: absolute;
     left: 50%;
     transform: translateX(-50%);
+  }
+  .imagen-columna-ajustada {
+  max-height: 250px;       
   }
 }
 
@@ -110,6 +129,15 @@ body{
     height: auto !important;
     bottom: 0;
     right: 0;  
+  }
+  .marca-5 {
+    display: block !important; /* Muestra en móvil */
+  }
+  .marca-6 {
+    display: block !important; /* Muestra en móvil */
+  }
+  .contenido{
+    text-align: center;
   }
 }
 
@@ -263,12 +291,14 @@ img {
 /* FORMATOS IMAGENES */
 /* =================================== */
 
+
 /* Formato imágenes About Us */
 .imagen-columna-ajustada {
-  height: 90%;       /* alto fijo  */
-  width: auto;         /* ocupa 80% del ancho */
+  height: 90%;       
+  width: auto;         
   object-fit: cover;   /* mantiene proporciones recortando si es necesario */
   border-radius: 15px;
+  box-shadow: -16px -16px 0 #8c4731;
 }
 
 /* Formato imagenes banner About US */
@@ -277,6 +307,7 @@ img {
   width: 100%;         /* ocupa todo el ancho disponible */
   object-fit: cover;   /* mantiene proporciones recortando si es necesario */
   border-radius: 15px;
+  box-shadow: 12px 12px 0 #8c4731;
 }
 
 
@@ -298,24 +329,52 @@ img {
 
 /* Formato marca de agua con SVG */
 
-
 .fondo-svg {
-  position: absolute;
-  max-width: 450px;
-  width: auto;
-  height: 80%;
+  position: absolute;           /* se queda en el viewport */
+  width: 30%;              /* ancho controlado */
+  height: auto;
   opacity: 0.07;
-  transform: rotate(20deg);
-  z-index: -1;          /* la pone detrás del texto */
-
+  z-index: -1;
 }
 
-.marca-1{  right: 0; top: 100px;}
-.marca-2{  left: 0;  top: 550px;}
-.marca-3{  right: 0;  top: 950px;}
-.marca-4{  left: 0;  top: 1380px;}
-.marca-5{  right: 0;  top: 1880px;}
-.marca-6{  left: 0;  top: 2350px;}
+/* Ejemplos de posicionamiento */
+.marca-1 {
+  top: 100px;
+  left: 80%;                 /* centrada horizontal */
+  transform: translateX(-50%) rotate(20deg);
+}
+
+.marca-2 {
+  top: 550px;
+  left: 15%;
+  transform: translateX(-50%) rotate(-15deg);
+}
+
+.marca-3 {
+  top: 950px;
+  left: 80%;
+  transform: translateX(-50%) rotate(25deg);
+}
+
+.marca-4 {
+  top: 1380px;
+  left: 15%;
+  transform: translateX(-50%) rotate(-20deg);
+}
+
+.marca-5 {
+  display: none;  /* Oculta en escritorio */
+  top: 1780px;
+  left: 80%;
+  transform: translateX(-50%) rotate(25deg);
+}
+
+.marca-6 {
+  display: none;  /* Oculta en escritorio */
+  top: 2180px;
+  left: 15%;
+  transform: translateX(-50%) rotate(-20deg);
+}
 
 
 /* FOOTER */
