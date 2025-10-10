@@ -34,7 +34,6 @@ if (navbarContainer && navCollapse) {
         }
         isNavbarTransitioning = true;
     });
-    
     navCollapse.addEventListener('hidden.bs.collapse', () => { isNavbarTransitioning = false; });
     
     // Añade "periodo de gracia" después de abrir para ignorar micro-scrolls
@@ -68,6 +67,12 @@ if (navbarContainer && navCollapse) {
             // Si el menú está cerrado, aplica la lógica normal de ocultar/mostrar
             if (scrollTop > lastScrollTop && scrollTop > navbarHeight) {
                 navbarContainer.classList.add('navbar--hidden');
+
+                // Busca y cierra cualquier dropdown que esté abierto en el navbar.
+                const openDropdown = navbarContainer.querySelector('.dropdown-menu.show');
+                if (openDropdown) {
+                    openDropdown.classList.remove('show');
+                }
             } else if (scrollTop < lastScrollTop) {
                 navbarContainer.classList.remove('navbar--hidden');
             }
@@ -114,8 +119,75 @@ if (navbarContainer && navCollapse) {
 
 
 // AVISOS LEGALES - Abrir acordeones desde enlaces Footer
-window.addEventListener('load', function() {
-  const hash = window.location.hash;
-  if (hash) {
-    const
+function openAccordionSection(hash, shouldScroll = false) {
+    
+    // Solo funciona si encuentra un #
+    if (!hash) return;
+
+    // Busca en la página el elemento con el ID del #
+    const targetItem = document.querySelector(hash);
+    
+    // Solo funciona si el # existe y, además, pertenece a un acordeon
+    if (!targetItem || !targetItem.classList.contains('accordion-item')) return;
+
+    // Dentro del acordeon, busca la parte de contenido que se colapsa
+    const targetCollapseElement = targetItem.querySelector('.accordion-collapse');
+    if (!targetCollapseElement) return;
+
+    // Si la sección a la que hacemos clic ya está abierta
+    if (targetCollapseElement.classList.contains('show')) {
+        // si el clic vino de un enlace se hace scroll hacia la sección
+        if (shouldScroll) {
+            targetItem.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+        return;
+    }
+
+    // Busca si hay alguna sección diferente abierta
+    const accordionParent = targetItem.closest('.accordion');
+    const currentlyOpenCollapse = accordionParent ? accordionParent.querySelector('.accordion-collapse.show') : null;
+
+    const openNewSection = () => {
+        const bsCollapse = new bootstrap.Collapse(targetCollapseElement, { toggle: false });
+        bsCollapse.show(); // Abre la sección deseada
+
+        if (shouldScroll) {
+            // Espera que la sección del acordeón se abra para hacer scroll
+            targetCollapseElement.addEventListener('shown.bs.collapse', () => {
+                targetItem.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }, { once: true });
+        }
+    };
+
+    // Si la sección a la que hacemos clic ya está no abierta
+    if (currentlyOpenCollapse) {
+        // Espera que la seccion abierta cierre para comenzar a abirr la seccion elegida
+        currentlyOpenCollapse.addEventListener('hidden.bs.collapse', openNewSection, { once: true });
+        
+        // Cerrar la sección que estaba abierta
+        bootstrap.Collapse.getInstance(currentlyOpenCollapse).hide();
+    } else {
+        // Si no hay ninguna sección abierta se abre la sección elegida
+        openNewSection();
+    }
+}
+
+// Al cargar la página por primera vez
+openAccordionSection(window.location.hash, true);
+
+// Se activa si ya estamos en avisos y se da click a un link del footer
+const anchorLinks = document.querySelectorAll('a[href*="avisos.html#"]');
+
+anchorLinks.forEach(link => {
+    link.addEventListener('click', (event) => {
+        // Si ya estamos en la página de avisos
+        if (window.location.pathname.includes('avisos.html')) {
+            // Se detiene el salto inmediato a la sección
+            event.preventDefault();
+            // se abre la sección y se da un salto suave a la msma
+            const hash = link.hash;
+            openAccordionSection(hash, true);
+        }
+    });
+});
 // END AVISOS LEGALES
