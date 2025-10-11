@@ -57,14 +57,39 @@ h1 {
 
 /* Fuente y tamaño texto body */
 body{
-  
-    background-color: var(--color-bg);
-    font-family: var(--font-body);
-    font-size: var(--normal-size);
-    color: var(--black-color);
-    line-height: 1.6;
-    margin: 0;
-    padding: 0;
+  background-color: var(--color-bg);
+  font-family: var(--font-body);
+  font-size: var(--normal-size);
+  color: var(--black-color);
+  line-height: 1.6;
+  margin: 0;
+  padding: 0;
+}
+.bg-pattern-normal {
+    background-image: url('../img/pattern.svg'); 
+    
+    /* Repite el patrón en el eje y */
+    background-repeat: repeat-y; 
+    
+    /* Evita que el patrón se pegue en el centro o izquierda */
+    background-position: center top; 
+    background-size: 100% auto; 
+    
+    /* Asegura que se desplace con el contenido */
+    background-attachment: scroll; 
+}
+.bg-pattern-mirror {
+    background-image: url('../img/pattern-mirror.svg'); 
+    
+    /* Repite el patrón en el eje y */
+    background-repeat: repeat-y; 
+    
+    /* Evita que el patrón se pegue en el centro o izquierda */
+    background-position: center top; 
+    background-size: 100% auto; 
+    
+    /* Asegura que se desplace con el contenido */
+    background-attachment: scroll; 
 }
 
 .bg-alt {
@@ -326,56 +351,6 @@ img {
   z-index: -1;          /* la pone detrás del texto */
   border-radius: 100%;  /* pone borde a la imagen */
 }
-
-/* Formato marca de agua con SVG */
-
-.fondo-svg {
-  position: absolute;           /* se queda en el viewport */
-  width: 30%;              /* ancho controlado */
-  height: auto;
-  opacity: 0.07;
-  z-index: -1;
-}
-
-/* Ejemplos de posicionamiento */
-.marca-1 {
-  top: 100px;
-  left: 80%;                 /* centrada horizontal */
-  transform: translateX(-50%) rotate(20deg);
-}
-
-.marca-2 {
-  top: 550px;
-  left: 15%;
-  transform: translateX(-50%) rotate(-15deg);
-}
-
-.marca-3 {
-  top: 950px;
-  left: 80%;
-  transform: translateX(-50%) rotate(25deg);
-}
-
-.marca-4 {
-  top: 1380px;
-  left: 15%;
-  transform: translateX(-50%) rotate(-20deg);
-}
-
-.marca-5 {
-  display: none;  /* Oculta en escritorio */
-  top: 1780px;
-  left: 80%;
-  transform: translateX(-50%) rotate(25deg);
-}
-
-.marca-6 {
-  display: none;  /* Oculta en escritorio */
-  top: 2180px;
-  left: 15%;
-  transform: translateX(-50%) rotate(-20deg);
-}
-
 
 /* FOOTER */
 .custom-footer{
