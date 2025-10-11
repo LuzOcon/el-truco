@@ -79,15 +79,9 @@
     </div>
     <!--END NavBar-->
     
-    <!-- Fondo marca de agua -->
-    <div class="fondo-container">
-      <img src="./img/egg-svg.svg" alt="Marca 1" class="fondo-svg marca-1">
-      <img src="./img/egg-fried-svg.svg" alt="Marca 2" class="fondo-svg marca-2">
-    </div>
-
     <!-- CONTACT SECTION -->
     <section class="contact-section">
-      <div class="contact-container">    
+      <div class="contact-container bg-pattern-normal">    
         <!-- Columna izquierda -->
         <div class="contact-left">
           <div class="contact-info text-body">
@@ -142,6 +136,7 @@
                 id="nombre"
                 class="form-control"
                 placeholder="Ingresar nombre completo"
+                required
               />
             </div>
             <div class="col-md-6">
@@ -162,6 +157,7 @@
               id="correo"
               class="form-control"
               placeholder="Ingresar correo electrónico"
+              required
             />
           </div>
 
@@ -172,6 +168,7 @@
               id="asunto"
               class="form-control"
               placeholder="Ingresar asunto"
+              required
             />
           </div>
 
@@ -183,6 +180,7 @@
               rows="5"
               maxlength="1000"
               placeholder="Describe tu mensaje"
+              required
             ></textarea>
             <small
               id="contador"
