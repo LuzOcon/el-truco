@@ -125,6 +125,9 @@ body{
     max-height: 250px;
     max-width: 250px;
   }
+  .text-description{
+    display: none;
+  }
 }
 
 /* Pantallas grandes (lg = 992px o más) */
@@ -154,15 +157,6 @@ body{
     height: auto !important;
     bottom: 0;
     right: 0;  
-  }
-  .marca-5 {
-    display: block !important; /* Muestra en móvil */
-  }
-  .marca-6 {
-    display: block !important; /* Muestra en móvil */
-  }
-  .contenido{
-    text-align: center;
   }
 }
 
