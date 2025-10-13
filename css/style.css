@@ -522,14 +522,16 @@ img {
 
 /* Accordion Avisos */
 .accordion-button {
-  background-color: #A67856;
-  color: #000000;
-  font-weight: 500;
+  background-color: #a67856;  /* Ya coincide con tu paleta */
+  color: #2e2117;  /* Texto más oscuro como en las cards */
+  font-weight: 600;  /* Consistente con otros títulos */
+  font-family: var(--font-body);
+  border-radius: 7px;  /* Igual que el navbar */
 }
 
 .accordion-button:not(.collapsed) {
-  background-color: #A67856;
-  color: #000000;
+  background-color: #8c4731;  /* Color principal de tus títulos */
+  color: var(--white-color);
   box-shadow: none;
 }
 
@@ -539,25 +541,32 @@ img {
 }
 
 .accordion-item {
-  background-color: #C5D6A2;
+  background-color: var(--color-card-1);  /* Usa tu variable existente */
+  border-radius: 10px;  /* Más suave */
+  margin-bottom: 10px;  /* Separación entre items */
+  border: none;
 }
 
 .accordion-body {
-  background-color: #FFF2E0;
-  color: #333;
+  background-color: var(--color-bg);  /* Tu fondo principal */
+  color: #2e2117;  /* Consistente con card-text */
+  border-radius: 0 0 10px 10px;
 }
 
 .accordion-body h5 {
-  color: #737F5D;
+  color: var(--text-color-alt);  /* Usa tu variable */
+  font-family: var(--font-body);
+  font-weight: var(--font-semi-bold);
 }
 
 .accordion-body ul,
 .accordion-body ol {
-  color: #555;
+  color: #2e2117;
 }
 
 .accordion-body li {
   margin-bottom: 8px;
+  line-height: 1.6;
 }
 
 .accordion-body p {
@@ -565,65 +574,67 @@ img {
   text-align: justify;
 }
 
-/* Botones */
+/* Botones - Simplificados y unificados */
 .btn-avisos {
-  background-color: #EE684C;
+  background-color: var(--text-highlight-alt);  /* Usa tu variable */
   color: white;
   border: none;
-  padding: 10px 25px;
-  border-radius: 8px;
+  padding: 12px 28px;  /* Igual que hero-btn */
+  border-radius: 25px;  /* Más redondeado como hero-btn */
   font-weight: 500;
-  transition: all 0.3s;
-}
-
-.btn-avisos:hover {
-  background-color: #EB4A3F;
-  color: white;
-}
-
-.btn-outline-avisos {
-  border: 2px solid #C5D6A2;
-  color: #737F5D;
-  background-color: transparent;
-  padding: 10px 25px;
-  border-radius: 8px;
-  font-weight: 500;
-  transition: all 0.3s;
-}
-
-.btn-outline-avisos:hover {
-  background-color: #C5D6A2;
-  border-color: #C5D6A2;
-  color: white;
-}
-.btn-brown{
-    background-color: #84624a;  
-    color: white;
-    transition: all 0.3s ease;
-}
-.btn-brown:hover {
-  background-color: #5a402e; 
-  color: white;
-}
-.btn-dark {
-  background-color: #000;   
-  border-color: #000;
   transition: all 0.3s ease;
 }
 
-.btn-dark:hover {
-  background-color: #EE684C;  
-  border-color: #EE684C;
+.btn-avisos:hover {
+  background-color: var(--text-highlight);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(238, 104, 76, 0.4);
 }
-.btn-verde{
-    background-color: var(--btn-secondary);   
-    color: white;
-    transition: all 0.3s ease;
+
+.btn-outline-avisos {
+  border: 2px solid var(--btn-secondary);  /* Usa tu verde */
+  color: var(--btn-secondary);
+  background-color: transparent;
+  padding: 12px 28px;
+  border-radius: 25px;
+  font-weight: 500;
+  transition: all 0.3s ease;
 }
-.btn-verde:hover {
-  background-color: #384520;  
+
+.btn-outline-avisos:hover {
+  background-color: var(--btn-secondary);
+  border-color: var(--btn-secondary);
   color: white;
+  transform: translateY(-2px);
 }
+
+/* Los botones brown, dark y verde ya existen, solo ajustar */
+.btn-brown {
+  background-color: #84624a;  
+  color: white;
+  padding: 12px 28px;
+  border-radius: 25px;
+  transition: all 0.3s ease;
+}
+
+.btn-brown:hover {
+  background-color: #5a402e; 
+  transform: translateY(-2px);
+}
+
+.btn-verde {
+  background-color: var(--btn-secondary);   
+  color: white;
+  padding: 12px 28px;
+  border-radius: 25px;
+  transition: all 0.3s ease;
+}
+
+.btn-verde:hover {
+  background-color: #384520;
+  transform: translateY(-2px);
+}
+
 
 /* =================================== */
 /* AVISOS LEGALES STYLES END */
