@@ -18,7 +18,7 @@ Su objetivo principal es ofrecer un entorno informativo y comercial **centrado e
 - Presentar productos de forma **atractiva, clara y accesible**.  
 - Ofrecer información sobre el **proceso orgánico y los valores de la marca**.  
 - Centralizar información de contacto, recetas, políticas y FAQ en un solo lugar.  
-- Servir como base para futuras funcionalidades dinámicas (carrito de compras, login real).
+- Servir como base para futuras funcionalidades dinámicas (carrito de compras, login).
 
 ---
 
@@ -33,11 +33,11 @@ Su objetivo principal es ofrecer un entorno informativo y comercial **centrado e
 
 ## 🧭 Funcionalidades destacadas
 
-- 🛒 Visualización de productos (imágenes, nombres, descripciones).  
+- 🛒 Visualización de productos.  
 - 📋 Secciones informativas: *Quiénes somos, Recetas, FAQ, Contacto, Avisos*.  
-- ✉️ Formulario de contacto (interfaz estática).  
+- ✉️ Formulario de contacto.  
 - 📱 Diseño responsivo adaptable a cualquier pantalla.  
-- 🔒 Página de login base (sin funcionalidad).  
+- 🔒 Página de login base.  
 - 📖 Plantillas reutilizables (`recipe-template.html`).
 
 ---
@@ -86,16 +86,17 @@ EL-TRUCO
     ├── recipe-template.html
     └── recipes.html
 
-## 🚀 Instrucciones de ejecución local
+## Instrucciones de ejecución local
 
 1. Clonar el repositorio:
    ```bash
    git clone https://github.com/JorgeFYA/el-truco
 2. Entrar al directorio del proyecto:
-   ```cd el-truco
+   ```bash
+   cd el-truco
 3. Abrir index.html en tu navegador o usar un servidor local:
-   ```npx http-server .
-
+   ```bash
+   npx http-server .
 
 
 ## 👩‍💻 Créditos
