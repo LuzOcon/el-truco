@@ -96,6 +96,8 @@ EL-TRUCO
 3. Abrir index.html en tu navegador o usar un servidor local:
    ```npx http-server .
 
+
+
 ## 👩‍💻 Créditos
 
 Proyecto desarrollado por **Market Minds**.
