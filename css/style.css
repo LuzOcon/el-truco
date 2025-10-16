@@ -113,52 +113,7 @@ body{
   font-weight: 500;
 }
 
-/* Diseño responsivo */
 
-/* Tablets (pantallas medianas) */
-@media (max-width: 992px) {
-  body {
-    font-size: 16px;
-    margin: 10px;
-  }
-  .fondo-img{
-    max-height: 250px;
-    max-width: 250px;
-  }
-  .text-description{
-    display: none;
-  }
-}
-
-/* Pantallas grandes (lg = 992px o más) */
-@media (min-width: 992px) {
-  /* Aplicamos solo en pantallas grandes para evitar errores */
-  .navbar-nav-absolute-centered {
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
-  }
-  .imagen-columna-ajustada {
-  max-height: 250px;       
-  }
-}
-
-/* Celulares (pantallas pequeñas) */
-@media (max-width: 767px) {
-  body {
-    font-size: 14px;
-    margin: 5px;
-  }
-  .row-responsiva {
-    flex-direction: column-reverse;
-  }
-  .fondo-img {
-    width: 100% !important;
-    height: auto !important;
-    bottom: 0;
-    right: 0;  
-  }
-}
 
 /* Imagenes ajustadas a la resposibidad */
 img {
@@ -214,7 +169,7 @@ img {
 }
 
 .card-img-products{
-  height: 300px;       
+  height: 400px;       
   width: 100%;         
   object-fit: cover;  
   border-top-left-radius: 20px; 
@@ -348,7 +303,7 @@ img {
 
 /* FOOTER */
 .custom-footer{
-    background-color: #F8E1C7;
+    background-color: #e6ceb3;
 }
 .footer-icons i {
   color: #000; 
@@ -377,27 +332,28 @@ img {
     font-weight: bold;
     color: #779047;
 }
+
+.collapse-format{
+  background-color: rgb(255, 234, 218);
+}
+.collapse-format:focus {
+    outline: 4px solid #f8cb58d6; /* Un borde visible para el foco */
+}
+
+.bg-trans-custom{
+  background-color: #9dc94d2a;
+}
+.text-green{
+  color: #384520;
+}
+.catalogo-icon{
+  width: 100%;
+  height: auto;
+  max-width: 70px;
+
+}
 /* END PRODUCT VIEW */
 
-
-/* FAQs Bootstrap */
-.accordion-button {
-  background-color: #a67856;
-}
-
-.accordion-button:not(.collapsed) {
-  background-color: #a67856;
-  box-shadow: none;
-}
-
-.accordion-button:focus {
-  box-shadow: none;
-  border-color: transparent;
-}
-
-.accordion-item {
-  background-color: #e6cdb6;
-}
 /* Botones FAQs */
 .btn-faq {
   background-color: #EE684C;
@@ -418,8 +374,8 @@ img {
 }
 
 .btn-outline-faq {
-  border: 2px solid #C5D6A2;
-  color: #737F5D;
+  border: 2px solid #9bb36b;
+  color: #000000;
   background-color: transparent;
   padding: 12px 30px;
   border-radius: 8px;
@@ -429,8 +385,8 @@ img {
 }
 
 .btn-outline-faq:hover {
-  background-color: #C5D6A2;
-  border-color: #C5D6A2;
+  background-color: #9db175;
+  border-color: #9db175;
   color: white;
   transform: translateY(-2px);
 }
@@ -514,6 +470,15 @@ img {
   background-color: #53573C;
   color: var(--black-color);
 }
+
+.home .navbar-container.sticky-top {
+position: fixed; 
+top: 0; left: 0; right: 0;
+z-index: 1100;
+width: 95%; 
+}
+
+
 /*NavBar end*/
 
 /* =================================== */
@@ -532,6 +497,14 @@ img {
 .accordion-button:not(.collapsed) {
   background-color: #8c4731;  /* Color principal de tus títulos */
   color: var(--white-color);
+  background-color: #cbb6a5;
+  color: #000000;
+  font-weight: 500;
+}
+
+.accordion-button:not(.collapsed) {
+  background-color: #a98469;
+  color: #000000;
   box-shadow: none;
 }
 
@@ -551,6 +524,8 @@ img {
   background-color: var(--color-bg);  /* Tu fondo principal */
   color: #2e2117;  /* Consistente con card-text */
   border-radius: 0 0 10px 10px;
+  background-color: #FFF2E0;
+  color: #000000;
 }
 
 .accordion-body h5 {
@@ -562,6 +537,7 @@ img {
 .accordion-body ul,
 .accordion-body ol {
   color: #2e2117;
+  color: #000000;
 }
 
 .accordion-body li {
@@ -572,6 +548,7 @@ img {
 .accordion-body p {
   line-height: 1.7;
   text-align: justify;
+  color: #000;
 }
 
 /* Botones - Simplificados y unificados */
@@ -582,6 +559,41 @@ img {
   padding: 12px 28px;  /* Igual que hero-btn */
   border-radius: 25px;  /* Más redondeado como hero-btn */
   font-weight: 500;
+  transition: all 0.3s;
+}
+
+.btn-avisos:hover {
+  background-color: #EB4A3F;
+  color: white;
+}
+
+.btn-outline-avisos {
+  border: 2px solid #78855e;
+  color: #030303;
+  background-color: transparent;
+  padding: 10px 25px;
+  border-radius: 8px;
+  font-weight: 500;
+  transition: all 0.3s;
+}
+
+.btn-outline-avisos:hover {
+  background-color: #9db175;
+  border-color: #9db175;
+  color: white;
+}
+.btn-brown{
+    background-color: #84624a;  
+    color: white;
+    transition: all 0.3s ease;
+}
+.btn-brown:hover {
+  background-color: #5a402e; 
+  color: white;
+}
+.btn-dark {
+  background-color: #000;   
+  border-color: #000;
   transition: all 0.3s ease;
 }
 
@@ -641,3 +653,52 @@ img {
 /* =================================== */
 
 /*LOGIN INCIO DE SESION*/
+
+/* Diseño responsivo */
+
+/* Tablets (pantallas medianas) */
+@media (max-width: 992px) {
+  
+  body {
+    font-size: 16px;
+    margin: 10px;
+  }
+  .fondo-img{
+    max-height: 250px;
+    max-width: 250px;
+  }
+  .text-description{
+    display: none;
+  }
+}
+
+/* Pantallas grandes (lg = 992px o más) */
+@media (min-width: 992px) {
+  /* Aplicamos solo en pantallas grandes para evitar errores */
+  .navbar-nav-absolute-centered {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  .imagen-columna-ajustada {
+  max-height: 250px;       
+  }
+}
+
+/* Celulares (pantallas pequeñas) */
+@media (max-width: 767px) {
+  body {
+    font-size: 14px;
+    margin: 5px;
+  }
+  .row-responsiva {
+    flex-direction: column-reverse;
+  }
+  .fondo-img {
+    width: 100% !important;
+    height: auto !important;
+    bottom: 0;
+    right: 0;  
+  }
+}
+
