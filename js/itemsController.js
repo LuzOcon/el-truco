@@ -9,9 +9,11 @@ class ItemsController {
     const item = {
       id: this.currentId,
       name,
+      category,
+      image,
       description,
-      img,
-      createdAt
+      ingredients,
+      steps
     };
     this.items.push(item);
   }
