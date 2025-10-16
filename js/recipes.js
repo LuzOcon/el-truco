@@ -196,3 +196,6 @@ categoryFilterSelect.addEventListener('change', function () {
 
 // Generar tarjetas iniciales
 generateRecipeCards(recipes);
+
+//Resetas en JSON -->
+    console.log(JSON.stringify(controller.items, null, 2));
