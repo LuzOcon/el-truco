@@ -129,6 +129,7 @@
 .contact-form button {
   margin-top: 10px;
   background-color: var(--btn-secondary);
+  background-color: #5f6e47;
   color: var(--white-color);
   border: none;
   border-radius: 25px;
@@ -164,6 +165,11 @@
   border-radius: 10px;
   text-decoration: none;
   color: var(--white-color);
+  background-color: #8c4731;
+  border: 2px solid #8c4731;
+  border-radius: 10px;
+  text-decoration: none;
+  color: white;
   transition: all 0.3s ease;
 }
 
@@ -184,6 +190,23 @@
 
 .nav-link-item:hover i {
   color: #2e2117;
+  background-color: #5f6e47;
+  border-color: #5f6e47;
+  transform: translateX(5px);
+  color: white;
+  box-shadow: 0 4px 12px rgba(197, 214, 162, 0.3);
+}
+
+.nav-link-item:hover .nav-link-content h5 {
+  color: #ffffff;
+}
+
+.nav-link-item:hover .nav-link-content p {
+  color: #ffffff;
+}
+
+.nav-link-item:hover i {
+  color: #ffffff;
   transform: translateX(5px);
 }
 
@@ -214,6 +237,7 @@
   transition: all 0.3s;
   margin-left: 15px;
 }
+
 
 /* ============================================
    RESPONSIVE
