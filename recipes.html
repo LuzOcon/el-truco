@@ -66,7 +66,7 @@
         </div>
       </nav>
     </div>
-    <!--END NavBar-->
+    <!--END NavBar-->    
 
     <!-- Sección de Recetas -->
     <div class="container">
@@ -92,8 +92,12 @@
       <div class="row" id="recipesContainer">
         <!-- Aquí se insertarán las tarjetas de recetas -->
       </div>
+      
     </div>
     <!-- Sección de Recetas Fin -->
+
+    <!-- Resetas en JSON -->
+    console.log(JSON.stringify(controller.items));
 
     <!-- FOOTER -->
     <footer class="footer mt-auto py-3 custom-footer">
@@ -155,8 +159,10 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
     
     <!-- Main JS & Recipes JS -->
+     <script src="js/itemsController.js"></script>
     <script src="./js/main.js"></script>
     <script src="./js/recipes.js"></script>
+    
 
   </body>
 </html>
