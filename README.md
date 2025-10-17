@@ -75,7 +75,7 @@ Su objetivo principal es ofrecer un entorno informativo y comercial **centrado e
 
 ## 🗂️ Estructura del proyecto
 
-
+```
 EL-TRUCO
 │
 ├── .idea
@@ -105,7 +105,7 @@ EL-TRUCO
     ├── README.md
     ├── recipe-template.html
     └── recipes.html
-
+```
 
 ## Instrucciones de ejecución local
 
