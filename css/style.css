@@ -416,10 +416,6 @@ img {
 
 /* Nuestras gallinas */
 .shadow-top-right {
-    /* Desplazamiento X: 16px (derecha)
-       Desplazamiento Y: -16px (arriba)
-       Desenfoque: 0
-       Color: variable marrón */
     box-shadow: 16px -16px 0 var(--text-color-alt); 
 }
 .shadow-top-left {
