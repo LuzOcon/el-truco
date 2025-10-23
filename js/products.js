@@ -1,5 +1,7 @@
 const productsController = new ProductsController(0);
 
+
+//muestra las tarjetas de productos en el catalogo
 function addProductCard(product){
    const listEl = document.getElementById("list-items");
 
@@ -38,6 +40,7 @@ function addProductCard(product){
  
 }
 
+//cargar productos al localstorage
 function loadStorageSampleData(){
     if(!localStorage.getItem("products")){
         const sampleItems = [
@@ -85,7 +88,7 @@ function loadStorageSampleData(){
 
 }
  
-
+//agrega las cards al catalogo
 function loadCardsListFromProductsController(){
     for(var i = 0, size = productsController.products.length; i < size ; i++){
         const product = productsController.products[i];
