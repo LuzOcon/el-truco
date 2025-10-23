@@ -220,7 +220,7 @@ document.addEventListener('DOMContentLoaded', async function() {
     if (document.getElementById('list-items')) {
         await productService.init();
         productService.renderCatalog();
-        console.log('✅ Catálogo cargado');
+        console.log('Catálogo cargado');
     }
 });
 
@@ -232,13 +232,11 @@ document.addEventListener('DOMContentLoaded', async function() {
         const urlParams = new URLSearchParams(window.location.search);
         const productId = urlParams.get('id');
         
-        console.log('🔍 Cargando producto ID:', productId);
-        
         if (productId) {
             await productService.init();
             productService.renderProductPage(parseInt(productId));
         } else {
-            console.error('❌ No se encontró ID en la URL');
+            console.error('No se encontró ID en la URL');
             alert('Producto no encontrado');
         }
     }
@@ -249,6 +247,5 @@ document.addEventListener('DOMContentLoaded', async function() {
     if (document.getElementById('list-suscriptions')) {
         await suscriptionController.init();
         suscriptionController.renderCatalog();
-        console.log('✅  sus cargado');
     }
 });
