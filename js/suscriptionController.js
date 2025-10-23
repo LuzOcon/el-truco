@@ -50,25 +50,25 @@ class SuscriptionController{
                 id: 1,
                 name: 'Plan individual',
                 description: 'Recibe 12 huevos orgánicos frescos cada 7 días. Perfecto para parejas o individuos con un consumo moderado.',
-                price: 150.00,
+                price: 152.00,
                 duration: 'mes',
-                main_image: 'img/suscripcion7.webp'
+                main_image: 'img/suscripcion1.webp'
             },
             {
                 id: 2,
                 name: 'Plan familiar',
                 description: 'Recibe 24 huevos orgánicos cada 7 días. Una excelente opción para familias pequeñas de 3 a 5 integrantes.',
-                price: 290.00,
+                price: 288.00,
                 duration: 'mes',
-                main_image: 'img/suscripcion15.webp'
+                main_image: 'img/suscripcion2.webp'
             },
             {
                 id: 3,
                 name: 'Plan negocios',
                 description: 'Recibe 60 huevos orgánicos frescos cada 7 días. Perfecto para cafeterías, panaderías o restaurantes locales.',
-                price: 690.00,
+                price: 680.00,
                 duration: 'mes',
-                main_image: 'img/suscripcion30.webp'
+                main_image: 'img/suscripcion3.webp'
             }
         ];
     }
@@ -111,7 +111,7 @@ class SuscriptionController{
         
         col.innerHTML = `
         <div class="card border-0 producto-card">
-        <img src="${suscription.image}" alt=" ${suscription.name}" class="card-img-products">
+        <img src="${suscription.main_image}" alt=" ${suscription.name}" class="card-img-products">
             <div class="card-body text-center">
                 <h5 class="card-title"> ${suscription.name} </h5>
                 <p>${suscription.description}</p>
