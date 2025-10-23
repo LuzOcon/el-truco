@@ -17,10 +17,12 @@
     <!--NavBar-->
     <div class="navbar-container sticky-top py-3">
       <nav class="navbar navbar-expand-lg navbar-dark navbar-farm px-4">
-        <a class="navbar-brand fw-bold" href="index.html">El Truco</a>
+        <a class="navbar-brand" href="index.html">
+          <img src="./img/LogoB.svg" alt="Logo de El Truco" class="navbar-logo">
+        </a>
 
         <a href="#" class="navbar-icon ms-auto me-3 d-lg-none" aria-label="Ver carrito de compras">
-            <i class="bi bi-basket2-fill fs-5"></i>
+          <i class="bi bi-basket2-fill fs-5"></i>
         </a>
 
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
@@ -44,7 +46,7 @@
               </a>
               <ul class="dropdown-menu">
                 <li><a class="dropdown-item" aria-current="page" href="recipes.html">Recetas</a></li>
-                <li><a class="dropdown-item" href="#">Nuestras Gallinas</a></li>
+                <li><a class="dropdown-item" href="our-chickens.html">Nuestras Gallinas</a></li>
               </ul>
             </li>
             <li class="nav-item">
@@ -66,7 +68,7 @@
         </div>
       </nav>
     </div>
-    <!--END NavBar-->    
+    <!--END NavBar-->
 
     <!-- Sección de Recetas -->
     <div class="container">
@@ -96,8 +98,7 @@
     </div>
     <!-- Sección de Recetas Fin -->
 
-    <!-- Resetas en JSON -->
-    console.log(JSON.stringify(controller.items));
+    
 
     <!-- FOOTER -->
     <footer class="footer mt-auto py-3 custom-footer">
@@ -116,21 +117,21 @@
           </div>
 
           <div class="col-md-2 mb-3">
-  <ul class="list-unstyled">
-    <li>
-      <a href="avisos.html#seccion-privacidad" class="text-decoration-none text-dark">Aviso de Privacidad</a>
-    </li>
-    <li>
-      <a href="avisos.html#seccion-devolucion" class="text-decoration-none text-dark">Políticas de Devolución</a>
-    </li>
-    <li>
-      <a href="avisos.html#seccion-terminos" class="text-decoration-none text-dark">Términos y Condiciones</a>
-    </li>
-    <li>
-      <a href="faqs.html" class="text-decoration-none text-dark">Preguntas Frecuentes</a>
-    </li>
-  </ul>
-</div>
+            <ul class="list-unstyled">
+              <li>
+                <a href="avisos.html#seccion-privacidad" class="text-decoration-none text-dark">Aviso de Privacidad</a>
+              </li>
+              <li>
+                <a href="avisos.html#seccion-devolucion" class="text-decoration-none text-dark">Políticas de Devolución</a>
+              </li>
+              <li>
+                <a href="avisos.html#seccion-terminos" class="text-decoration-none text-dark">Términos y Condiciones</a>
+              </li>
+              <li>
+                <a href="faqs.html" class="text-decoration-none text-dark">Preguntas Frecuentes</a>
+              </li>
+            </ul>
+          </div>
 
           <div class="col-md-2 mb-2">
             <h6 class="fw-bold">¡Contáctanos!</h6>
@@ -159,10 +160,9 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
     
     <!-- Main JS & Recipes JS -->
-     <script src="js/itemsController.js"></script>
+    <script src="js/itemsController.js"></script>
     <script src="./js/main.js"></script>
     <script src="./js/recipes.js"></script>
-    
 
   </body>
 </html>

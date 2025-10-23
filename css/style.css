@@ -448,6 +448,16 @@ img {
 }
 /* RECETAS FIN */
 
+/* Nuestras gallinas */
+.shadow-top-right {
+    box-shadow: 16px -16px 0 var(--text-color-alt); 
+}
+.shadow-top-left {
+    box-shadow: -16px -16px 0 var(--text-color-alt); 
+}
+/* Nuestras gallinas */
+
+
 /* NavBar */
 /* Define el ancho, centrado y la animación de transición. */ 
 .navbar-container {
@@ -488,6 +498,11 @@ img {
 }
 .navbar-icon:hover{
   color: var(--black-color);
+}
+
+.navbar-logo {
+  height: 40px;
+  width: auto;
 }
 
 /* Estilos para el menú desplegable del navbar (Blog) */
