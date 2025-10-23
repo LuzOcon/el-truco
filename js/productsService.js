@@ -52,7 +52,7 @@ class ProductService {
                 description: 'Nuestros huevos provienen de gallinas criadas con mínimo uso de químicos, en un ambiente cuidado y natural.',
                 base_price: 24.00,
                 category: 'huevos',
-                main_image: '../img/sixeggs.webp',
+                main_image: 'img/sixeggs.webp',
                 active: 1,
                 variants: [
                     { id: 1, product_id: 1, name: 'Paquete de 6 Huevos', price: 24.00, image: '../img/sixeggs.webp', stock: 100 },
@@ -67,7 +67,7 @@ class ProductService {
                 description: 'Abono orgánico elaborado a partir del estiércol compostado de gallinas.',
                 base_price: 80.00,
                 category: 'abono',
-                main_image: '../img/abono.webp',
+                main_image: 'img/abono.webp',
                 active: 1,
                 variants: [
                     { id: 5, product_id: 2, name: 'Bolsa de 1 Kg', price: 80.00, image: '../img/abono.webp', stock: 200 },
@@ -83,7 +83,7 @@ class ProductService {
                 description: 'Gallinas de postura de alta calidad.',
                 base_price: 280.00,
                 category: 'aves',
-                main_image: '../img/chicken2.webp',
+                main_image: 'img/chicken2.webp',
                 active: 1,
                 variants: [
                     { id: 10, product_id: 3, name: 'Lote de 25 Aves',  price: 280.00, image: '../img/chicken2.webp', stock: 15 },

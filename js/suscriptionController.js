@@ -60,7 +60,7 @@ class SuscriptionController{
                 description: 'Recibe 24 huevos orgánicos cada 7 días. Una excelente opción para familias pequeñas de 3 a 5 integrantes.',
                 price: 290.00,
                 duration: 'mes',
-                main_image: '../img/suscripcion15.webp'
+                main_image: 'img/suscripcion15.webp'
             },
             {
                 id: 3,
@@ -68,7 +68,7 @@ class SuscriptionController{
                 description: 'Recibe 60 huevos orgánicos frescos cada 7 días. Perfecto para cafeterías, panaderías o restaurantes locales.',
                 price: 690.00,
                 duration: 'mes',
-                main_image: '../img/suscripcion30.webp'
+                main_image: 'img/suscripcion30.webp'
             }
         ];
     }
