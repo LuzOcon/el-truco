@@ -71,7 +71,7 @@
     <!--END NavBar-->
 
 
-    <div class="container">
+    <div class="container ">
       <header class="text-center p-3">
         <h1>Elige lo mejor de nuestra granja</h1>
         <h4>Selecciona entre nuestros deliciosos huevos frescos, nuestro abono natural y más productos orgánicos.</h4>
@@ -93,7 +93,7 @@
             <div class="col-lg-4">
               <img src="img/user-ico.png" alt="" class="catalogo-icon mx-auto d-block">
               <h4 class="fw-bold mt-3"> Escoge Tu Plan</h4>
-              <p>Automatiza tu compra y ahorra tiempo. Elige cuántos huevos quieres y con qué frecuencia los recibes. Nosotros nos encargamos del resto.</p>
+              <p>Automatiza tu compra y ahorra tiempo. Elige cuántos huevos quieres, aprovecha los descuentos y nosotros nos encargamos del resto.</p>
             </div>
             <div class="col-lg-4">
               <img src="img/shop-ico.png" alt="" class="catalogo-icon mx-auto d-block">
@@ -108,48 +108,8 @@
           </div>
         </div>
         
-        <div class="row g-4 justify-content-center mt-3">
-          <!-- Card 1 -->
-          <div class="col-md-4 col-lg-4">
-            <div class="card border-0 producto-card">
-              <img src="img/suscripcion7.webp" alt="Suscripción mensual" class="card-img-products">
-              <div class="card-body text-center">
-                <h5 class="card-title"> Suscripción semanal </h5>
-                <p>Recibe 12 huevos orgánicos frescos cada semana. Perfecto para familias y amantes de la cocina saludable</p>
-                <p class="card-price">$70 MXN / semana</p>
-                <button class="btn btn-verde"> Suscríbete ahora <i class="bi bi-check2-square"></i>
-                </button>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-md-4 col-lg-4">
-            <div class="card border-0 producto-card">
-              <img src="img/suscripcion15.webp" alt="Suscripción mensual" class="card-img-products">
-              <div class="card-body text-center">
-                <h5 class="card-title"> Suscripción quincenal </h5>
-                <p>Recibe 12 huevos orgánicos cada 15 días. Una excelente opción para parejas o individuos con un consumo moderado.</p>
-                <p class="card-price">$130 MXN / mes</p>
-
-                <button class="btn btn-verde"> Suscríbete ahora  <i class="bi bi-check2-square"></i>
-                </button>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-md-4 col-lg-4">
-            <div class="card border-0 producto-card">
-              <img src="img/suscripcion30.webp" alt="Suscripción mensual" class="card-img-products">
-              <div class="card-body text-center">
-                <h5 class="card-title"> Suscripción mensual </h5>
-                <p>Recibe 36 huevos orgánicos una vez al mes. Ideal para quienes buscan una solución práctica sin sacrificar calidad.</p>
-                <p class="card-price">$200 MXN / mes</p>
-                <button class="btn btn-verde"> Suscríbete ahora <i class="bi bi-check2-square"></i>
-                </button>
-              </div>
-            </div>
-          </div>
-
+        <div id="list-suscriptions" class="row g-4 justify-content-center mt-3">
+          <!-- Aquí se insertarán las tarjetas de las suscripciones -->
         </div>
         <!--Fin catalago-->
       </div>
@@ -215,9 +175,9 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
     
     <!-- Main JS & Products JS -->
-    <script src="./js/productsController.js"></script>
-    <script src="./js/products.js"></script>
     <script src="./js/main.js"></script>
+    <script src="./js/productsService.js"></script>
+    <script src="./js/suscriptionController.js"></script>
 
 
   </body>
