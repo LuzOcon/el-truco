@@ -52,10 +52,10 @@ class ProductService {
                 description: 'Nuestros huevos provienen de gallinas criadas con mínimo uso de químicos, en un ambiente cuidado y natural.',
                 base_price: 24.00,
                 category: 'huevos',
-                main_image: 'img/sixeggs.webp',
+                main_image: '../img/sixeggs.webp',
                 active: 1,
                 variants: [
-                    { id: 1, product_id: 1, name: 'Paquete de 6 Huevos', price: 24.00, image: 'img/sixeggs.webp', stock: 100 },
+                    { id: 1, product_id: 1, name: 'Paquete de 6 Huevos', price: 24.00, image: '../img/sixeggs.webp', stock: 100 },
                     { id: 2, product_id: 1, name: 'Paquete de 12 Huevos', price: 40.00, image: '../img/eggs12.webp', stock: 80 },
                     { id: 3, product_id: 1, name: 'Paquete de 30 Huevos', price: 95.00, image: '../img/eggs30.webp', stock: 50 },
                     { id: 4, product_id: 1, name: 'Caja de 320 Huevos', price: 980.00, image: '../img/eggs320.webp', stock: 20 }
