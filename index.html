@@ -16,61 +16,62 @@
 
   <body class="home">
     <!--NavBar-->
-      <div class="navbar-container sticky-top py-3">
-        <nav class="navbar navbar-expand-lg navbar-dark navbar-farm px-4">
-          <a class="navbar-brand fw-bold" href="index.html">El Truco</a>
+    <div class="navbar-container sticky-top py-3">
+      <nav class="navbar navbar-expand-lg navbar-dark navbar-farm px-4">
+        <a class="navbar-brand" href="index.html">
+            <img src="./img/LogoB.svg" alt="Logo de El Truco" class="navbar-logo">
+        </a>
 
-          <a href="#" class="navbar-icon ms-auto me-3 d-lg-none" aria-label="Ver carrito de compras">
-              <i class="bi bi-basket2-fill fs-5"></i>
-          </a>
+        <a href="#" class="navbar-icon ms-auto me-3 d-lg-none" aria-label="Ver carrito de compras">
+            <i class="bi bi-basket2-fill fs-5"></i>
+        </a>
 
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-            <span class="navbar-toggler-icon"></span>
-          </button>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav navbar-nav-absolute-centered">
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="index.html">Inicio</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="products.html">Catálogo</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="about.html">Acerca de Nosotros</a>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                Blog
+              </a>
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="recipes.html">Recetas</a></li>
+                <li><a class="dropdown-item" href="our-chickens.html">Nuestras Gallinas</a></li>
+              </ul>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="contact.html">Contacto</a>
+            </li>
+            <li class="nav-item d-lg-none">
+              <a class="nav-link" href="#">Usuario</a>
+            </li>
+          </ul>
           
-          <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav navbar-nav-absolute-centered">
-              <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="index.html">Inicio</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="products.html">Catálogo</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="about.html">Acerca de Nosotros</a>
-              </li>
-              <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                  Blog
-                </a>
-                <ul class="dropdown-menu">
-                  <li><a class="dropdown-item" href="recipes.html">Recetas</a></li>
-                  <li><a class="dropdown-item" href="#">Nuestras Gallinas</a></li>
-                </ul>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="contact.html">Contacto</a>
-              </li>
-              <li class="nav-item d-lg-none">
-                <a class="nav-link" href="#">Usuario</a>
-              </li>
-            </ul>
-            
-            <div class="d-none d-lg-flex align-items-center ms-auto">
-              <a href="login.html" class="me-3 navbar-icon" aria-label="Iniciar sesión">
-                <i class="bi bi-person-fill fs-5"></i>
-              </a>
-              <a href="#" class="navbar-icon" aria-label="Ver carrito de compras">
-                <i class="bi bi-basket2-fill fs-5"></i>
-              </a>
-            </div>
+          <div class="d-none d-lg-flex align-items-center ms-auto">
+            <a href="login.html" class="me-3 navbar-icon" aria-label="Iniciar sesión">
+              <i class="bi bi-person-fill fs-5"></i>
+            </a>
+            <a href="#" class="navbar-icon" aria-label="Ver carrito de compras">
+              <i class="bi bi-basket2-fill fs-5"></i>
+            </a>
           </div>
-        </nav>
-      </div>
-      <!--END NavBar-->
+        </div>
+      </nav>
+    </div>
+    <!--END NavBar-->
     <div class="bg-pattern-normal">
       
-
       <!-- Seccion Hero -->
       <section class="hero-section">
         <div class="carousel slide" data-bs-ride="carousel">
@@ -103,24 +104,22 @@
         </div>
       </section>
 
-  <!-- Seccion About farm -->
+      <!-- Seccion About farm -->
       <section class="aboutFarm-section aboutFarm-bg my-3" id="aboutFarm">
         <div class="container">
-        <div class="row justify-content-between" >
-          <div class="col-lg-4 col-md-4 align-items-center">
-            <h2 class="about-title">cuidamos la tierra, cuidamos tus alimentos</h2>
-            <p class="about-text"> En <strong>El truco</strong> creemos que los mejores huevos provienen de gallinas criadas al aire libre, alimentadas de forma natural y con mucho cuidado. 
-          Nuestras gallinas disfrutan del sol y el campo, lo que se traduce en yemas más naranjas y un sabor que se nota.
-        </p>
-        <a href="about.html" class="btn btn-verde">Conoce nuestra historia</a>
-      </div>
-      
-
-          <div class="col-lg-7 col-md-7 d-flex align-items-center">
-          <img src="img/aboutfarm-img.png" alt="" class="aboutFarm-img">
+          <div class="row justify-content-between" >
+            <div class="col-lg-4 col-md-4 align-items-center">
+              <h2 class="about-title">cuidamos la tierra, cuidamos tus alimentos</h2>
+              <p class="about-text"> En <strong>El truco</strong> creemos que los mejores huevos provienen de gallinas criadas al aire libre, alimentadas de forma natural y con mucho cuidado. 
+                Nuestras gallinas disfrutan del sol y el campo, lo que se traduce en yemas más naranjas y un sabor que se nota.
+              </p>
+              <a href="about.html" class="btn btn-verde">Conoce nuestra historia</a>
+            </div>
+            <div class="col-lg-7 col-md-7 d-flex align-items-center">
+              <img src="img/aboutfarm-img.png" alt="" class="aboutFarm-img">
+            </div>
+          </div>
         </div>
-        </div>
-  </div>
       </section>
       <!-- Seccion galeria -->
       <section class="container-fluid py-4" id="galeria">
@@ -153,7 +152,7 @@
                 </p>
                 <p class="card-price">$24.00 MXN</p>
                 <!-- <div class="button-container justify-content-around"> -->
-                  <a href="products/huevos-pack6.html" class="btn btn-brown mb-2">Ver más detalles</a>
+                  <a href="products/producto.html?id=1&variant=1" class="btn btn-brown mb-2">Ver más detalles</a>
                   <button class="btn btn-verde"> Agregar al carrito <i class="bi bi-basket2-fill fs-5"></i> </button>
                 <!-- </div> -->
               </div>
@@ -171,7 +170,7 @@
                 </p>
                 <p class="card-price" >$80.00 MXN</p>
                 <!-- <div class="button-container justify-content-around"> -->
-                  <a href="products/abono-1kg.html" class="btn btn-brown mb-2">Ver más detalles</a>
+                  <a href="products/producto.html?id=2" class="btn btn-brown mb-2">Ver más detalles</a>
                   <button class="btn btn-verde"> Agregar al carrito <i class="bi bi-basket2-fill fs-5"></i> </button>
                 <!-- </div> -->
               </div>
@@ -188,7 +187,7 @@
                 </p>
                 <p class="card-price">$40.00 MXN</p>
                 <!-- <div class="button-container justify-content-around"> -->
-                  <a href="products/huevos-pack12.html" class="btn btn-brown mb-2">Ver más detalles</a>
+                  <a href="products/producto.html?id=1&variant=2" class="btn btn-brown mb-2">Ver más detalles</a>
                   <button class="btn btn-verde"> Agregar al carrito <i class="bi bi-basket2-fill fs-5"></i> </button>
                 <!-- </div> -->
               </div>
@@ -201,22 +200,22 @@
       </section>
       <!--Fin catalago-->
 
-  <section id="reseñas" class="container my-5">
-    <div id="reviewCarousel" class="carousel slide" data-bs-ride="carousel">
-      <div class="carousel-inner text-center">
-        <div class="carousel-item active">
-          <h4 class="text-muted fst-italic">“Los huevos más frescos que he probado, se nota la calidad.”</h4>
-          <p>⭐⭐⭐⭐⭐</p>
-          <h5>- Ana López</h5>
+      <section id="reseñas" class="container my-5">
+        <div id="reviewCarousel" class="carousel slide" data-bs-ride="carousel">
+          <div class="carousel-inner text-center">
+            <div class="carousel-item active">
+              <h4 class="text-muted fst-italic">“Los huevos más frescos que he probado, se nota la calidad.”</h4>
+              <p>⭐⭐⭐⭐⭐</p>
+              <h5>- Ana López</h5>
+            </div>
+            <div class="carousel-item">
+              <h4 class="text-muted fst-italic">“El abono orgánico hizo maravillas con mis plantas.”</h4>
+              <p>⭐⭐⭐⭐⭐</p>
+              <h5>- Jorge Méndez</h5>
+            </div>
+          </div>
         </div>
-        <div class="carousel-item">
-          <h4 class="text-muted fst-italic">“El abono orgánico hizo maravillas con mis plantas.”</h4>
-          <p>⭐⭐⭐⭐⭐</p>
-          <h5>- Jorge Méndez</h5>
-        </div>
-      </div>
-    </div>
-  </section>
+      </section>
 
       <!-- FOOTER -->
       <footer class="footer mt-auto py-3 custom-footer">
@@ -234,22 +233,22 @@
               </div>
             </div>
 
-          <div class="col-md-2 mb-3">
-    <ul class="list-unstyled">
-      <li>
-        <a href="avisos.html#seccion-privacidad" class="text-decoration-none text-dark">Aviso de Privacidad</a>
-      </li>
-      <li>
-        <a href="avisos.html#seccion-devolucion" class="text-decoration-none text-dark">Políticas de Devolución</a>
-      </li>
-      <li>
-        <a href="avisos.html#seccion-terminos" class="text-decoration-none text-dark">Términos y Condiciones</a>
-      </li>
-      <li>
-        <a href="faqs.html" class="text-decoration-none text-dark">Preguntas Frecuentes</a>
-      </li>
-    </ul>
-  </div>
+            <div class="col-md-2 mb-3">
+              <ul class="list-unstyled">
+                <li>
+                  <a href="avisos.html#seccion-privacidad" class="text-decoration-none text-dark">Aviso de Privacidad</a>
+                </li>
+                <li>
+                  <a href="avisos.html#seccion-devolucion" class="text-decoration-none text-dark">Políticas de Devolución</a>
+                </li>
+                <li>
+                  <a href="avisos.html#seccion-terminos" class="text-decoration-none text-dark">Términos y Condiciones</a>
+                </li>
+                <li>
+                  <a href="faqs.html" class="text-decoration-none text-dark">Preguntas Frecuentes</a>
+                </li>
+              </ul>
+            </div>
 
             <div class="col-md-2 mb-2">
               <h6 class="fw-bold">¡Contáctanos!</h6>
@@ -280,8 +279,7 @@
       <script src="./js/main.js"></script>
       <!-- Items controller -->
        <script src="./js/itemsController.js"></script>
-      <script src="./js/index.js"></script>
-      
+
     </div>
   </body>
 </html>

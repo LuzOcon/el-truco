@@ -326,6 +326,8 @@ img {
 
 .product-container {
     margin-top: 50px;
+    font-size: large;
+    font-weight: 700;
 }
 .price {
     font-size: 1.5rem;
@@ -351,6 +353,38 @@ img {
   height: auto;
   max-width: 70px;
 
+}
+.variant-card {
+  border: 2px solid #f4d4b3;
+  border-radius: 10px;
+  padding: 10px;
+  width: 110px;
+  height: 160px;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  background-color: #fff9f4;
+  font-size: medium;
+}
+
+.variant-card:hover {
+  border-color: var(--btn-primary);
+  transform: translateY(-2px);
+}
+
+.variant-card.active {
+  border-color: var(--btn-primary);
+  background-color: #feba761a;
+}
+
+.variant-img {
+  width: 100%;
+  height: auto;
+  min-height: 90px;
+  max-width: 100px;
+  object-fit: cover;
+  margin-bottom: 5px;
+  border-radius: 5px;
 }
 /* END PRODUCT VIEW */
 
@@ -414,6 +448,16 @@ img {
 }
 /* RECETAS FIN */
 
+/* Nuestras gallinas */
+.shadow-top-right {
+    box-shadow: 16px -16px 0 var(--text-color-alt); 
+}
+.shadow-top-left {
+    box-shadow: -16px -16px 0 var(--text-color-alt); 
+}
+/* Nuestras gallinas */
+
+
 /* NavBar */
 /* Define el ancho, centrado y la animación de transición. */ 
 .navbar-container {
@@ -454,6 +498,11 @@ img {
 }
 .navbar-icon:hover{
   color: var(--black-color);
+}
+
+.navbar-logo {
+  height: 40px;
+  width: auto;
 }
 
 /* Estilos para el menú desplegable del navbar (Blog) */

@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>El Truco | Huevos Orgánicos</title>
+  <title>El Truco | Productos Orgánicos</title>
   <!-- FAVICON -->
   <link rel="icon" href="../img/favicon.ico" type="image/x-icon">
   <!-- Bootstrap CSS -->
@@ -13,15 +13,21 @@
   <!-- Styles CSS -->
   <link rel="stylesheet" href="../css/style.css" />
 </head>
-<body>
+<body class="bg-pattern-normal">
   <!--NavBar-->
   <div class="navbar-container sticky-top py-3">
     <nav class="navbar navbar-expand-lg navbar-dark navbar-farm px-4">
-      <a class="navbar-brand fw-bold" href="../index.html">El Truco</a>
+      <a class="navbar-brand" href="index.html">
+          <img src="../../img/LogoB.svg" alt="Logo de El Truco" class="navbar-logo">
+        </a>
 
       <a href="#" class="navbar-icon ms-auto me-3 d-lg-none" aria-label="Ver carrito de compras">
           <i class="bi bi-basket2-fill fs-5"></i>
       </a>
+
+      <a href="#" class="navbar-icon ms-auto me-3 d-lg-none" aria-label="Ver carrito de compras">
+          <i class="bi bi-basket2-fill fs-5"></i>
+        </a>
 
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
         <span class="navbar-toggler-icon"></span>
@@ -33,7 +39,8 @@
             <a class="nav-link" href="../index.html">Inicio</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="../index.html#galeria">Catálogo</a>
+              <a class="nav-link active" aria-current="page" href="../products.html">Catálogo</a>
+            </li>
           </li>
           <li class="nav-item"> 
             <a class="nav-link" href="../about.html">Acerca de Nosotros</a>
@@ -104,43 +111,29 @@
             <li>Naturales y nutritivos: sin químicos innecesarios.</li>
             <li>Empaque seguro y resistente para que lleguen intactos.</li>
         </ul>
-        <p> <strong>Recomendación:</strong> Consúmelos en un plazo de 10-14 días para aprovechar al máximo su frescura.</p>
-
         <!-- VARIANTES -->
         <div class="mb-3">
           <h5 class="fw-bold mb-3">Presentaciones disponibles</h5>
           <div class="d-flex flex-wrap gap-3" id="variantList">
-            <div class="variant-card" data-name="Paquete de 6 Huevos Frescos" data-price="24.00" data-img="../img/six-eggs2.webp">
-              <img src="../img/sixeggs.webp" alt="6 huevos" class="variant-img">
-              <p>6 piezas</p>
-            </div>
-
-            <div class="variant-card" data-name="Paquete de 12 Huevos Frescos" data-price="40.00" data-img="../img/eggs12.webp">
-              <img src="../img/eggs12.webp" alt="12 huevos" class="variant-img">
-              <p>12 piezas</p>
-            </div>
-
-            <div class="variant-card" data-name="Paquete de 30 Huevos Frescos" data-price="95.00" data-img="../img/eggs30.webp">
-              <img src="../img/eggs30.webp" alt="30 huevos" class="variant-img">
-              <p>30 piezas</p>
-            </div>
-
-            <div class="variant-card" data-name="Paquete de 320 Huevos (Caja)" data-price="980.00" data-img="../img/eggs320.webp">
-              <img src="../img/eggs320.webp" alt="Caja de 320 huevos" class="variant-img">
-              <p>320 piezas</p>
-            </div>
-          </div>
+            <!-- Variantes cargadas con js -->
         </div>
 
         
-        <div class="mb-3">
-          <label for="quantity" class="form-label">Cantidad:</label>
-          <input type="number" id="quantity" class="form-control w-25" value="1" min="1" max="10">
+        <div class="mt-3">
+          <div class="row justify-content-between align-items-center">
+            <label for="quantity" class="form-label">Cantidad:</label>
+            <div class="col-md-6">
+              <input type="number" id="quantity" class="form-control w-50" value="1" min="1" max="10">
+            </div>
+            <div class="col-md-6">
+              <button class="btn btn-verde add-to-cart"> Agregar al carrito <i class="bi bi-basket2-fill fs-5"></i> </button>              
+            </div>
+          </div>
         </div>
-        <button class="btn btn-verde"> Agregar al carrito <i class="bi bi-basket2-fill fs-5"></i> </button>
       </div>
     </div>
   </div>
+   </div>
   <!-- END PRODUCT VIEW -->
 
 
