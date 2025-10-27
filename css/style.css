@@ -156,7 +156,7 @@ img {
 .hero-btn {
   background-color: #F89B61;
   border: none;
-  color: white;
+  color: var(--white-color);
   padding: 12px 28px;
   font-size: 1rem;
   border-radius: 25px;
@@ -311,7 +311,7 @@ img {
 }
 
 .footer-icons i:hover {
-  color: #EE684C;
+  color: var(--text-highlight-alt);
 }
 
 /* END FOOTER */
@@ -390,8 +390,8 @@ img {
 
 /* Botones FAQs */
 .btn-faq {
-  background-color: #EE684C;
-  color: white;
+  background-color: var(--text-highlight-alt);
+  color: var(--white-color);
   border: none;
   padding: 12px 30px;
   border-radius: 8px;
@@ -401,8 +401,8 @@ img {
 }
 
 .btn-faq:hover {
-  background-color: #EB4A3F;
-  color: white;
+  background-color: var(--text-highlight);
+  color: var(--white-color);
   transform: translateY(-2px);
   box-shadow: 0 4px 12px rgba(238, 104, 76, 0.4);
 }
@@ -421,7 +421,7 @@ img {
 .btn-outline-faq:hover {
   background-color: #9db175;
   border-color: #9db175;
-  color: white;
+  color: var(--white-color);
   transform: translateY(-2px);
 }
 /* END FAQs */
@@ -434,26 +434,18 @@ img {
   color: var(--black-color);
 }
 
-.recipe-card-button {
-  border: none;
-  background-color: var(--btn-secondary);
-  transition: all 0.3s ease;
-  color: var(--black-color);
-}
-
-.recipe-card-button:hover {
-  background-color: #adbc8f;
-  transform: scale(1.02);
-  color: var(--white-color);
+.rendering-error-message {
+  letter-spacing: 2px;
+  color: var(--text-highlight);
 }
 /* RECETAS FIN */
 
 /* Nuestras gallinas */
 .shadow-top-right {
-    box-shadow: 16px -16px 0 var(--text-color-alt); 
+  box-shadow: 16px -16px 0 var(--text-color-alt); 
 }
 .shadow-top-left {
-    box-shadow: -16px -16px 0 var(--text-color-alt); 
+  box-shadow: -16px -16px 0 var(--text-color-alt); 
 }
 /* Nuestras gallinas */
 
@@ -476,7 +468,7 @@ img {
 .navbar-farm {
   background-color: var(--navbar-color);
   border-radius: 7px;
-  box-shadow:  6px 6px 0px #53573C;
+  box-shadow:  6px 6px 0px hsl(from var(--navbar-color) h s calc(l - 15));
   
   /* Sobrescribe las variables de Bootstrap para el color del texto */
   --bs-navbar-color: var(--color-bg); 
@@ -489,7 +481,7 @@ img {
 }
 
 .navbar-farm .navbar-nav .nav-link:hover {
-  background-color: #53573C;
+  background-color: hsl(from var(--navbar-color) h s calc(l - 8));
 }
 
 /* Estilos para los iconos del navbar */
@@ -516,7 +508,7 @@ img {
 }
 /* Estilo al pasar el mouse sobre un elemento del dropdown */
 .navbar-farm .dropdown-item:hover {
-  background-color: #53573C;
+  background-color: hsl(from var(--navbar-color) h s calc(l - 8));
   color: var(--black-color);
 }
 
@@ -597,13 +589,13 @@ width: 95%;
 .accordion-body p {
   line-height: 1.7;
   text-align: justify;
-  color: #000;
+  color: var(--black-color);
 }
 
 /* Botones - Simplificados y unificados */
 .btn-avisos {
   background-color: var(--text-highlight-alt);  /* Usa tu variable */
-  color: white;
+  color: var(--white-color);
   border: none;
   padding: 12px 28px;  /* Igual que hero-btn */
   border-radius: 25px;  /* Más redondeado como hero-btn */
@@ -612,8 +604,8 @@ width: 95%;
 }
 
 .btn-avisos:hover {
-  background-color: #EB4A3F;
-  color: white;
+  background-color: var(--text-highlight);
+  color: var(--white-color);
 }
 
 .btn-outline-avisos {
@@ -629,16 +621,16 @@ width: 95%;
 .btn-outline-avisos:hover {
   background-color: #9db175;
   border-color: #9db175;
-  color: white;
+  color: var(--white-color);
 }
 .btn-brown{
     background-color: #84624a;  
-    color: white;
+    color: var(--white-color);
     transition: all 0.3s ease;
 }
 .btn-brown:hover {
   background-color: #5a402e; 
-  color: white;
+  color: var(--white-color);
 }
 .btn-dark {
   background-color: #000;   
@@ -653,7 +645,7 @@ width: 95%;
 }
 
 .btn-outline-avisos {
-  border: 2px solid var(--btn-secondary);  /* Usa tu verde */
+  border: 2px solid var(--btn-secondary);
   color: var(--btn-secondary);
   background-color: transparent;
   padding: 12px 28px;
@@ -665,14 +657,14 @@ width: 95%;
 .btn-outline-avisos:hover {
   background-color: var(--btn-secondary);
   border-color: var(--btn-secondary);
-  color: white;
+  color: var(--white-color);
   transform: translateY(-2px);
 }
 
 /* Los botones brown, dark y verde ya existen, solo ajustar */
 .btn-brown {
   background-color: #84624a;  
-  color: white;
+  color: var(--white-color);
   padding: 12px 28px;
   border-radius: 25px;
   transition: all 0.3s ease;
@@ -685,17 +677,17 @@ width: 95%;
 
 .btn-verde {
   background-color: var(--btn-secondary);   
-  color: white;
+  color: var(--white-color);
   padding: 12px 28px;
   border-radius: 25px;
   transition: all 0.3s ease;
 }
 
 .btn-verde:hover {
-  background-color: #384520;
+  background-color: lch(from var(--btn-secondary) calc(l - 10) c h);
+  color: var(--white-color);
   transform: translateY(-2px);
 }
-
 
 /* =================================== */
 /* AVISOS LEGALES STYLES END */

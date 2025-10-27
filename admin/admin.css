@@ -1,0 +1,107 @@
+:root {
+  /* Colores */
+  --black-color: #000000;
+  --white-color: #ffffff;
+
+  --color-bg: #ebe3d8;
+  --color-bg-alt: #f8e1c7;
+
+  --color-card-1: #e6cdb6;
+  --color-card-2: #ffd1b3;
+  --color-card-3: #f7b58a;
+
+  --text-color-alt: #a67856;
+  --text-highlight: #eb4a3f;
+  --text-highlight-alt: #ee684c;
+
+  --btn-primary: #ff9b73;
+  --btn-secondary: #779047;
+
+  --shadow-card: 0 4px 12px rgba(0, 0, 0, 0.1);
+
+  --navbar-color: #8c8d8b;
+}
+
+.navbar-farm {
+  --bs-navbar-color: var(--white-color); 
+}
+
+.navbar-icon{
+  color: var(--white-color);
+}
+
+.admin-recipe-thumbnail {
+  width: 70px;
+  height: 50px;
+  object-fit: cover;
+  border-radius: 0.25rem;
+}
+
+.img-preview-trigger {
+  cursor: pointer;
+  transition: opacity 0.2s ease-in-out;
+}
+
+.img-preview-trigger:hover {
+  opacity: 0.8;
+}
+
+@media (max-width: 767.98px) {
+
+    .btn-verde {
+        padding: 8px 16px;
+        font-size: 0.9rem;
+    }
+    
+    .table-responsive thead {
+        display: none;
+    }
+
+    .table-responsive tr {
+        display: block;
+        width: 100%;
+        margin-bottom: 1.5rem;
+        border: 1px solid var(--bs-border-color-translucent);
+        border-radius: var(--bs-border-radius);
+        box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
+    }
+
+    .table-responsive td {
+        display: block;
+        width: 100%;
+        text-align: left;
+        border: none;
+        padding-top: 0.75rem;
+        padding-bottom: 0.75rem;
+    }
+    
+    .table-responsive td:last-child {
+        border-bottom: none;
+    }
+
+    .table-responsive td[data-label]::before {
+        content: attr(data-label); 
+        display: block;
+        font-weight: 600; 
+        margin-bottom: 0.25rem;
+        font-size: 0.8rem; 
+        text-transform: uppercase;
+        color: var(--bs-gray-600);
+    }
+
+    .table-responsive td.text-end {
+        text-align: left !important;
+    }
+
+    .table-responsive td[data-label="Imagen"]::before {
+        display: none;
+    }
+
+    .table-responsive .admin-recipe-thumbnail {
+        width: 100%;
+        height: 150px;
+        object-fit: cover;
+        border-radius: var(--bs-border-radius) var(--bs-border-radius) 0 0;
+        margin-bottom: 0.5rem;
+    }
+}

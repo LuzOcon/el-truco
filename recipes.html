@@ -13,7 +13,7 @@
     <!-- Styles CSS -->
     <link rel="stylesheet" href="./css/style.css" />
   </head>
-  <body class="bg-pattern-normal">
+  <body>
     <!--NavBar-->
     <div class="navbar-container sticky-top py-3">
       <nav class="navbar navbar-expand-lg navbar-dark navbar-farm px-4">
@@ -71,7 +71,7 @@
     <!--END NavBar-->
 
     <!-- Sección de Recetas -->
-    <div class="container">
+    <div class="container bg-pattern-normal">
       <header class="text-center py-5">
         <h1>Nuestras Recetas Orgánicas</h1>
       </header>
@@ -81,12 +81,6 @@
           <label for="categoryFilter" class="form-label visually-hidden">Filtrar por Categoría:</label>
           <select class="form-select" id="categoryFilter" aria-label="Filtrar Recetas por Categoría">
             <option value="all">Todas</option>
-            <option value="breakfast">Desayuno</option>
-            <option value="lunch">Almuerzo</option>
-            <option value="dinner">Cena</option>
-            <option value="dessert">Postre</option>
-            <option value="dip">Salsas / Aderesos</option>
-            <option value="drink">Bebida</option>
           </select>
         </div>
       </div>
@@ -97,8 +91,6 @@
       
     </div>
     <!-- Sección de Recetas Fin -->
-
-    
 
     <!-- FOOTER -->
     <footer class="footer mt-auto py-3 custom-footer">
@@ -160,9 +152,9 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
     
     <!-- Main JS & Recipes JS -->
-    <script src="js/itemsController.js"></script>
+    <script type="module" src="./js/api.js"></script>
+    <script type="module" src="./js/recipes.js"></script>
     <script src="./js/main.js"></script>
-    <script src="./js/recipes.js"></script>
 
   </body>
 </html>
