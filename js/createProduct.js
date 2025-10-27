@@ -4,7 +4,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const addVariantBtn = document.getElementById("addVariantBtn");
   let variantCount = 0;
 
-  // ➕ Agregar una nueva variante
+  // Agregar una nueva variante
   addVariantBtn.addEventListener("click", () => {
     variantCount++;
     const variantHTML = `
