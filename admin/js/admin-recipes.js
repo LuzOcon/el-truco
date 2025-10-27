@@ -42,15 +42,23 @@ document.addEventListener('DOMContentLoaded', () => {
   };
 
   const checkSuccessNotification = () => {
-    // Busca el mensaje guardado desde la página de creación
-    const successMessage = sessionStorage.getItem('showSuccessNotification');
+    // Busca el objeto de notificación
+    const notificationString = sessionStorage.getItem('showNotification');
     
-    if (successMessage) {
-      // Si existe lo mostramos al usuario
-      showNotification(successMessage, 'success');
-      
-      // Se borra para que no aparezca cada vez que se recargue la página
-      sessionStorage.removeItem('showSuccessNotification');
+    if (notificationString) {
+      try {
+
+        const notification = JSON.parse(notificationString);
+        
+        // Muestra la notificación con el mensaje Y el TIPO correctos
+        showNotification(notification.message, notification.type);
+        
+        // Se remueve de sesión storage así no aparece al recargar
+        sessionStorage.removeItem('showNotification');
+      } catch (e) {
+        console.error('Error al parsear la notificación:', e);
+        sessionStorage.removeItem('showNotification');
+      }
     }
   };
 

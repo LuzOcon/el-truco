@@ -101,9 +101,13 @@ document.addEventListener('DOMContentLoaded', () => {
     submitButton.disabled = true;
     submitButton.textContent = 'Guardando...';
 
+    let savedRecipe;
+    let recipeData;
+
     try {
+      // Creamos la receta
       const formData = new FormData(recipeForm);
-      const recipeData = {
+      recipeData = {
         name: formData.get('name'),
         shortDescription: formData.get('shortDescription'),
         fullDescription: formData.get('fullDescription'),
@@ -111,12 +115,10 @@ document.addEventListener('DOMContentLoaded', () => {
         ingredients: [],
         steps: []
       };
-
       const ingredientInputs = recipeForm.querySelectorAll('[name="ingredientText"]');
       recipeData.ingredients = Array.from(ingredientInputs)
         .map(input => ({ ingredientText: input.value }))
         .filter(item => item.ingredientText.trim() !== '');
-
       const stepInputs = recipeForm.querySelectorAll('[name="instruction"]');
       recipeData.steps = Array.from(stepInputs)
         .map((input, index) => ({
@@ -124,33 +126,62 @@ document.addEventListener('DOMContentLoaded', () => {
           instruction: input.value
         }))
         .filter(item => item.instruction.trim() !== '');
+      
+      savedRecipe = await createRecipe(recipeData);
 
-      jsonOutput.querySelector('code').textContent = JSON.stringify(recipeData, null, 2);
+    } catch (createError) {
+      // Si la receta no se pudo crear, nos quedamos y mostramos error
+      console.error('Error al crear la receta:', createError);
 
-      const savedRecipe = await createRecipe(recipeData);
-      console.log('Éxito JSON. Receta creada con ID:', savedRecipe.id);
+      let userMessage = createError.message;
 
-      const imageToUpload = imageFile.files[0];
-      if (imageToUpload) {
-        console.log(`Enviando imagen para la receta ID: ${savedRecipe.id}`);
+      if (userMessage.includes('Duplicate entry') && userMessage.includes('recipes.UK2yg91gejn5gopghwqbh5k25fp')) {
+        userMessage = 'Ya existe una receta con este nombre. Por favor, elige un nombre diferente.';
+      }
+
+      // Mostramos el mensaje (traducido o no)
+      showNotification(`Hubo un error al guardar la receta: ${userMessage}`, 'danger');
+      recipeForm.classList.remove('was-validated');
+      submitButton.disabled = false;
+      submitButton.textContent = 'Guardar Receta';
+      return;
+    }
+
+    // Cuando la receta se crea, se intenta subir la imagen
+    const recipeName = recipeData.name;
+    const imageToUpload = imageFile.files[0];
+    
+    if (imageToUpload) {
+      try {
         const imageFormData = new FormData();
         imageFormData.append('image', imageToUpload); 
         await uploadRecipeImage(savedRecipe.id, imageFormData);
-        console.log('Éxito Imagen. Receta actualizada.');
+        
+        // Receta e imagen se guardaron correctamente
+        const notification = { 
+          type: 'success', 
+          message: `¡La receta "${recipeName}" se guardó exitosamente!` 
+        };
+        sessionStorage.setItem('showNotification', JSON.stringify(notification));
+        
+      } catch (imageError) {
+        // Solo se guardó la receta
+        console.error('Error al subir la imagen:', imageError);
+        const notification = { 
+          type: 'warning', 
+          message: `La receta "${recipeName}" se creó, pero la imagen no subió: ${imageError.message}` 
+        };
+        sessionStorage.setItem('showNotification', JSON.stringify(notification));
       }
-
-      sessionStorage.setItem('showSuccessNotification', '¡Receta guardada exitosamente!');
-      window.location.href = 'admin-recipes.html';
-      
-    } catch (error) {
-      console.error('Error en el proceso de envío:', error);
-      showNotification(`Hubo un error: ${error.message}`, 'danger');
-      recipeForm.classList.remove('was-validated');
     
-    } finally {
-      submitButton.disabled = false;
-      submitButton.textContent = 'Guardar Receta';
+    } else {
+      // Notificamos que la receta se guardó pero la imagen no
+      const notification = { type: 'success', message: '¡Receta guardada exitosamente!' };
+      sessionStorage.setItem('showNotification', JSON.stringify(notification));
     }
+
+    // Si se creó la receta (con o sin imagen) se redirige a la tabla de recetas
+    window.location.href = 'admin-recipes.html';
   });
 
   recipeForm.addEventListener('input', () => {

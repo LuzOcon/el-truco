@@ -7,14 +7,35 @@ function getJsonHeaders() {
 }
 
 async function handleApiError(response) {
-    let errorMsg = 'Error desconocido de la API';
+  // Traducimos los códigos de estado HTTP a mensajes de usuario
+  if (response.status === 413) {
+    throw new Error('La imagen es demasiado grande. Intenta con una más pequeña.');
+  }
+  if (response.status === 400) {
+    const errorText = await response.text(); 
+    
     try {
-        const errorData = await response.json();
-        errorMsg = errorData.message || errorData.error || response.statusText;
+      const errorData = JSON.parse(errorText);
+      throw new Error(errorData.message || 'Error en los datos enviados.');
     } catch (e) {
-        errorMsg = response.statusText;
+      throw new Error(errorText);
     }
-    throw new Error(errorMsg);
+  }
+  if (response.status === 404) {
+    throw new Error('No se encontró el recurso en el servidor (404).');
+  }
+  if (response.status === 500) {
+    throw new Error('Error interno del servidor (500).');
+  }
+
+  // Error genérico si no es uno de los anteriores
+  try {
+    const errorData = await response.json();
+    throw new Error(errorData.message || response.statusText);
+  } catch (e) {
+    // Si el 'fetch' falla por completo (CORS, red caída), entra aquí.
+    throw new Error('Error de red o conexión. Revisa la consola.');
+  }
 }
 
 // Petición GET para obtener TODAS las recetas
@@ -22,7 +43,7 @@ export async function getAllRecipes() {
     const response = await fetch(`${BASE_URL}/recipes`);
     
     if (!response.ok) {
-        await handleApiError(response);
+        throw await handleApiError(response);
     }
     return response.json();
 }
@@ -36,20 +57,40 @@ export async function createRecipe(recipeData) {
     });
     
     if (!response.ok) {
-        await handleApiError(response);
+        throw await handleApiError(response);
     }
     return response.json();
 }
 
 // Petición POST para subir la imagen (envía FormData)
 export async function uploadRecipeImage(recipeId, imageFormData) {
+    try {
     const response = await fetch(`${BASE_URL}/recipes/${recipeId}/upload-image`, {
         method: 'POST',
         body: imageFormData
     });
     
     if (!response.ok) {
-        await handleApiError(response);
+        throw await handleApiError(response);
+    }
+    return response.json();
+
+  } catch (error) {
+    
+    if (error.message.includes('Failed to fetch')) {
+      throw new Error('La imagen es demasiado grande.');
+    }
+    
+    throw error;
+  }
+}
+
+// Petición GET para obtener una receta por su ID
+export async function getRecipeById(recipeId) {
+    const response = await fetch(`${BASE_URL}/recipes/admin/${recipeId}`);
+    
+    if (!response.ok) {
+        throw await handleApiError(response);
     }
     return response.json();
 }
@@ -63,7 +104,7 @@ export async function updateRecipe(recipeId, recipeData) {
     });
     
     if (!response.ok) {
-        await handleApiError(response);
+        throw await handleApiError(response);
     }
     return response.json();
 }
@@ -75,7 +116,7 @@ export async function deleteRecipe(recipeId) {
     });
 
     if (!response.ok) {
-        await handleApiError(response);
+        throw await handleApiError(response);
     }
     return { success: true }; 
 }
