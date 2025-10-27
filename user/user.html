@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>El Truco | Mi perfil</title>
+  <link rel="icon" href="../img/favicon.ico" type="image/x-icon" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.css" />
+  <link rel="stylesheet" href="../css/style.css" />
+</head>
+
+<body class="bg-pattern-normal">
+
+      <!--NavBar-->
+    <div class="navbar-container sticky-top py-3">
+      <nav class="navbar navbar-expand-lg navbar-dark navbar-farm px-4">
+        <a class="navbar-brand" href="index.html">
+            <img src="../img/LogoB.svg" alt="Logo de El Truco" class="navbar-logo">
+        </a>
+
+        <a href="#" class="navbar-icon ms-auto me-3 d-lg-none" aria-label="Ver carrito de compras">
+            <i class="bi bi-basket2-fill fs-5"></i>
+        </a>
+
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav navbar-nav-absolute-centered">
+            <li class="nav-item">
+              <a class="nav-link" href="../index.html">Inicio</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="../products.html">Catálogo</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="../about.html">Acerca de Nosotros</a>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                Blog
+              </a>
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="../recipes.html">Recetas</a></li>
+                <li><a class="dropdown-item" href="../our-chickens.html">Nuestras Gallinas</a></li>
+              </ul>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="../contact.html">Contacto</a>
+            </li>
+            <li class="nav-item d-lg-none">
+              <a class="nav-link" href="#">Usuario</a>
+            </li>
+          </ul>
+          
+          <div class="d-none d-lg-flex align-items-center ms-auto">
+            <a href="../login.html" class="me-3 navbar-icon" aria-label="Iniciar sesión">
+              <i class="bi bi-person-fill fs-5"></i>
+            </a>
+            <a href="#" class="navbar-icon" aria-label="Ver carrito de compras">
+              <i class="bi bi-basket2-fill fs-5"></i>
+            </a>
+          </div>
+        </div>
+      </nav>
+    </div>
+    <!--END NavBar-->
+
+  <!-- PERFIL -->
+   <div class="container my-4">
+    <h1 class="text-center mb-4">Mi perfil</h1>
+    <ul class="nav nav-tabs justify-content-center">
+      <li class="nav-item" >
+        <button class="nav-link active fw-bold text-dark " data-bs-toggle="tab" data-bs-target="#info" type="button">Información Personal</button>
+      </li>
+      <li class="nav-item">
+        <button class="nav-link fw-bold text-dark" data-bs-toggle="tab" data-bs-target="#pedidos" type="button"> Historial de Pedidos</button>
+      </li>
+      <li class="nav-item">
+        <button class="nav-link fw-bold text-dark" data-bs-toggle="tab" data-bs-target="#facturas" type="button" role="tab">Facturación</button>
+      </li>
+    </ul>
+
+    <div class="tab-content mt-4">
+        
+      <!--Información personal -->
+      <div class="tab-pane show active" id="info">
+        <div class="card bg-user">
+            <div id="divAlert"></div>
+          <div class="d-flex justify-content-between align-items-center mb-3">
+            <h4>¡Hola, <span id="userName">User</span>!</h4>
+            <button class="btn btn-outline-dark btn-sm" id="editProfileBtn">
+              Editar <i class="bi bi-pencil-square"></i>
+            </button>
+          </div>
+
+          <form id="userForm" class="row g-3">
+            <div class="col-md-6">
+              <label class="form-label">Nombre completo</label>
+              <input type="text" class="form-control" id="fullName" value="Ej. Nombre Completo" disabled>
+            </div>
+            <div class="col-md-6">
+              <label class="form-label">Correo electrónico</label>
+              <input type="email" class="form-control" id="email" value="Ej. nombre@correo.com" disabled>
+            </div>
+            <div class="col-md-6">
+              <label class="form-label">Teléfono</label>
+              <input type="tel" class="form-control" id="phone" value="Ej. 1234567890" disabled>
+            </div>
+
+            <h5 class="mt-4">Dirección</h5>
+            <div class="col-md-6"><input type="text" class="form-control" id="address" placeholder="Calle y número" disabled></div>
+            <div class="col-md-6"><input type="text" class="form-control" id="colony" placeholder="Colonia" disabled></div>
+            <div class="col-md-6"><input type="text" class="form-control" id="city" placeholder="Ciudad" disabled></div>
+            <div class="col-md-6"><input type="text" class="form-control" id="state" placeholder="Estado" disabled></div>
+            <div class="col-md-6"><input type="text" class="form-control" id="postalCode" placeholder="Código Postal" disabled></div>
+
+            <div class="text-end mt-3">
+              <button type="button" class="btn btn-success" id="saveChangesBtn" style="display:none;">Guardar Cambios</button>
+            </div>
+          </form>
+        </div>
+      </div>
+
+      <!--Historial de pedidos -->
+      <div class="tab-pane" id="pedidos">
+        <div class="bg-user">
+          <h4>Historial de pedidos</h4>
+          <div id="orderList" class="mt-3 text-center text-muted">
+            No hay pedidos aún.
+          </div>
+        </div>
+      </div>
+
+      <!-- Facturación -->
+      <div class="tab-pane" id="facturas">
+        <div class="bg-user">
+          <h4>Datos de facturación</h4>
+          <form id="billingForm" class="row g-3 mt-3">
+            <div class="col-md-6">
+                <label class="form-label">RFC</label>
+                <input type="text" class="form-control" placeholder="Ej. ABCD123456XXX">
+            </div>
+            <div class="col-md-6">
+                <label class="form-label">Razón Social</label>
+                <input type="text" class="form-control" placeholder="Ej. El Truco S.A. de C.V.">
+            </div>
+            <div class="col-md-6">
+                <label class="form-label">Correo Electrónico</label>
+                <input type="text" class="form-control" placeholder="Ej. correo@email.com">
+            </div>
+            <div class="col-md-6">
+                <label class="form-label">Código Postal</label>
+                <input type="text" class="form-control" placeholder="Ej. 99999">
+            </div>
+            <div class="col-md-6">
+                <label class="form-label">Régimen Fiscal</label>
+                <input type="text" class="form-control" placeholder="Ej. Persona Física">
+            </div>
+            <div class="col-md-6">
+                <label class="form-label">Uso del CFDI</label>
+                <input type="text" class="form-control" placeholder="Ej. G01">
+            </div>
+            
+            <div class="text-end mt-3">
+              <button class="btn btn-verde">Guardar Datos</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+        <!-- FOOTER -->
+      <footer class="footer mt-auto py-3 custom-footer">
+        <div class="container">
+          <div class="row align-items-start">
+            
+            <div class="col-md-4 mb-3">
+              <h5 class="fw-bold">El truco. </h5>
+              <p> Producimos con dedicación y respeto por la naturaleza. Huevos frescos, de calidad y libres de químicos, directo de nuestra granja a tu mesa.</p>
+              <div class="d-flex gap-3 footer-icons">
+                <a href="#"><i class="bi bi-facebook fs-4"></i></a>
+                <a href="#"><i class="bi bi-twitter-x fs-4"></i></a>
+                <a href="#"><i class="bi bi-instagram fs-4"></i></a>
+                <a href="#"><i class="bi bi-whatsapp fs-4"></i></a>
+              </div>
+            </div>
+
+            <div class="col-md-2 mb-3">
+              <ul class="list-unstyled">
+                <li>
+                  <a href="avisos.html#seccion-privacidad" class="text-decoration-none text-dark">Aviso de Privacidad</a>
+                </li>
+                <li>
+                  <a href="avisos.html#seccion-devolucion" class="text-decoration-none text-dark">Políticas de Devolución</a>
+                </li>
+                <li>
+                  <a href="avisos.html#seccion-terminos" class="text-decoration-none text-dark">Términos y Condiciones</a>
+                </li>
+                <li>
+                  <a href="faqs.html" class="text-decoration-none text-dark">Preguntas Frecuentes</a>
+                </li>
+              </ul>
+            </div>
+
+            <div class="col-md-2 mb-2">
+              <h6 class="fw-bold">¡Contáctanos!</h6>
+              <p class="mb-0">01-800-MarketMind</p>
+              <p class="mb-0 text-wrap"><a href="mailto:correo@marketmind.com" class="text-dark text-decoration-none text-break">correo@marketmind.com</a></p>
+              <p class="mb-0">123 Avícola Oriental<br>Ciudad de México,<br>MX 051200</p>
+            </div>
+
+            <div class="col-md-4 mb-3">
+              <form class="input-group mb-2">
+                <input type="email" class="form-control" placeholder="Correo Electrónico">
+                <button class="btn btn-dark" type="submit">Suscríbete</button>
+              </form>
+              <p>Suscríbete a nuestra página y en tu primera compra recibirás hasta un 25% de descuento, además de promociones exclusivas.  </p>
+            </div>
+            <hr>
+          </div>
+          <div class="text-center pb-3">
+            <small>Copyright © 2025. Todos los derechos reservados.</small>
+            <br>
+            <small>Desarrollado por <a href="https://luzocon.github.io/MarketMinds/" target="_blank" class="text-dark fw-bold text-decoration-none">MarketMinds</a></small>
+          </div>
+        </div>
+      </footer>
+      <!-- END FOOTER -->
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="userController.js"></script>
+</body>
+</html>

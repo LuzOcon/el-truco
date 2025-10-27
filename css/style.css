@@ -906,6 +906,23 @@ transition-delay: .6s;
 }
 
 
+/* INICIO USER*/
+.bg-user{
+  background-color: var(--color-bg-alt);
+  padding: 30px;
+  border-radius: 15px;
+  border: transparent;
+}
+
+.user-info-form{
+  background-color:#fbf7f376;
+  padding: 6px;
+  border-radius: 5px;
+  padding-left: 10px;
+}
+
+/* FIN USER */
+
 /* Diseño responsivo */
 
 /* Tablets (pantallas medianas) */
