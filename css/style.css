@@ -42,7 +42,7 @@
 h2 {
   font-family: var(--font-h2-h3);
   font-size: var(--h2-size);
-  color: #5e684e;
+  color: #384520;
 }
 
 .text-left {
@@ -261,27 +261,74 @@ img {
 
 /* FIN INDEX */
 
-/* =================================== */
-/* FORMATOS IMAGENES */
-/* =================================== */
-
-
+/* ABOUT US */
+.about-body{
+  font-size: 1.2rem;
+}
 /* Formato imágenes About Us */
 .imagen-columna-ajustada {
-  height: 90%;       
+  height: 100%;       
   width: auto;         
   object-fit: cover;   /* mantiene proporciones recortando si es necesario */
   border-radius: 15px;
-  box-shadow: -16px -16px 0 #8c4731;
+  box-shadow: -16px -16px 0 #667d3c;
 }
-
-/* Formato imagenes banner About US */
-.imagen-ajustada {
-  max-height: 210px;
-  width: 100%;         /* ocupa todo el ancho disponible */
+.imagen-columna-ajustada-der {
+  height: 100%;       
+  width: auto;         
   object-fit: cover;   /* mantiene proporciones recortando si es necesario */
   border-radius: 15px;
-  box-shadow: 12px 12px 0 #8c4731;
+  box-shadow: 16px 16px 0 var(--text-highlight-alt);
+}
+
+.valores-section {
+  background: #ff9b734e;
+  padding: 80px 0;
+  margin: 80px 0;
+  overflow: hidden;
+}
+.about-strong {
+  font-family: 'Bowlby One', sans-serif;
+  font-size: var(--h3-size);
+  color: #ee684c;
+}
+.about-strong-alt {
+  font-family: 'Bowlby One', sans-serif;
+  font-size: var(--h3-size);
+  color: #596e34;
+}
+.mision-section {
+  background: #ff9b734e;
+  padding: 80px 0;
+  margin: 80px 0;
+  overflow: hidden;
+}
+
+.valores-section h2, .mision-section h2 {
+  color: rgb(209, 88, 58);
+  margin-bottom: 50px;
+}
+      
+.valor-item {
+  background: rgb(253, 247, 237);
+  border-radius: 15px;
+  padding: 30px;
+  margin-bottom: 20px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+  height: 100%;
+}
+      
+.valor-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+}
+
+.valor-item h5 {
+  color: var(--text-highlight-alt);
+  font-weight: 700;
+  margin-bottom: 15px;
+  font-size: 1.3rem;
 }
 
 
@@ -925,7 +972,11 @@ transition-delay: .6s;
     transform: translateX(-50%);
   }
   .imagen-columna-ajustada {
-  max-height: 250px;       
+  max-height: 500px;
+         
+  }
+    .imagen-columna-ajustada-der {
+  max-height: 600px;       
   }
 }
 
