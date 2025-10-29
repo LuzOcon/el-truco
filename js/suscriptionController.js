@@ -107,7 +107,7 @@ class SuscriptionController{
 
     createSuscriptionCard(suscription) {
         const col = document.createElement('div');
-        col.className = 'col-md-4 col-lg-4';
+        col.className = 'col-sm-6 col-md-4 col-lg-4';
         
         col.innerHTML = `
         <div class="card border-0 producto-card">
