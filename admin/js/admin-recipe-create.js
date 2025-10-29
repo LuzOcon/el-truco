@@ -30,10 +30,28 @@ document.addEventListener('DOMContentLoaded', () => {
     notificationContainer.appendChild(wrapper);
   };
 
-  //  Lógica del Formulario 
+  //  Lógica del Formulario para la imagen 
   imageFile.addEventListener('change', (event) => {
     const file = event.target.files[0];
     if (file) {
+      const maxSize = 10 * 1024 * 1024; // 10 MB
+      const allowedTypes = ['image/jpeg', 'image/png', 'image/webp'];
+
+      if (!allowedTypes.includes(file.type)) {
+        showNotification('Tipo de imagen no permitido. Solo JPG, PNG o WEBP.', 'danger');
+        imageFile.value = '';
+        imagePreview.src = '';
+        return;
+      }
+
+      if (file.size > maxSize) {
+        showNotification('La imagen es demasiado grande. Máximo permitido: 10 MB.', 'danger');
+        imageFile.value = '';
+        imagePreview.src = '';
+        return;
+      }
+
+      // Si pasa validación, mostrar preview
       const reader = new FileReader();
       reader.onload = (e) => {
         imagePreview.src = e.target.result;
