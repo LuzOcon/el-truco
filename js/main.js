@@ -249,3 +249,26 @@ document.addEventListener('DOMContentLoaded', async function() {
         suscriptionController.renderCatalog();
     }
 });
+
+const animateOnScrollElements = document.querySelectorAll('.animate-on-scroll');
+
+if (animateOnScrollElements.length > 0) {
+    const observerOptions = {
+        root: null, // El viewport
+        rootMargin: '0px',
+        threshold: 0.3 // Ejecutar cuando el 30% del elemento es visible
+    };
+
+    const observer = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('is-visible');
+                observer.unobserve(entry.target); // Dejar de observar una vez que se muestra
+            }
+        });
+    }, observerOptions);
+
+    animateOnScrollElements.forEach(el => {
+        observer.observe(el);
+    });
+}
