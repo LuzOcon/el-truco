@@ -1,9 +1,9 @@
 export const BASE_URL = 'http://localhost:8080/api';
 
 function getJsonHeaders() {
-    return {
-        'Content-Type': 'application/json'
-    };
+  return {
+    'Content-Type': 'application/json'
+  };
 }
 
 async function handleApiError(response) {
@@ -40,38 +40,38 @@ async function handleApiError(response) {
 
 // Petición GET para obtener TODAS las recetas
 export async function getAllRecipes() {
-    const response = await fetch(`${BASE_URL}/recipes`);
-    
-    if (!response.ok) {
-        throw await handleApiError(response);
-    }
-    return response.json();
+  const response = await fetch(`${BASE_URL}/recipes`);
+  
+  if (!response.ok) {
+    throw await handleApiError(response);
+  }
+  return response.json();
 }
 
 // Petición POST para crear la receta (envía JSON)
 export async function createRecipe(recipeData) {
-    const response = await fetch(`${BASE_URL}/recipes`, {
-        method: 'POST',
-        headers: getJsonHeaders(),
-        body: JSON.stringify(recipeData)
-    });
-    
-    if (!response.ok) {
-        throw await handleApiError(response);
-    }
-    return response.json();
+  const response = await fetch(`${BASE_URL}/recipes`, {
+    method: 'POST',
+    headers: getJsonHeaders(),
+    body: JSON.stringify(recipeData)
+  });
+  
+  if (!response.ok) {
+    throw await handleApiError(response);
+  }
+  return response.json();
 }
 
 // Petición POST para subir la imagen (envía FormData)
 export async function uploadRecipeImage(recipeId, imageFormData) {
     try {
     const response = await fetch(`${BASE_URL}/recipes/${recipeId}/upload-image`, {
-        method: 'POST',
-        body: imageFormData
+      method: 'POST',
+      body: imageFormData
     });
     
     if (!response.ok) {
-        throw await handleApiError(response);
+      throw await handleApiError(response);
     }
     return response.json();
 
@@ -87,36 +87,36 @@ export async function uploadRecipeImage(recipeId, imageFormData) {
 
 // Petición GET para obtener una receta por su ID
 export async function getRecipeById(recipeId) {
-    const response = await fetch(`${BASE_URL}/recipes/admin/${recipeId}`);
-    
-    if (!response.ok) {
-        throw await handleApiError(response);
-    }
-    return response.json();
+  const response = await fetch(`${BASE_URL}/recipes/admin/${recipeId}`);
+  
+  if (!response.ok) {
+    throw await handleApiError(response);
+  }
+  return response.json();
 }
 
 // Petición PUT para actualizar una receta (envía JSON)
 export async function updateRecipe(recipeId, recipeData) {
-    const response = await fetch(`${BASE_URL}/recipes/${recipeId}`, {
-        method: 'PUT',
-        headers: getJsonHeaders(),
-        body: JSON.stringify(recipeData)
-    });
-    
-    if (!response.ok) {
-        throw await handleApiError(response);
-    }
-    return response.json();
+  const response = await fetch(`${BASE_URL}/recipes/${recipeId}`, {
+    method: 'PUT',
+    headers: getJsonHeaders(),
+    body: JSON.stringify(recipeData)
+  });
+  
+  if (!response.ok) {
+    throw await handleApiError(response);
+  }
+  return response.json();
 }
 
 // Petición DELETE para eliminar una receta
 export async function deleteRecipe(recipeId) {
-    const response = await fetch(`${BASE_URL}/recipes/${recipeId}`, {
-        method: 'DELETE'
-    });
+  const response = await fetch(`${BASE_URL}/recipes/${recipeId}`, {
+    method: 'DELETE'
+  });
 
-    if (!response.ok) {
-        throw await handleApiError(response);
-    }
-    return { success: true }; 
+  if (!response.ok) {
+    throw await handleApiError(response);
+  }
+  return { success: true }; 
 }
