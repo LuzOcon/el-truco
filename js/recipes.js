@@ -38,11 +38,10 @@ function generateCategoryOptions(recipes) {
 function generateRecipeCards(filteredRecipes) {
   recipesContainer.innerHTML = ''; 
   filteredRecipes.forEach((recipe) => {
-    // Usa el SLUG de la DB para la URL limpia
+    // Usa el slug de la DB para la URL limpia
     const recipeSlug = recipe.slug; 
     
     // Usa el nombre del archivo de la DB con la ruta estática de Spring Boot
-    //const imageUrl = `/images/${recipe.imageFilename}`;
     const imageUrl = `${BASE_URL}/${recipe.imageFilename}`;
     
     const cardHTML = ` 
