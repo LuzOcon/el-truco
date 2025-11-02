@@ -15,7 +15,7 @@
   const FREE_SHIPPING = 999;
   const SHIPPING_COST = 79;
 
-  //  Renderiza el carrito
+  // 🔄 Renderiza el carrito
   function renderCart() {
     const cart = loadCart();
     const list = $('#cartList');
@@ -61,7 +61,7 @@
     updateTotals();
   }
 
-  //  Totales, descuentos y envío
+  // 💰 Totales, descuentos y envío
   function updateTotals() {
     const cart = loadCart();
     const subtotal = cart.reduce((a, i) => a + i.price * i.qty, 0);
@@ -101,7 +101,7 @@
         : '';
   }
 
-  //  Interacciones del carrito
+  // ➕ ➖ ❌ Interacciones del carrito
   document.addEventListener('click', (e) => {
     const id = e.target.closest('[data-id]')?.dataset.id;
     if (!id) return;
@@ -131,7 +131,7 @@
     document.dispatchEvent(new CustomEvent('cartUpdated', { detail: { action } }));
   });
 
-  //  Cambio manual de cantidad
+  // ✏️ Cambio manual de cantidad
   document.addEventListener('change', (e) => {
     if (!e.target.classList.contains('qty-input')) return;
     const id = e.target.closest('[data-id]')?.dataset.id;
@@ -144,7 +144,7 @@
     document.dispatchEvent(new CustomEvent('cartUpdated', { detail: { action: 'updated' } }));
   });
 
-  //  Cupón
+  // 🎟️ Cupón
   $('#applyCoupon')?.addEventListener('click', () => {
     const code = $('#couponInput').value.trim().toUpperCase();
     if (!COUPONS[code]) return alert('Cupón no válido');
@@ -154,7 +154,7 @@
     alert(`Cupón aplicado: ${code}`);
   });
 
-  //  Vaciar carrito
+  // 🧹 Vaciar carrito
   $('#clearCart')?.addEventListener('click', () => {
     if (confirm('¿Vaciar el carrito?')) {
       localStorage.setItem(STORAGE_KEY, '[]');
@@ -162,7 +162,8 @@
       document.dispatchEvent(new CustomEvent('cartUpdated', { detail: { action: 'cleared' } }));
     }
   });
- Pago simulado
+
+  // 💳 Pago simulado
   $('#checkoutBtn')?.addEventListener('click', () =>
     alert('Función de pago próximamente 💳')
   );
@@ -170,7 +171,7 @@
   document.addEventListener('DOMContentLoaded', renderCart);
 })();
 
-//  Animaciones visuales y notificaciones
+// 🔔 Animaciones visuales y notificaciones
 function pulseCartIcon() {
   const badges = document.querySelectorAll('#cartCount, #cartCountDesktop');
   badges.forEach((b) => {
