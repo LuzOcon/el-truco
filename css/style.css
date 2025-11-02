@@ -996,4 +996,38 @@ transition-delay: .6s;
     right: 0;  
   }
 }
+/* Cart start*/
+.toast-add {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  background-color: #779047;
+  color: #fff;
+  padding: 12px 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+  font-weight: 600;
+  animation: fadeInOut 1.6s ease forwards;
+  z-index: 9999;
+}
 
+@keyframes fadeInOut {
+  0% { opacity: 0; transform: translateY(20px); }
+  20% { opacity: 1; transform: translateY(0); }
+  80% { opacity: 1; }
+  100% { opacity: 0; transform: translateY(20px); }
+}
+/* Cart end */
+
+/* Cart menu flotante */
+.cart-summary {
+  position: sticky;
+  top: 100px; /* Ajusta según la altura del navbar */
+  z-index: 1; /* menor que el navbar */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.navbar-container {
+  z-index: 5; /* navbar siempre encima */
+  position: relative;
+}
