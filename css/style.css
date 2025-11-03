@@ -949,6 +949,42 @@ transition-delay: .6s;
 
 /* FIN USER */
 
+/* Cart start*/
+.toast-add {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  background-color: #779047;
+  color: #fff;
+  padding: 12px 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+  font-weight: 600;
+  animation: fadeInOut 1.6s ease forwards;
+  z-index: 9999;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-on-scroll {
+  opacity: 0;
+  transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+}
+
+.animate-on-scroll.is-visible {
+  animation: fadeInUp 0.5s ease-out forwards;
+}
+/* Cart end */
+
 /* Diseño responsivo */
 
 /* Tablets (pantallas medianas) */
@@ -999,24 +1035,4 @@ transition-delay: .6s;
     bottom: 0;
     right: 0;  
   }
-}
-
-@keyframes fadeInUp {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-.animate-on-scroll {
-  opacity: 0;
-  transition: opacity 0.5s ease-out, transform 0.5s ease-out;
-}
-
-.animate-on-scroll.is-visible {
-  animation: fadeInUp 0.5s ease-out forwards;
 }
