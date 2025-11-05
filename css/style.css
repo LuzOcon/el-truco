@@ -950,6 +950,9 @@ transition-delay: .6s;
 /* FIN USER */
 
 /* Cart start*/
+aside {
+  z-index: 0;
+}
 .toast-add {
   position: fixed;
   bottom: 30px;
