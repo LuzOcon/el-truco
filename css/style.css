@@ -535,6 +535,9 @@ img {
 .navbar-icon{
   color: var(--color-bg);
 }
+.navbar-icon.active{
+  color: var(--white-color);
+}
 .navbar-icon:hover{
   color: var(--black-color);
 }
