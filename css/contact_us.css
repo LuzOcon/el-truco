@@ -146,9 +146,8 @@
   box-shadow: 0 4px 12px rgba(115, 127, 93, 0.4);
 }
 
-/* ============================================
-   BOTONES DE NAVEGACIÓN (FAQ / AVISOS)
-   ============================================ */
+/* BOTONES DE NAVEGACIÓN (FAQ / AVISOS) */
+   
 .contact-navigation {
   display: flex;
   flex-direction: column;
@@ -160,16 +159,13 @@
   align-items: center;
   justify-content: space-between;
   padding: 20px 25px;
-  background-color: #8c4731;  
-  border: 2px solid #a67856;
-  border-radius: 10px;
-  text-decoration: none;
-  color: var(--white-color);
+  
+  /* Estilos finales unificados */
   background-color: #8c4731;
-  border: 2px solid #8c4731;
+  border: 2px solid #8c4731; 
   border-radius: 10px;
   text-decoration: none;
-  color: white;
+  color: white; 
   transition: all 0.3s ease;
 }
 
@@ -180,33 +176,14 @@
   box-shadow: var(--shadow-card);
 }
 
-.nav-link-item:hover .nav-link-content h5 {
-  color: #2e2117;
-}
-
+.nav-link-item:hover .nav-link-content h5,
 .nav-link-item:hover .nav-link-content p {
-  color: #2e2117;
+  color: #ffffff; 
 }
 
 .nav-link-item:hover i {
-  color: #2e2117;
-  background-color: #5f6e47;
-  border-color: #5f6e47;
-  transform: translateX(5px);
-  color: white;
-  box-shadow: 0 4px 12px rgba(197, 214, 162, 0.3);
-}
-
-.nav-link-item:hover .nav-link-content h5 {
-  color: #ffffff;
-}
-
-.nav-link-item:hover .nav-link-content p {
-  color: #ffffff;
-}
-
-.nav-link-item:hover i {
-  color: #ffffff;
+  color: #ffffff; 
+  background-color: transparent; 
   transform: translateX(5px);
 }
 
@@ -238,6 +215,7 @@
   margin-left: 15px;
 }
 
+/* END BOTONES DE NAVEGACIÓN (FAQ / AVISOS) */
 
 /* ============================================
    RESPONSIVE
@@ -263,4 +241,11 @@
     margin-left: 0;
     margin-top: 10px;
   }
+}
+
+
+/* salto botones */
+a.btn-avisos:hover,
+a.btn-outline-avisos:hover {
+  transform: translateY(-2px) !important;
 }
