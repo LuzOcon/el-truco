@@ -120,10 +120,6 @@ EL-TRUCO
    ```bash
    npx http-server .
 
-
-
-
 ## 👩‍💻 Créditos
-
 
 Proyecto desarrollado por **Market Minds**.

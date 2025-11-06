@@ -243,9 +243,3 @@
   }
 }
 
-
-/* salto botones */
-a.btn-avisos:hover,
-a.btn-outline-avisos:hover {
-  transform: translateY(-2px) !important;
-}

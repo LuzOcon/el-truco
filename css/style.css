@@ -540,7 +540,7 @@ img {
 
 /* Otros botones (Se mantienen por consistencia, también con cambios de !important) */
 .btn-brown {
-  background-color: #84624a;  
+  background-color: #84624a;
   color: white;
   padding: 14px 32px;
   font-size: 1rem;
