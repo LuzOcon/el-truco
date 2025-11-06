@@ -2,23 +2,28 @@ class ProductService {
     constructor() {
         this.products = [];
         this.storageKey = 'productsDB';
-        this.useDatabase = false; // Cambiar a true cuando se tenga la base de datos
-        
+        this.useDatabase = true; // true usa la base de datos y false usa local storage
+        this.BASE_URL = 'http://localhost:8080/api';
+
         this.init();
     }
 
    
     async init() {
-        await this.loadProducts();
-        console.log('ProductService iniciado con', this.products.length, 'productos');
-    }
-
-    async loadProducts() {
-        if (this.useDatabase) {
-            await this.loadFromDatabase();
-        } else {
-            this.loadFromLocalStorage();
+        try {
+        const response = await fetch(`${this.BASE_URL}/products`);
+       
+        if (!response.ok) {
+            throw new Error(`API_ERROR: Failed to fetch all products (Status: ${response.status})`);
         }
+        
+        this.products = await response.json(); 
+        console.log('Productos cargados desde la base de datos');
+    } catch (error) {
+        console.error('Error al cargar productos desde la BD:', error);
+        
+        this.loadFromLocalStorage();
+    }
     }
 
    //Cargamos desde localstorage
@@ -41,7 +46,18 @@ class ProductService {
 
     //Cargamos desde base de datos
     async loadFromDatabase() {
-    //codigo para cuando tengamos la base de datos
+        const BASE_URL = 'http://localhost:8080/api';
+        const response = await fetch(`${BASE_URL}/products`);
+    
+        if (!response.ok) {
+            throw new Error(`API_ERROR: Failed to fetch all products (Status: ${response.status})`);
+        }
+        // 2.- convertir la petición
+        const products = await response.json();
+    
+        // 3.- devolvemos el JSON como objeto de js
+        return products;
+    
     }
 
     createSampleData() {
@@ -50,45 +66,45 @@ class ProductService {
                 id: 1,
                 name: 'Huevos Orgánicos',
                 description: 'Nuestros huevos provienen de gallinas criadas con mínimo uso de químicos, en un ambiente cuidado y natural.',
-                base_price: 24.00,
+                basePrice: 24.00,
                 category: 'huevos',
-                main_image: 'img/sixeggs.webp',
+                mainImage: 'img/sixeggs.webp',
                 active: 1,
                 variants: [
-                    { id: 1, product_id: 1, name: 'Paquete de 6 Huevos', price: 24.00, image: '../img/sixeggs.webp', stock: 100 },
-                    { id: 2, product_id: 1, name: 'Paquete de 12 Huevos', price: 40.00, image: '../img/eggs12.webp', stock: 80 },
-                    { id: 3, product_id: 1, name: 'Paquete de 30 Huevos', price: 95.00, image: '../img/eggs30.webp', stock: 50 },
-                    { id: 4, product_id: 1, name: 'Caja de 320 Huevos', price: 980.00, image: '../img/eggs320.webp', stock: 20 }
+                    { id: 1, productId: 1, name: 'Paquete de 6 Huevos', price: 24.00, image: '../img/sixeggs.webp', stock: 100 },
+                    { id: 2, productId: 1, name: 'Paquete de 12 Huevos', price: 40.00, image: '../img/eggs12.webp', stock: 80 },
+                    { id: 3, productId: 1, name: 'Paquete de 30 Huevos', price: 95.00, image: '../img/eggs30.webp', stock: 50 },
+                    { id: 4, productId: 1, name: 'Caja de 320 Huevos', price: 980.00, image: '../img/eggs320.webp', stock: 20 }
                 ]
             },
             {
                 id: 2,
                 name: 'Abono Orgánico',
                 description: 'Abono orgánico elaborado a partir del estiércol compostado de gallinas.',
-                base_price: 80.00,
+                basePrice: 80.00,
                 category: 'abono',
-                main_image: 'img/abono.webp',
+                mainImage: 'img/abono.webp',
                 active: 1,
                 variants: [
-                    { id: 5, product_id: 2, name: 'Bolsa de 1 Kg', price: 80.00, image: '../img/abono.webp', stock: 200 },
-                    { id: 6, product_id: 2, name: 'Bolsaza de 6 Kg', price: 280.00, image: '../img/abono.webp', stock: 100 },
-                    { id: 7, product_id: 2, name: 'Costal de 10 Kg', price: 320.00, image: '../img/abono.webp', stock: 80 },
-                    { id: 8, product_id: 2, name: 'Costal de 15 Kg', price: 400.00, image: '../img/abono.webp', stock: 60 },
-                    { id: 9, product_id: 2, name: 'Costal de 25 Kg', price: 620.00, image: '../img/abono.webp', stock: 40 }
+                    { id: 5, productId: 2, name: 'Bolsa de 1 Kg', price: 80.00, image: '../img/abono.webp', stock: 200 },
+                    { id: 6, productId: 2, name: 'Bolsaza de 6 Kg', price: 280.00, image: '../img/abono.webp', stock: 100 },
+                    { id: 7, productId: 2, name: 'Costal de 10 Kg', price: 320.00, image: '../img/abono.webp', stock: 80 },
+                    { id: 8, productId: 2, name: 'Costal de 15 Kg', price: 400.00, image: '../img/abono.webp', stock: 60 },
+                    { id: 9, productId: 2, name: 'Costal de 25 Kg', price: 620.00, image: '../img/abono.webp', stock: 40 }
                 ]
             },
             {
                 id: 3,
                 name: 'Lote de Gallinas',
                 description: 'Gallinas de postura de alta calidad.',
-                base_price: 280.00,
+                basePrice: 280.00,
                 category: 'aves',
-                main_image: 'img/chicken2.webp',
+                mainImage: 'img/chicken2.webp',
                 active: 1,
                 variants: [
-                    { id: 10, product_id: 3, name: 'Lote de 25 Aves',  price: 280.00, image: '../img/chicken2.webp', stock: 15 },
-                    { id: 11, product_id: 3, name: 'Lote de 50 Aves',  price: 500.00, image: '../img/chicken2.webp', stock: 10 },
-                    { id: 12, product_id: 3, name: 'Lote de 100 Aves', price: 950.00, image: '../img/chicken2.webp', stock: 5 }
+                    { id: 10, productId: 3, name: 'Lote de 25 Aves',  price: 280.00, image: '../img/chicken2.webp', stock: 15 },
+                    { id: 11, productId: 3, name: 'Lote de 50 Aves',  price: 500.00, image: '../img/chicken2.webp', stock: 10 },
+                    { id: 12, productId: 3, name: 'Lote de 100 Aves', price: 950.00, image: '../img/chicken2.webp', stock: 5 }
                 ]
             }
         ];
@@ -107,7 +123,7 @@ class ProductService {
     //para el carrito
     getVariantById(variantId) {
     for (let product of this.products) {
-        const variant = product.variants.find(v => v.id == variantId);
+        const variant = product.variants.find(v => v.id === variantId);
         if (variant) return { product, variant };
     }
     return null;
@@ -136,10 +152,10 @@ class ProductService {
 
     col.innerHTML = `
         <div class="card border-0 producto-card">
-            <img src="${product.main_image}" alt="${product.name}" class="card-img-products">
+            <img src="${product.mainImage}" alt="${product.name}" class="card-img-products">
             <div class="card-body text-center">
                 <h5 class="card-title">${product.name}</h5>
-                <p class="card-price">Desde $${product.base_price.toFixed(2)} MXN</p>
+                <p class="card-price">Desde $${product.basePrice.toFixed(2)} MXN</p>
                 
                 <a href="products/producto.html?id=${product.id}" class="btn btn-brown mb-2">
                     Ver información del producto
@@ -253,6 +269,27 @@ renderProductPage(productId) {
             if (mainImg) mainImg.src = img;
         });
     });
+}
+
+updateVariantStock(variantId, quantity) {
+    for (const product of this.products) {
+        const variant = product.variants.find(v => v.id === variantId);
+        if (variant) {
+            if (variant.stock >= quantity) {
+                variant.stock -= quantity;
+                
+                if (this.useDatabase) {
+                    // actualiza en la base
+                    this.updateStockInDatabase(variantId, variant.stock);
+                } else {
+                    this.saveToLocalStorage();
+                }
+                return true;
+            }
+            return false; // no hay stock
+        }
+    }
+    return false;
 }
 
 }
