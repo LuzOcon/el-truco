@@ -44,6 +44,24 @@
     setTimeout(() => toast.remove(), 1600);
   }
 
+  //para las variantes
+  document.addEventListener('click', (e) => {
+    const variantCard = e.target.closest('.variant-card');
+    if(!variantCard) return;
+
+    const cards = document.querySelectorAll('.variant-card');
+    cards.forEach(c => c.classList.remove('active'));
+    variantCard.classList.add('active');
+
+    const productTitle = document.querySelector('.product-container h2');
+    const productPrice = document.querySelector('.product-container .price');
+    const mainImg = document.querySelector('.carousel-item.active img');
+
+    if (productTitle) productTitle.textContent = variantCard.dataset.name;
+    if (productPrice) productPrice.textContent = `$${parseFloat(variantCard.dataset.price).toFixed(2)} MXN`;
+    if (mainImg) mainImg.src = variantCard.dataset.img;
+  });
+
   //  Detecta clics en botones de productos o suscripciones
   document.addEventListener('click', (e) => {
     const btn = e.target.closest('.btn-verde');
@@ -52,6 +70,37 @@
     const isAddCart = btn.textContent.includes('Agregar al carrito');
     const isSubscribe = btn.textContent.includes('Suscríbete ahora');
     if (!isAddCart && !isSubscribe) return;
+
+    if (btn.dataset.section === 'variantes') {
+      const activeVariant = document.querySelector('.variant-card.active');
+      if (!activeVariant) {
+        showToast('Por favor selecciona una presentación');
+        return;
+      }
+      
+      const quantityInput = document.querySelector('#quantity');
+      const qty = parseInt(quantityInput?.value || 1, 10);
+      const variantId = parseInt(activeVariant.dataset.variantId, 10);
+      const result = productService.getVariantById(variantId);
+      
+      if (!result) {
+        showToast('Variante no encontrada');
+        return;
+      }
+      
+      const variant = result.variant;
+      
+      const item = {
+        id: String(variant.id),
+        name: variant.name,
+        price: variant.price,
+        image: variant.image,
+        qty
+      };
+      
+      addToCart(item);
+      return; 
+  }
 
     const card = btn.closest('.card');
     if (!card) return;
@@ -63,6 +112,7 @@
     const id = name.toLowerCase().replace(/\s+/g, '_');
 
     const item = { id, name, price, image, qty: 1 };
+
     addToCart(item);
   });
 

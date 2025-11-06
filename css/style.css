@@ -435,43 +435,145 @@ img {
 }
 /* END PRODUCT VIEW */
 
-/* Botones FAQs */
-.btn-faq {
-  background-color: var(--text-highlight-alt);
+/* FAQ + AVISOS */ 
+
+.accordion-button {
+  background-color: var(--text-color-alt); /* Fondo del botón */
+  color: #2e2117;
+  font-weight: 600;
+  font-family: var(--font-body);
+  border-radius: 7px;
+}
+
+.accordion-button:not(.collapsed) {
+  background-color: #8c4731;
   color: var(--white-color);
+  box-shadow: none;
+}
+
+.accordion-button:focus {
+  box-shadow: none;
+  border-color: transparent;
+}
+
+.accordion-item {
+  background-color: var(--color-card-1); 
+  border-radius: 10px;
+  margin-bottom: 10px;
   border: none;
-  padding: 12px 30px;
-  border-radius: 8px;
-  font-weight: 500;
-  transition: all 0.3s;
-  text-decoration: none;
 }
 
-.btn-faq:hover {
+.accordion-body {
+  background-color: var(--color-bg);
+  color: #2e2117;
+  border-radius: 0 0 10px 10px;
+}
+
+.accordion-body h5 {
+  color: var(--text-color-alt);
+  font-family: var(--font-body);
+  font-weight: var(--font-semi-bold);
+}
+
+.accordion-body ul,
+.accordion-body ol {
+  color: #2e2117;
+}
+
+.accordion-body li {
+  margin-bottom: 8px;
+  line-height: 1.6;
+}
+
+.accordion-body p {
+  line-height: 1.7;
+  text-align: justify;
+}
+
+/* BOTONES UNIFICADOS */
+
+/* Botón Principal/Relleno */
+.btn-avisos {
+  background-color: var(--text-highlight-alt);
+  color: white;
+  border: none;
+  padding: 14px 32px !important; 
+  font-size: 1rem !important;
+  border-radius: 25px;
+  font-weight: 500;
+  /* ✨ CAMBIO CLAVE: Transición obligatoria */
+  transition: all 0.3s ease !important;
+  text-decoration: none; 
+}
+
+.btn-avisos:hover {
   background-color: var(--text-highlight);
-  color: var(--white-color);
-  transform: translateY(-2px);
+  /* ✨ CAMBIO CLAVE: Salto obligatorio */
+  transform: translateY(-2px) !important;
   box-shadow: 0 4px 12px rgba(238, 104, 76, 0.4);
-}
-
-.btn-outline-faq {
-  border: 2px solid #9bb36b;
-  color: #000000;
-  background-color: transparent;
-  padding: 12px 30px;
-  border-radius: 8px;
-  font-weight: 500;
-  transition: all 0.3s;
+  color: white; 
   text-decoration: none;
 }
 
-.btn-outline-faq:hover {
-  background-color: #9db175;
-  border-color: #9db175;
-  color: var(--white-color);
-  transform: translateY(-2px);
+/* Botón de Contorno/Secundario*/
+.btn-outline-avisos {
+  border: 2px solid var(--btn-secondary); 
+  color: var(--btn-secondary);
+  background-color: transparent;
+  padding: 12px 30px !important;
+  font-size: 1rem !important; 
+  border-radius: 25px;
+  font-weight: 500;
+  /* ✨ CAMBIO CLAVE: Transición obligatoria */
+  transition: all 0.3s ease !important;
+  text-decoration: none;
 }
-/* END FAQs */
+
+.btn-outline-avisos:hover {
+  background-color: var(--btn-secondary);
+  border-color: var(--btn-secondary);
+  color: white;
+  /* ✨ CAMBIO CLAVE: Salto obligatorio */
+  transform: translateY(-2px) !important;
+  text-decoration: none;
+}
+
+/* Otros botones (Se mantienen por consistencia, también con cambios de !important) */
+.btn-brown {
+  background-color: #84624a;
+  color: white;
+  padding: 14px 32px;
+  font-size: 1rem;
+  transition: all 0.3s ease !important;
+  border-radius: 25px;
+  text-decoration: none;
+}
+
+.btn-brown:hover {
+  background-color: #5a402e; 
+  transform: translateY(-2px) !important;
+  color: white; 
+  text-decoration: none;
+}
+
+.btn-verde {
+  background-color: var(--btn-secondary);
+  color: white;
+  padding: 14px 32px;
+  font-size: 1rem;
+  transition: all 0.3s ease !important;
+  border-radius: 25px;
+  text-decoration: none;
+}
+
+.btn-verde:hover {
+  background-color: #384520;
+  transform: translateY(-2px) !important;
+  color: white; 
+  text-decoration: none;
+}
+
+/* END FAQ + AVISOS */
 
 /* RECETAS */
 .recipe-card {
@@ -535,6 +637,9 @@ img {
 .navbar-icon{
   color: var(--color-bg);
 }
+.navbar-icon.active{
+  color: var(--white-color);
+}
 .navbar-icon:hover{
   color: var(--black-color);
 }
@@ -569,176 +674,6 @@ width: 95%;
 
 /*NavBar end*/
 
-/* =================================== */
-/* AVISOS LEGALES STYLES */
-/* =================================== */
-
-/* Accordion Avisos */
-.accordion-button {
-  background-color: #a67856;  /* Ya coincide con tu paleta */
-  color: #2e2117;  /* Texto más oscuro como en las cards */
-  font-weight: 600;  /* Consistente con otros títulos */
-  font-family: var(--font-body);
-  border-radius: 7px;  /* Igual que el navbar */
-}
-
-.accordion-button:not(.collapsed) {
-  background-color: #8c4731;  /* Color principal de tus títulos */
-  color: var(--white-color);
-  background-color: #cbb6a5;
-  color: #000000;
-  font-weight: 500;
-}
-
-.accordion-button:not(.collapsed) {
-  background-color: #a98469;
-  color: #000000;
-  box-shadow: none;
-}
-
-.accordion-button:focus {
-  box-shadow: none;
-  border-color: transparent;
-}
-
-.accordion-item {
-  background-color: var(--color-card-1);  /* Usa tu variable existente */
-  border-radius: 10px;  /* Más suave */
-  margin-bottom: 10px;  /* Separación entre items */
-  border: none;
-}
-
-.accordion-body {
-  background-color: var(--color-bg);  /* Tu fondo principal */
-  color: #2e2117;  /* Consistente con card-text */
-  border-radius: 0 0 10px 10px;
-  background-color: #FFF2E0;
-  color: #000000;
-}
-
-.accordion-body h5 {
-  color: var(--text-color-alt);  /* Usa tu variable */
-  font-family: var(--font-body);
-  font-weight: var(--font-semi-bold);
-}
-
-.accordion-body ul,
-.accordion-body ol {
-  color: #2e2117;
-  color: #000000;
-}
-
-.accordion-body li {
-  margin-bottom: 8px;
-  line-height: 1.6;
-}
-
-.accordion-body p {
-  line-height: 1.7;
-  text-align: justify;
-  color: var(--black-color);
-}
-
-/* Botones - Simplificados y unificados */
-.btn-avisos {
-  background-color: var(--text-highlight-alt);  /* Usa tu variable */
-  color: var(--white-color);
-  border: none;
-  padding: 12px 28px;  /* Igual que hero-btn */
-  border-radius: 25px;  /* Más redondeado como hero-btn */
-  font-weight: 500;
-  transition: all 0.3s;
-}
-
-.btn-avisos:hover {
-  background-color: var(--text-highlight);
-  color: var(--white-color);
-}
-
-.btn-outline-avisos {
-  border: 2px solid #78855e;
-  color: #030303;
-  background-color: transparent;
-  padding: 10px 25px;
-  border-radius: 8px;
-  font-weight: 500;
-  transition: all 0.3s;
-}
-
-.btn-outline-avisos:hover {
-  background-color: #9db175;
-  border-color: #9db175;
-  color: var(--white-color);
-}
-.btn-brown{
-    background-color: #84624a;  
-    color: var(--white-color);
-    transition: all 0.3s ease;
-}
-.btn-brown:hover {
-  background-color: #5a402e; 
-  color: var(--white-color);
-}
-.btn-dark {
-  background-color: #000;   
-  border-color: #000;
-  transition: all 0.3s ease;
-}
-
-.btn-avisos:hover {
-  background-color: var(--text-highlight);
-  transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(238, 104, 76, 0.4);
-}
-
-.btn-outline-avisos {
-  border: 2px solid var(--btn-secondary);
-  color: var(--btn-secondary);
-  background-color: transparent;
-  padding: 12px 28px;
-  border-radius: 25px;
-  font-weight: 500;
-  transition: all 0.3s ease;
-}
-
-.btn-outline-avisos:hover {
-  background-color: var(--btn-secondary);
-  border-color: var(--btn-secondary);
-  color: var(--white-color);
-  transform: translateY(-2px);
-}
-
-/* Los botones brown, dark y verde ya existen, solo ajustar */
-.btn-brown {
-  background-color: #84624a;  
-  color: var(--white-color);
-  padding: 12px 28px;
-  border-radius: 25px;
-  transition: all 0.3s ease;
-}
-
-.btn-brown:hover {
-  background-color: #5a402e; 
-  transform: translateY(-2px);
-}
-
-.btn-verde {
-  background-color: var(--btn-secondary);   
-  color: var(--white-color);
-  padding: 12px 28px;
-  border-radius: 25px;
-  transition: all 0.3s ease;
-}
-
-.btn-verde:hover {
-  background-color: lch(from var(--btn-secondary) calc(l - 10) c h);
-  color: var(--white-color);
-  transform: translateY(-2px);
-}
-
-/* =================================== */
-/* AVISOS LEGALES STYLES END */
-/* =================================== */
 
 /*LOGIN INCIO DE SESION*/
 
