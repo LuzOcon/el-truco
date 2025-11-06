@@ -36,7 +36,8 @@
   background-color: var(--color-card-1);
   box-shadow: var(--shadow-card);
   padding: 40px;
-  flex: 1 1 45%;
+  flex: 1 1 300px;
+  min-width: 0; /* importante para evitar overflow */
 }
 
 .contact-info {
@@ -75,11 +76,12 @@
    FORMULARIO
    ============================================ */
 .contact-form {
-  flex: 1 1 45%;
   background-color: transparent;
   display: flex;
   flex-direction: column;
   justify-content: center;
+  flex: 1 1 400px;
+  min-width: 0;
 }
 
 .contact-form label {
@@ -247,11 +249,17 @@
     flex-direction: column;
     text-align: center;
     padding: 30px 25px;
+    display: flex;
+    flex-wrap: wrap; /* Esto permite que los elementos bajen cuando no hay espacio */
+    gap: 2rem; /* opcional para separación */
+    .contact-left h1 {
+    font-size: 1.7rem;
+  }
   }
 
   .contact-left,
   .contact-form {
-    flex: 1 1 100%;
+    width: 100%;
   }
 
   .nav-link-item {
