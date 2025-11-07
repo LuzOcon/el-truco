@@ -83,121 +83,77 @@
     </div>
     <!--END NavBar-->
 
-    <!-- CONTACT SECTION -->
-    <section class="contact-section">
-      <div class="contact-container d-lg-flex">    
-        <!-- Columna izquierda -->
-        <div class="contact-left p-0 p-md-4">
-          <div class="contact-info text-body">
-            <h2>El Truco</h2>
-            <h5>Granja de postura</h5>
-            <h1>¡¡CONTACTANOS!!</h1>
-            <p>
-              Si tienes preguntas, comentarios o deseas conocer más sobre
-              nuestros productos, estamos aquí para ayudarte. Valoramos tu
-              opinión y queremos escucharte.
-            </p>
-            <p>
-              También puedes escribirnos directamente a:<br />
-              <b class="text-highlight-alt">contacto@eltruco.com.mx</b>
-            </p>
+        <!-- CONTACT SECTION -->
+<section class="contact-section">
+  <div class="contact-container d-lg-flex">
+
+
+    <!-- Columna izquierda -->
+    <div class="contact-left">
+      <img src="img/pollitoscontacto.svg" alt="Mensajito" class="contact-img" />
+      <p class="contact-description">
+        Si tienes preguntas, comentarios o deseas conocer más sobre nuestros productos, estamos aquí para ayudarte.
+        Valoramos tu opinión y queremos escucharte.
+      </p>
+      <p class="contact-description">
+        También puedes escribirnos directamente a:<br />
+        <b class="text-highlight-alt">contacto@eltruco.com.mx</b>
+      </p>
+      <div class="contact-navigation">
+        <a href="faqs.html" class="nav-link-item faq-block">
+          <div class="nav-link-content">
+            <h5 class="link-title">Preguntas frecuentes (FAQ)</h5>
+            <p class="link-description">Encuentra aquí las respuestas a las dudas más comunes sobre nuestros tiempos de respuesta, ubicación y formas de entrega.</p>
           </div>
+          <i class="bi bi-arrow-right fs-4"></i>
+        </a>
+        <a href="avisos.html" class="nav-link-item legal-block">
+          <div class="nav-link-content">
+            <h5 class="link-title">Avisos Legales</h5>
+            <p class="link-description">Consulta nuestros términos y condiciones, política de privacidad y políticas de devolución.</p>
+          </div>
+          <i class="bi bi-arrow-right fs-4"></i>
+        </a>
+      </div>
+    </div>
+    <!-- Fin columna izquierda -->
 
-          <!-- Botones de navegación -->
-          <div class="contact-navigation">
-            <a href="faqs.html" class="nav-link-item flex-row">
-              <div class="nav-link-content">
-                <h5 class="mb-1">Preguntas frecuentes (FAQ)</h5>
-                <p class="mb-0 small text-description">
-                  Encuentra aquí las respuestas a las dudas más comunes sobre
-                  nuestros tiempos de respuesta, ubicación y formas de entrega.
-                </p>
-              </div>
-              <i class="bi bi-arrow-right fs-4 text-white"></i>
-            </a>
 
-            <a href="avisos.html" class="nav-link-item flex-row">
-              <div class="nav-link-content">
-                <h5 class="mb-1">Avisos Legales</h5>
-                <p class="mb-0 small text-description">
-                  Consulta nuestros términos y condiciones, política de
-                  privacidad y políticas de devolución.
-                </p>
-              </div>
-              <i class="bi bi-arrow-right fs-4 text-white"></i>
-            </a>
+    <!-- Formulario a la derecha -->
+    <div class="contact-right">
+      <h1 class="contact-title">¡Contáctanos!</h1>
+      <form class="contact-form">
+        <div class="row g-3 mb-3">
+          <div class="col-md-6">
+            <label for="nombre">Nombre Completo</label>
+            <input type="text" id="nombre" class="form-control" placeholder="Ingresar nombre completo" required />
+          </div>
+          <div class="col-md-6">
+            <label for="telefono">Teléfono</label>
+            <input type="tel" id="telefono" class="form-control" placeholder="Ingresar teléfono" required />
           </div>
         </div>
-        <!-- Fin columna izquierda -->
+        <div class="mb-3">
+          <label for="correo">Correo Electrónico</label>
+          <input type="email" id="correo" class="form-control" placeholder="Ingresar correo electrónico" required />
+        </div>
+        <div class="mb-3">
+          <label for="asunto">Asunto</label>
+          <input type="text" id="asunto" class="form-control" placeholder="Ingresar asunto" required />
+        </div>
+        <div class="mb-4 position-relative">
+          <label for="descripcion">Descripción</label>
+          <textarea id="descripcion" class="form-control" rows="5" maxlength="1000" placeholder="Describe tu mensaje" required></textarea>
+          <small id="contador" class="position-absolute end-0 me-2 mt-1 text-muted">0/1000</small>
+        </div>
+        <button type="submit">Enviar Comentario</button>
+      </form>
+    </div>
+  </div>
+</section>
 
-        <!-- Formulario -->
-        <form class="contact-form">
-          <div class="row g-3 mb-3">
-            <div class="col-md-6">
-              <label for="nombre">Nombre Completo</label>
-              <input
-                type="text"
-                id="nombre"
-                class="form-control"
-                placeholder="Ingresar nombre completo"
-                required
-              />
-            </div>
-            <div class="col-md-6">
-              <label for="telefono">Teléfono</label>
-              <input
-                type="tel"
-                id="telefono"
-                class="form-control"
-                placeholder="Ingresar teléfono"
-                required
-              />
-            </div>
-          </div>
 
-          <div class="mb-3">
-            <label for="correo">Correo Electrónico</label>
-            <input
-              type="email"
-              id="correo"
-              class="form-control"
-              placeholder="Ingresar correo electrónico"
-              required
-            />
-          </div>
 
-          <div class="mb-3">
-            <label for="asunto">Asunto</label>
-            <input
-              type="text"
-              id="asunto"
-              class="form-control"
-              placeholder="Ingresar asunto"
-              required
-            />
-          </div>
-
-          <div class="mb-4 position-relative">
-            <label for="descripcion">Descripción</label>
-            <textarea
-              id="descripcion"
-              class="form-control"
-              rows="5"
-              maxlength="1000"
-              placeholder="Describe tu mensaje"
-              required
-            ></textarea>
-            <small
-              id="contador"
-              class="position-absolute end-0 me-2 mt-1 text-muted"
-              >0/1000</small
-            >
-          </div>
-
-          <button type="submit">Enviar Comentario</button>
-        </form>
-      </div>
-    </section>
 
     <!-- END Botones de navegación -->
 
