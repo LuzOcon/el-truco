@@ -435,141 +435,164 @@ img {
 }
 /* END PRODUCT VIEW */
 
-/* FAQ + AVISOS */ 
+/* FAQS + AVISOS */
 
+/* Accordiones FAQ y Avisos */
 .accordion-button {
-  background-color: var(--text-color-alt); /* Fondo del botón */
+  background-color: var(--text-color-alt);
   color: #2e2117;
   font-weight: 600;
   font-family: var(--font-body);
   border-radius: 7px;
+  transition: all 0.3s ease;
 }
-
-.accordion-button:not(.collapsed) {
+.accordion-button:not(.collapsed),
+.accordion-button.active {
   background-color: #8c4731;
   color: var(--white-color);
   box-shadow: none;
 }
-
 .accordion-button:focus {
   box-shadow: none;
   border-color: transparent;
 }
-
 .accordion-item {
-  background-color: var(--color-card-1); 
+  background-color: var(--color-card-1);
   border-radius: 10px;
   margin-bottom: 10px;
   border: none;
 }
-
 .accordion-body {
   background-color: var(--color-bg);
   color: #2e2117;
   border-radius: 0 0 10px 10px;
 }
-
 .accordion-body h5 {
   color: var(--text-color-alt);
   font-family: var(--font-body);
   font-weight: var(--font-semi-bold);
 }
-
 .accordion-body ul,
 .accordion-body ol {
   color: #2e2117;
 }
-
 .accordion-body li {
   margin-bottom: 8px;
   line-height: 1.6;
 }
-
 .accordion-body p {
   line-height: 1.7;
   text-align: justify;
 }
 
-/* BOTONES UNIFICADOS */
-
-/* Botón Principal/Relleno */
-.btn-avisos {
-  background-color: var(--text-highlight-alt);
-  color: white;
-  border: none;
-  padding: 14px 32px !important; 
+/* BOTONES UNIFICADOS (FAQ + AVISOS) */
+.button-universal,
+.btn-avisos,
+.btn-outline-avisos,
+.btn-brown,
+.btn-verde {
+  font-family: var(--font-body);
   font-size: 1rem !important;
-  border-radius: 25px;
   font-weight: 500;
+  border-radius: 25px;
+  padding: 14px 32px !important;
   transition: all 0.3s ease !important;
-  text-decoration: none; 
+  text-decoration: none;
+  border: none;
+  display: inline-block;
+  margin: 4px 8px;
+  cursor: pointer;
 }
-
-.btn-avisos:hover {
-  background-color: var(--text-highlight);
-  transform: translateY(-2px) !important;
-  box-shadow: 0 4px 12px rgba(238, 104, 76, 0.4);
-  color: white; 
+.button-universal:hover,
+.btn-avisos:hover,
+.btn-outline-avisos:hover,
+.btn-brown:hover,
+.btn-verde:hover {
+  transform: translateY(-2px) !important; /* Salto en todos los botones */
+  box-shadow: 0 4px 12px rgba(115, 127, 93, 0.16);
   text-decoration: none;
 }
 
-/* Botón de Contorno/Secundario*/
-.btn-outline-avisos {
+/* Botón Principal/Relleno para Avisos */
+.btn-avisos,
+.button-universal.btn-avisos {
+  background-color: var(--text-highlight-alt);
+  color: white;
+}
+.btn-avisos:hover {
+  background-color: var(--text-highlight);
+  color: white;
+}
+
+/* Botón de Contorno/Secundario para Avisos */
+.btn-outline-avisos,
+.button-universal.btn-outline-avisos {
   border: 2px solid var(--btn-secondary); 
   color: var(--btn-secondary);
   background-color: transparent;
   padding: 12px 30px !important;
-  font-size: 1rem !important; 
-  border-radius: 25px;
-  font-weight: 500;
-  transition: all 0.3s ease !important;
-  text-decoration: none;
 }
-
 .btn-outline-avisos:hover {
   background-color: var(--btn-secondary);
   border-color: var(--btn-secondary);
   color: white;
-  transform: translateY(-2px) !important;
-  text-decoration: none;
 }
 
-/* Otros botones (Se mantienen por consistencia, también con cambios de !important) */
-.btn-brown {
+/* Otros botones secundarios para FAQ/Acciones */
+.btn-brown,
+.button-universal.btn-brown {
   background-color: #84624a;
   color: white;
-  padding: 14px 32px;
-  font-size: 1rem;
-  transition: all 0.3s ease !important;
-  border-radius: 25px;
-  text-decoration: none;
 }
-
 .btn-brown:hover {
-  background-color: #5a402e; 
-  transform: translateY(-2px) !important;
-  color: white; 
-  text-decoration: none;
+  background-color: #5a402e;
+  color: white;
 }
-
-.btn-verde {
+.btn-verde,
+.button-universal.btn-verde {
   background-color: var(--btn-secondary);
   color: white;
-  padding: 14px 32px;
-  font-size: 1rem;
-  transition: all 0.3s ease !important;
-  border-radius: 25px;
-  text-decoration: none;
 }
-
 .btn-verde:hover {
   background-color: #384520;
-  transform: translateY(-2px) !important;
-  color: white; 
-  text-decoration: none;
+  color: white;
+}
+
+
+   /*RESPONSIVE PREGUNTAS & BOTONES */
+
+@media (max-width: 900px) {
+  .accordion-item {
+    margin-bottom: 8px;
+  }
+  .accordion-button,
+  .btn-avisos,
+  .btn-outline-avisos,
+  .btn-brown,
+  .btn-verde,
+  .button-universal {
+    font-size: 0.95rem !important;
+    padding: 10px 18px !important;
+  }
+}
+
+@media (max-width: 580px) {
+  .accordion-button,
+  .btn-avisos,
+  .btn-outline-avisos,
+  .btn-brown,
+  .btn-verde,
+  .button-universal {
+    font-size: 0.9rem !important;
+    padding: 9px 10px !important;
+    margin: 3px 0;
+    width: 98%;
+    display: block;
+  }
 }
 
 /* END FAQ + AVISOS */
+
 
 /* RECETAS */
 .recipe-card {
@@ -670,7 +693,7 @@ width: 95%;
 
 /*NavBar end*/
 
-/* === CONTACTO === */
+/* CONTACTO */
 .contact-section {
     display: flex;
     justify-content: center;
@@ -822,16 +845,6 @@ width: 95%;
     margin-top: 15px;
     margin-left: -20px;
 }
-.contact-title {
-    margin-top: 20px;
-    text-align: center;
-    color: #3a5320;
-    font-weight: 900;
-    font-size: 3rem;
-    margin-bottom: 2rem;
-    font-family: var(--font-h2-h3);
-    letter-spacing: 1px;
-}
 .contact-form {
     background-color: transparent;
     display: flex;
@@ -926,7 +939,10 @@ width: 95%;
     }
 }
 
-/* === LOGIN === */
+/* END CONTACTO */
+
+
+/*  LOGIN  */
 .body-login {
     display: flex;
     justify-content: center;
@@ -946,7 +962,7 @@ width: 95%;
     background-color: var(--color-bg-alt);
     border-radius: 20px;
     box-shadow: 16px 16px 0 #8c4731;
-    padding: 40px 50px;
+    padding: 40px 40px;
     max-width: 1100px;
     width: 90%;
     margin: auto;
@@ -967,8 +983,8 @@ width: 95%;
 }
 .login-image {
     display: block;
-    margin: 0 auto 20px auto; 
-    max-width: 80%;
+    margin: 0 auto 0px auto; 
+    max-width: 50%;
     height: auto;
 }
 .login-message-content {
@@ -976,24 +992,23 @@ width: 95%;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    margin-bottom: 20px;
+    margin-bottom: 0px;
     color: var(--black-color);
     text-align: center;
 }
-.login-message-content h1 {
+.login-message-content h1 { /*¡Bienvenido!*/
     text-align: center;
-    color: #3a5320;
-    font-weight: 900;
-    font-size: 3rem;
+    color: #8c4731;
+    font-size: var(--h1-size);
     font-family: var(--font-h2-h3);
     letter-spacing: 1px;
-    margin-bottom: 0.7rem;
+    margin-bottom: 1rem;
     margin-top: 0;
 }
-.login-message-content p {
+.login-message-content p { /*ingresa tus credenciales*/
     text-align: center;
     margin-top: 0;
-    margin-bottom: 2rem;
+    margin-bottom: 1rem;
     color: #2e2117;
     font-size: 1.16rem;
 }
@@ -1114,6 +1129,7 @@ width: 95%;
     }
 }
 
+/*End LOGIN*/
 
 /* Cart start*/
 aside {
