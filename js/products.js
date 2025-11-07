@@ -64,7 +64,7 @@ function loadStorageSampleData(){
                 'price':'80.00',
                 'productroute':'../products/abono-1kg.html',
                 'sizes':[
-                    {name: 'Bolsa de 1 Kg', price: 80},
+                    {name: 'Costal de abono orgánico (1 kg)', price: 80},
                     {name: 'Bolsaza de 6 Kg', price: 280},
                     {name: 'Costal de 10 Kg', price: 320},
                     {name: 'Costal de 15 Kg', price: 400},

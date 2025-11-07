@@ -15,61 +15,66 @@
 </head>
 <body class="bg-pattern-normal">
   <!--NavBar-->
-  <div class="navbar-container sticky-top py-3">
-    <nav class="navbar navbar-expand-lg navbar-dark navbar-farm px-4">
-      <a class="navbar-brand" href="index.html">
-          <img src="../img/LogoB.svg" alt="Logo de El Truco" class="navbar-logo">
-        </a>
+<!--NavBar-->
+<div class="navbar-container sticky-top py-3">
+  <nav class="navbar navbar-expand-lg navbar-dark navbar-farm px-4">
+    <a class="navbar-brand" href="/index.html">
+      <img src="/img/LogoB.svg" alt="Logo de El Truco" class="navbar-logo">
+    </a>
 
-      <a href="#" class="navbar-icon ms-auto me-3 d-lg-none" aria-label="Ver carrito de compras">
-          <i class="bi bi-basket2-fill fs-5"></i>
-      </a>
+    <!-- Ícono carrito móvil -->
+    <a href="../cart.html" class="navbar-icon position-relative ms-auto me-3 d-lg-none" aria-label="Ver carrito de compras">
+      <i class="bi bi-basket2-fill fs-5"></i>
+      <span id="cartCount" class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">0</span>
+    </a>
 
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-        <span class="navbar-toggler-icon"></span>
-      </button>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav navbar-nav-absolute-centered">
+        <li class="nav-item">
+          
+          <a class="nav-link active" aria-current="page" href="../index.html">Inicio</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="../products.html">Catálogo</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="../about.html">Acerca de Nosotros</a>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Blog
+          </a>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="../recipes.html">Recetas</a></li>
+            <li><a class="dropdown-item" href="../our-chickens.html">Nuestras Gallinas</a></li>
+          </ul>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="../contact.html">Contacto</a>
+        </li>
+        <li class="nav-item d-lg-none">
+          <a class="nav-link" href="#">Usuario</a>
+        </li>
+      </ul>
       
-      <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav navbar-nav-absolute-centered">
-          <li class="nav-item">
-            <a class="nav-link" href="../index.html">Inicio</a>
-          </li>
-          <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="../products.html">Catálogo</a>
-            </li>
-          </li>
-          <li class="nav-item"> 
-            <a class="nav-link" href="../about.html">Acerca de Nosotros</a>
-          </li>
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-              Blog
-            </a>
-            <ul class="dropdown-menu">
-              <li><a class="dropdown-item" href="../recipes.html">Recetas</a></li>
-              <li><a class="dropdown-item" href="#">Nuestras Gallinas</a></li>
-            </ul>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="../contact.html">Contacto</a>
-          </li>
-          <li class="nav-item d-lg-none">
-            <a class="nav-link" href="#">Usuario</a>
-          </li>
-        </ul>
-        
-        <div class="d-none d-lg-flex align-items-center ms-auto">
-          <a href="#" class="me-3 navbar-icon" aria-label="Iniciar sesión">
-            <i class="bi bi-person-fill fs-5"></i>
-          </a>
-          <a href="#" class="navbar-icon" aria-label="Ver carrito de compras">
-            <i class="bi bi-basket2-fill fs-5"></i>
-          </a>
-        </div>
+      <div class="d-none d-lg-flex align-items-center ms-auto">
+        <a href="login.html" class="me-3 navbar-icon" aria-label="Iniciar sesión">
+          <i class="bi bi-person-fill fs-5"></i>
+        </a>
+        <!-- Ícono carrito escritorio -->
+        <a href="../cart.html" class="navbar-icon position-relative" aria-label="Ver carrito de compras">
+          <i class="bi bi-basket2-fill fs-5"></i>
+          <span id="cartCountDesktop" class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">0</span>
+        </a>
       </div>
-    </nav>
-  </div>
-  <!--END NavBar-->
+    </div>
+  </nav>
+</div>
+<!--END NavBar-->
 
   <!-- PRODUCT VIEW -->
   <div class="container product-container">
@@ -122,7 +127,10 @@
               <input type="number" id="quantity" class="form-control w-50" value="1" min="1" max="10">
             </div>
             <div class="col-md-6 my-3">
-              <button class="btn btn-verde add-to-cart"> Agregar al carrito <i class="bi bi-basket2-fill fs-5"></i> </button>              
+              <!-- <button class="btn btn-verde add-to-cart"> Agregar al carrito <i class="bi bi-basket2-fill fs-5"></i> </button>               -->
+            <button id="addToCartBtn" class="btn btn-verde add-to-cart">
+              Agregar al carrito <i class="bi bi-basket2-fill fs-5"></i>
+            </button>
             </div>
           </div>
         </div>
@@ -194,5 +202,8 @@
   <!-- Main JS -->
     <script src="../js/productsService.js"></script>
   <script src="../js/main.js"></script>
+  <script src="../js/cartController.js"></script>
+
+
 </body>
 </html>

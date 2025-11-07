@@ -1031,3 +1031,20 @@ transition-delay: .6s;
   z-index: 5; /* navbar siempre encima */
   position: relative;
 }
+/* --- FIX FOOTER EN CARRITO --- */
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+main.cart {
+  flex: 1; /* empuja el footer hacia abajo */
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+footer.custom-footer {
+  margin-top: auto;
+}
