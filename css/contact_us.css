@@ -3,7 +3,7 @@
    =============================== */
 
 /* Centrado de la sección */
-.contact-section {
+/* .contact-section {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -12,7 +12,7 @@
 }
 
 /* Contenedor principal */
-.contact-container {
+/* .contact-container {
   display: flex;
   flex-wrap: wrap;
   gap: 50px;
@@ -28,7 +28,7 @@
 /* ============================================
    ESTRUCTURA DE COLUMNAS
    ============================================ */
-.contact-left {
+/* .contact-left {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -38,7 +38,7 @@
   padding: 40px;
   flex: 1 1 300px;
   min-width: 0; /* importante para evitar overflow */
-}
+/* }
 
 .contact-info {
   margin-bottom: 10px;
@@ -75,7 +75,7 @@
 /* ============================================
    FORMULARIO
    ============================================ */
-.contact-form {
+/* .contact-form {
   background-color: transparent;
   display: flex;
   flex-direction: column;
@@ -113,7 +113,7 @@
 }
 
 /* Contador de palabras */
-.textarea-wrapper {
+/* .textarea-wrapper {
   position: relative;
   width: 100%;
 }
@@ -128,7 +128,7 @@
 }
 
 /* Botón */
-.contact-form button {
+/* .contact-form button {
   margin-top: 10px;
   background-color: var(--btn-secondary);
   background-color: #5f6e47;
@@ -150,7 +150,7 @@
 
 /* BOTONES DE NAVEGACIÓN (FAQ / AVISOS) */
    
-.contact-navigation {
+/* .contact-navigation {
   display: flex;
   flex-direction: column;
   gap: 15px;
@@ -163,7 +163,7 @@
   padding: 20px 25px;
   
   /* Estilos finales unificados */
-  background-color: #8c4731;
+/*   background-color: #8c4731;
   border: 2px solid #8c4731; 
   border-radius: 10px;
   text-decoration: none;
@@ -222,15 +222,15 @@
 /* ============================================
    RESPONSIVE
    ============================================ */
-@media (max-width: 768px) {
+/* @media (max-width: 768px) {
   .contact-container {
     flex-direction: column;
     text-align: center;
     padding: 30px 25px;
     display: flex;
     flex-wrap: wrap; /* Esto permite que los elementos bajen cuando no hay espacio */
-    gap: 2rem; /* opcional para separación */
-    .contact-left h1 {
+ /*    gap: 2rem; /* opcional para separación */
+  /*   .contact-left h1 {
     font-size: 1.7rem;
   }
   }
