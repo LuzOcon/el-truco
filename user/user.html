@@ -214,10 +214,11 @@
             </div>
 
             <div class="col-md-4 mb-3">
-              <form class="input-group mb-2">
-                <input type="email" class="form-control" placeholder="Correo Electrónico">
+              <form id="newsletter-form" class="input-group mb-2">
+                <input required type="email" class="form-control" placeholder="Correo Electrónico">
                 <button class="btn btn-dark" type="submit">Suscríbete</button>
               </form>
+              <small id="newsletter-message" class="text-muted"></small>
               <p>Suscríbete a nuestra página y en tu primera compra recibirás hasta un 25% de descuento, además de promociones exclusivas.  </p>
             </div>
             <hr>
@@ -233,5 +234,6 @@
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
   <script src="userController.js"></script>
+  <script type="module" src="../js/main.js"></script>
 </body>
 </html>
