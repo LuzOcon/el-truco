@@ -845,16 +845,6 @@ width: 95%;
     margin-top: 15px;
     margin-left: -20px;
 }
-.contact-title {  /*¡Contáctanos!*/
-    margin-top: 20px;
-    text-align: center;
-    color: #8c4731;
-    font-weight: 900;
-    font-size: 3rem;
-    margin-bottom: 2rem;
-    font-family: var(--font-h2-h3);
-    letter-spacing: 1px;
-}
 .contact-form {
     background-color: transparent;
     display: flex;
@@ -1009,8 +999,7 @@ width: 95%;
 .login-message-content h1 { /*¡Bienvenido!*/
     text-align: center;
     color: #8c4731;
-    font-weight: 900;
-    font-size: 3rem;
+    font-size: var(--h1-size);
     font-family: var(--font-h2-h3);
     letter-spacing: 1px;
     margin-bottom: 1rem;
