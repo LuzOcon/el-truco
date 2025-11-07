@@ -294,4 +294,6 @@ updateVariantStock(variantId, quantity) {
 
 }
 
+
+
 const productService = new ProductService();
