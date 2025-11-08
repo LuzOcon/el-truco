@@ -1,50 +1,72 @@
 
-document.getElementById('registroForm').addEventListener('submit', function(e) {
-  e.preventDefault();
+import { login as apiLogin, setToken, parseJwt } from './api.js';
 
-  const nombre = document.getElementById('nombre').value.trim();
-  const telefono = document.getElementById('telefono').value.trim();
-  const email = document.getElementById('email').value.trim();
-  const password = document.getElementById('password').value;
-  const confirmPassword = document.getElementById('confirmPassword').value;
+// Login form handler (module)
+document.addEventListener('DOMContentLoaded', () => {
+  const form = document.querySelector('form.contact-form');
+  if (!form) return;
 
-  // Validaciones
-  if (!nombre || !telefono || !email || !password || !confirmPassword) {
-    alert('⚠️ Todos los campos son obligatorios.');
-    return;
-  }
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
 
-  
-  //Prueba de correo electrónico
-  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-  if (!emailRegex.test(email)) {
-    alert('El correo electrónico no es válido.');
-    return;
-  }
+    const email = document.getElementById('email').value.trim();
+    const password = document.getElementById('password').value;
 
-  //Prueba de largo de teléfono
-  const telefonoRegex = /^[0-9]{10}$/;
-  if (!telefonoRegex.test(telefono)) {
-    alert('El número de teléfono debe tener al menos 10 dígitos');
-    return;
-  }
+    if (!email || !password) {
+      alert('Completa usuario y contraseña');
+      return;
+    }
 
-  if (password !== confirmPassword) { //si medio cuadra la rechaza
-    alert('Las contraseñas no coinciden');
-    return;
-  }
+    try {
+      const data = await apiLogin({ email, password });
 
-  // Si pasa todas las validaciones:
-  const usuario = {
-    nombreCompleto: nombre,
-    telefono: telefono,
-    email: email,
-    password: password
-  };
+      // apiLogin may return a string or an object
+      let token = null;
+      if (typeof data === 'string') {
+        token = data.startsWith('Bearer ') ? data.split(' ')[1] : data;
+      } else if (data.token) {
+        token = data.token;
+      }
 
-  const usuarioJSON = JSON.stringify(usuario, null, 2);
-  console.log("Usuario registrado:", usuarioJSON);
+      if (!token) throw new Error('No se recibió token de autenticación.');
 
-  alert('Registro exitoso. Revisa la consola para ver el JSON:)');
-  this.reset();
+      setToken(token);
+
+      const payload = parseJwt(token) || {};
+
+      // Gather possible role claims into an array
+      const candidates = [];
+      if (payload.roles) candidates.push(payload.roles);
+      if (payload.authorities) candidates.push(payload.authorities);
+      if (payload.role) candidates.push(payload.role);
+      if (payload.rolesString) candidates.push(payload.rolesString);
+
+      // Flatten and convert to strings
+      const flattened = [].concat(...candidates.map(c => Array.isArray(c) ? c : [c]))
+        .filter(Boolean)
+        .map(item => {
+          if (typeof item === 'string') return item;
+          if (item && typeof item.authority === 'string') return item.authority;
+          return String(item);
+        });
+
+      const normalize = s => String(s).replace(/^ROLE[_-]/i, '').toUpperCase();
+      const normalized = flattened.map(normalize);
+
+      const isAdmin = normalized.some(r => r === 'ADMIN' || r.includes('ADMIN'));
+      const isUser = normalized.some(r => r === 'USER' || r.includes('USER'));
+
+      if (isAdmin) {
+        window.location.href = './admin/admin-products.html';
+      } else if (isUser) {
+        window.location.href = './user/user.html';
+      } else {
+        window.location.href = './index.html';
+      }
+
+    } catch (error) {
+      console.error('Login error:', error);
+      alert('Error al iniciar sesión: ' + (error.message || 'Revisa la consola'));
+    }
+  });
 });
