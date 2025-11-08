@@ -4,7 +4,7 @@ class SuscriptionController{
         this.storageKey = 'suscriptions';
         this.useDatabase = false; // Cambiar a true cuando se tenga la base de datos
         
-        this.init();
+        //this.init();
     }
 
    
