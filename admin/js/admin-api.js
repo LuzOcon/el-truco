@@ -120,3 +120,25 @@ export async function deleteRecipe(recipeId) {
   }
   return { success: true }; 
 }
+
+// Petición GET para obtener TODAS los correos activos en el newsletter
+export async function getAllNewsletterEmails() {
+  const response = await fetch(`${BASE_URL}/newsletter`);
+  
+  if (!response.ok) {
+    throw await handleApiError(response);
+  }
+  return response.json();
+}
+
+// Petición DELETE para eliminar un correo del newsletter
+export async function deleteNewsletterEmail(emailId) {
+  const response = await fetch(`${BASE_URL}/newsletter/${emailId}`, {
+    method: 'DELETE'
+  });
+
+  if (!response.ok) {
+    throw await handleApiError(response);
+  }
+  return { success: true }; 
+}

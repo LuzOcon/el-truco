@@ -1,5 +1,11 @@
 const BASE_URL = 'http://localhost:8080/api';
 
+function getJsonHeaders() {
+  return {
+    'Content-Type': 'application/json'
+  };
+}
+
 // Obtiene todas las recetas
 export async function getAllRecipes() {
 
@@ -30,4 +36,21 @@ export async function getRecipeBySlug(slug) {
     }
     
     return response.json();
+}
+
+// POST de correo para newsletter
+export async function subscribeToNewsletter(email) {
+  const response = await fetch(`${BASE_URL}/newsletter/subscribe`, {
+    method: 'POST',
+    headers: getJsonHeaders(),
+    body: JSON.stringify(email)
+  });
+
+  if (!response.ok) {
+    const error = new Error(`API_ERROR: ${response.status}`);
+    error.response = response;
+    throw error;
+  }
+
+  return response.json();
 }

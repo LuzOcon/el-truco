@@ -1,3 +1,5 @@
+import { subscribeToNewsletter } from './api.js';
+
 // Solo se ejecuta si encuentra ".gallery-scroll"
 const sliderInfinito = document.querySelector(".gallery-scroll");
 if (sliderInfinito) {
@@ -271,4 +273,61 @@ if (animateOnScrollElements.length > 0) {
     animateOnScrollElements.forEach(el => {
         observer.observe(el);
     });
+}
+
+const newsletterForm = document.querySelector('#newsletter-form');
+const messageElement = document.querySelector('#newsletter-message');
+
+if (newsletterForm) {
+    newsletterForm.addEventListener('submit', async (event) => {
+        event.preventDefault();
+
+        const emailInput = newsletterForm.querySelector('input[type="email"]');
+        const email = emailInput.value.trim();
+
+        if (!validateEmail(email)) {
+            showMessage('Por favor ingresa un correo electrónico válido.', 'text-danger');
+            return;
+        }
+
+        const button = newsletterForm.querySelector('button');
+        button.disabled = true;
+        showMessage('Enviando...', 'text-muted');
+
+        try {
+             const response = await subscribeToNewsletter({ email });
+
+            if (response.message) {
+                showMessage(response.message, 'text-success');
+            } else {
+                showMessage('¡Gracias por suscribirte!', 'text-success');
+            }
+            emailInput.value = '';
+        } catch (error) {
+            console.error('Error al suscribirse:', error);
+
+            if (error.response) {
+                try {
+                const data = await error.response.json();
+                showMessage(data.message || 'Ocurrió un error al enviar tu correo.', 'text-danger');
+                } catch {
+                showMessage('Ocurrió un error inesperado.', 'text-danger');
+                }
+            } else {
+                showMessage('No se pudo conectar con el servidor.', 'text-danger');
+            }
+        } finally {
+            button.disabled = false;
+        }
+    });
+}
+
+function validateEmail(email) {
+    const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return regex.test(email);
+}
+
+function showMessage(text, className) {
+  messageElement.textContent = text;
+  messageElement.className = `small ${className}`;
 }
