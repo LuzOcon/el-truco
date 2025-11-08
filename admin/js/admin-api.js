@@ -6,6 +6,18 @@ function getJsonHeaders() {
   };
 }
 
+function getToken() {
+  return localStorage.getItem('token');
+}
+
+function getAuthHeadersOrThrow() {
+  const token = getToken();
+  if (!token) {
+    throw new Error('No authentication token found. Inicia sesión para continuar.');
+  }
+  return { Authorization: `Bearer ${token}` };
+}
+
 async function handleApiError(response) {
   // Traducimos los códigos de estado HTTP a mensajes de usuario
   if (response.status === 413) {
@@ -52,7 +64,10 @@ export async function getAllRecipes() {
 export async function createRecipe(recipeData) {
   const response = await fetch(`${BASE_URL}/recipes`, {
     method: 'POST',
-    headers: getJsonHeaders(),
+    headers: {
+      ...getJsonHeaders(),
+      ...getAuthHeadersOrThrow()
+    },
     body: JSON.stringify(recipeData)
   });
   
@@ -67,6 +82,9 @@ export async function uploadRecipeImage(recipeId, imageFormData) {
     try {
     const response = await fetch(`${BASE_URL}/recipes/${recipeId}/upload-image`, {
       method: 'POST',
+      headers: {
+        ...getAuthHeadersOrThrow()
+      },
       body: imageFormData
     });
     
@@ -99,7 +117,10 @@ export async function getRecipeById(recipeId) {
 export async function updateRecipe(recipeId, recipeData) {
   const response = await fetch(`${BASE_URL}/recipes/${recipeId}`, {
     method: 'PUT',
-    headers: getJsonHeaders(),
+    headers: {
+      ...getJsonHeaders(),
+      ...getAuthHeadersOrThrow()
+    },
     body: JSON.stringify(recipeData)
   });
   
@@ -112,7 +133,10 @@ export async function updateRecipe(recipeId, recipeData) {
 // Petición DELETE para eliminar una receta
 export async function deleteRecipe(recipeId) {
   const response = await fetch(`${BASE_URL}/recipes/${recipeId}`, {
-    method: 'DELETE'
+    method: 'DELETE',
+    headers: {
+      ...getAuthHeadersOrThrow()
+    }
   });
 
   if (!response.ok) {
@@ -123,7 +147,12 @@ export async function deleteRecipe(recipeId) {
 
 // Petición GET para obtener TODAS los correos activos en el newsletter
 export async function getAllNewsletterEmails() {
-  const response = await fetch(`${BASE_URL}/newsletter`);
+  const response = await fetch(`${BASE_URL}/newsletter`, {
+    method: 'GET',
+    headers: {
+      ...getAuthHeadersOrThrow()
+    }
+  });
   
   if (!response.ok) {
     throw await handleApiError(response);
@@ -134,7 +163,10 @@ export async function getAllNewsletterEmails() {
 // Petición DELETE para eliminar un correo del newsletter
 export async function deleteNewsletterEmail(emailId) {
   const response = await fetch(`${BASE_URL}/newsletter/${emailId}`, {
-    method: 'DELETE'
+    method: 'DELETE',
+    headers: {
+      ...getAuthHeadersOrThrow()
+    }
   });
 
   if (!response.ok) {
