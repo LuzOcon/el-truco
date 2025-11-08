@@ -5,7 +5,7 @@ class ProductService {
         this.useDatabase = true; // true usa la base de datos y false usa local storage
         this.BASE_URL = 'http://localhost:8080/api';
 
-        this.init();
+        //this.init();
     }
 
    
@@ -19,9 +19,11 @@ class ProductService {
         
         this.products = await response.json(); 
         console.log('Productos cargados desde la base de datos');
+        this.useDatabase = true;
     } catch (error) {
         console.error('Error al cargar productos desde la BD:', error);
         
+        this.useDatabase = false;
         this.loadFromLocalStorage();
     }
     }

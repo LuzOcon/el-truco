@@ -192,48 +192,24 @@ anchorLinks.forEach(link => {
 });
 // END AVISOS LEGALES
 
-// //Variantes de la vista de productos
-// const variantCards = document.querySelectorAll('.variant-card');
-//   const productTitle = document.querySelector('h2');
-//   const productPrice = document.querySelector('.price');
-//   const mainImg = document.querySelector('.carousel-item.active img');
-
-//   variantCards.forEach(card => {
-//     card.addEventListener('click', () => {
-//       // Quitar la clase active de todas
-//       variantCards.forEach(c => c.classList.remove('active'));
-//       card.classList.add('active');
-
-//       // Cambiar datos del producto
-//       const name = card.getAttribute('data-name');
-//       const price = card.getAttribute('data-price');
-//       const img = card.getAttribute('data-img');
-
-//       productTitle.textContent = name;
-//       productPrice.textContent = `$${price} MXN`;
-//       mainImg.src = img;
-//     });
-//   });
 
 document.addEventListener('DOMContentLoaded', async function() {
     // Solo ejecutar si estamos en la página del catálogo
+    await productService.init();
+
     if (document.getElementById('list-items')) {
-        await productService.init();
+        
         productService.renderCatalog();
         console.log('Catálogo cargado');
     }
-});
-
-document.addEventListener('DOMContentLoaded', async function() {
     // Detectar si estamos en la página de producto individual
-    if (window.location.pathname.includes('producto.html')) {
+    else if (window.location.pathname.includes('producto.html')) {
         
         // Obtener el ID del producto desde la URL
         const urlParams = new URLSearchParams(window.location.search);
         const productId = urlParams.get('id');
         
         if (productId) {
-            await productService.init();
             productService.renderProductPage(parseInt(productId));
         } else {
             console.error('No se encontró ID en la URL');

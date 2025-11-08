@@ -4,13 +4,13 @@ class SuscriptionController{
         this.storageKey = 'suscriptions';
         this.useDatabase = false; // Cambiar a true cuando se tenga la base de datos
         
-        this.init();
+        //this.init();
     }
 
    
     async init() {
         await this.loadSuscriptions();
-        console.log('SuscriptionController iniciado con', this.suscriptionPlans.length, 'planes');
+        //console.log('SuscriptionController iniciado con', this.suscriptionPlans.length, 'planes');
     }
 
     async loadSuscriptions() {
@@ -27,11 +27,11 @@ class SuscriptionController{
         
         if (stored) {
             this.suscriptionPlans = JSON.parse(stored);
-            console.log('Suscripciones cargados desde localStorage');
+            //console.log('Suscripciones cargados desde localStorage');
         } else {
             this.createSampleData();
             this.saveToLocalStorage();
-            console.log('Datos de ejemplo creados');
+            //console.log('Datos de ejemplo creados');
         }
     }
 
@@ -83,14 +83,6 @@ class SuscriptionController{
     }
     
 
-//     //para el carrito
-//     getVariantById(variantId) {
-//     for (let suscription of this.suscriptionPlans) {
-//         const variant = suscription.variants.find(v => v.id == variantId);
-//         if (variant) return { product, variant };
-//     }
-//     return null;
-// }
 
 
     //Renderizar pagina de catalogo
