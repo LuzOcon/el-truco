@@ -4,12 +4,23 @@ class ProductService {
         this.storageKey = 'productsDB';
         this.useDatabase = true; // true usa la base de datos y false usa local storage
         this.BASE_URL = 'http://localhost:8080/api';
-
-        this.init();
     }
 
    
     async init() {
+        if (!this.useDatabase) {
+            this.loadFromLocalStorage();
+            return;
+    }
+
+    //si ya hay datos en local los agarramos de ahí
+    const stored = localStorage.getItem(this.storageKey);
+    if (stored) {
+        this.products = JSON.parse(stored);
+        console.log('Productos cargados desde localStorage');
+        return;
+    }
+
         try {
         const response = await fetch(`${this.BASE_URL}/products`);
        
