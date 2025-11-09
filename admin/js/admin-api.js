@@ -174,3 +174,133 @@ export async function deleteNewsletterEmail(emailId) {
   }
   return { success: true }; 
 }
+
+
+
+export async function getAllProducts() {
+  const response = await fetch(`${BASE_URL}/products`);
+  
+  if (!response.ok) {
+    throw await handleApiError(response);
+  }
+  return response.json();
+}
+
+
+export async function createProduct(productData) {
+  const response = await fetch(`${BASE_URL}/products`, {
+    method: 'POST',
+    headers: {
+      ...getJsonHeaders(),
+      ...getAuthHeadersOrThrow()
+    },
+    body: JSON.stringify(productData)
+  });
+  
+  if (!response.ok) {
+    throw await handleApiError(response);
+  }
+  return response.json();
+}
+
+
+export async function uploadProductImage(productId, imageFormData) {
+    try {
+    const response = await fetch(`${BASE_URL}/products/${productId}/upload-image`, {
+      method: 'POST',
+      headers: {
+        ...getAuthHeadersOrThrow()
+      },
+      body: imageFormData
+    });
+    
+    if (!response.ok) {
+      throw await handleApiError(response);
+    }
+    return response.json();
+
+  } catch (error) {
+    
+    if (error.message.includes('Failed to fetch')) {
+      throw new Error('La imagen es demasiado grande.');
+    }
+    
+    throw error;
+  }
+}
+
+
+export async function getProductById(productId) {
+  const response = await fetch(`${BASE_URL}/products/${productId}`);
+  
+  if (!response.ok) {
+    throw await handleApiError(response);
+  }
+  return response.json();
+}
+
+
+export async function updateProduct(productId, productData) {
+  const response = await fetch(`${BASE_URL}/products/${productId}`, {
+    method: 'PUT',
+    headers: {
+      ...getJsonHeaders(),
+      ...getAuthHeadersOrThrow()
+    },
+    body: JSON.stringify(productData)
+  });
+  
+  if (!response.ok) {
+    throw await handleApiError(response);
+  }
+  return response.json();
+}
+
+
+export async function deleteProduct(productId) {
+  const response = await fetch(`${BASE_URL}/products/${productId}`, {
+    method: 'DELETE',
+    headers: {
+      ...getAuthHeadersOrThrow()
+    }
+  });
+
+  if (!response.ok) {
+    throw await handleApiError(response);
+  }
+  return { success: true }; 
+}
+
+// Funciones para variantes
+export const deleteVariant = async (productId, variantId) => {
+  const response = await fetch(`${BASE_URL}/products/${productId}/variants/${variantId}`, {
+    method: 'DELETE',
+    headers: {
+      'Content-Type': 'application/json'
+    }
+  });
+
+  if (!response.ok) {
+    const errorData = await response.json();
+    throw new Error(errorData.message || 'Error al eliminar la variante');
+  }
+
+  return response.json();
+};
+
+export const updateVariant = async (productId, variantId, variantData) => {
+  const response = await fetch(`${BASE_URL}/products/${productId}/variants/${variantId}`, {
+    method: 'PUT',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify(variantData)
+  });
+
+  if (!response.ok) {
+    const errorData = await response.json();
+    throw new Error(errorData.message || 'Error al actualizar la variante');
+  }
+
+  return response.json();
+};

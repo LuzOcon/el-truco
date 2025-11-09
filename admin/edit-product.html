@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    
+    <title>Editar Producto - Admin El Truco</title>
+
+    <link rel="icon" href="../img/favicon.ico" type="image/x-icon">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="../css/style.css" />
+    <link rel="stylesheet" href="admin.css" />
+</head>
+<body>
+
+    <!--NavBar-->
+    <div class="navbar-container sticky-top py-3">
+      <nav class="navbar navbar-expand-lg navbar-dark navbar-farm px-4">
+        <a class="navbar-brand" href="admin-dashboard.html">
+          <img src="../img/LogoB.svg" alt="Logo de El Truco" class="navbar-logo">
+        </a>
+
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav navbar-nav-absolute-centered">
+            <li class="nav-item">
+              <a class="nav-link" href="admin-dashboard.html">Inicio</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="admin-products.html">Productos</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="admin-recipes.html">Recetas</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="admin-newsletter.html">Noticias</a>
+            </li>
+            <li class="nav-item d-lg-none">
+              <a class="nav-link" href="#">Cerrar sesión</a>
+            </li>
+          </ul>
+          
+          <div class="d-none d-lg-flex align-items-center ms-auto">
+            <a href="#" id="logoutButton" class="me-3 navbar-icon" aria-label="Cerrar sesión">
+                <i class="bi bi-box-arrow-right fs-5"></i>
+            </a>
+          </div>
+        </div>
+      </nav>
+    </div>
+    <!--END NavBar-->
+
+    <div class="container my-5">
+        
+        <h1 class="mb-4">Editar Producto</h1>
+
+        <div id="notificationContainer" class="mb-3"></div>
+
+        <form id="productForm" novalidate>
+            <div class="row g-4">
+            
+                <div class="col-md-6">
+                    <div class="form-floating mb-3">
+                        <input type="text" class="form-control" id="productName" name="name" placeholder="Nombre del Producto" required>
+                        <label for="productName">Nombre del Producto</label>
+                        <div class="invalid-feedback">El nombre del producto es necesario...</div>
+                    </div>
+                </div>
+
+                <div class="col-md-6">
+                    <div class="form-floating mb-3">
+                        <select class="form-select" id="productCategory" name="category" aria-label="Categoría del producto" required>
+                            <option value="" selected disabled>Selecciona una categoría</option>
+                            <option value="huevos">Huevos</option>
+                            <option value="abono">Abono</option>
+                            <option value="aves">Aves</option>
+                        </select>
+                        <label for="productCategory">Categoría</label>
+                        <div class="invalid-feedback">Por favor, selecciona una categoría.</div>
+                    </div>
+                </div>  
+                
+                <div class="col-12">
+                    <div class="form-floating mb-3">
+                        <textarea class="form-control" id="description" name="description" placeholder="Descripción" style="height: 100px" required minlength="10"></textarea>
+                        <label for="description">Descripción</label>
+                        <div class="invalid-feedback">La descripción  no puede estar vacía...</div>
+                    </div>
+                </div>
+
+                <div class="col-md-6">
+                    <div class="mb-3">
+                        <label for="imageFile" class="form-label">Cambiar Imagen (Opcional)</label>
+                        
+                        <input class="form-control" type="file" id="imageFile" name="imageFile" accept="image/webp, image/jpeg, image/png">
+                        
+                        <div class="invalid-feedback">Por favor, agrega una imagen para tu producto.</div>
+
+                        <div class="text-center">
+                            <img id="imagePreview" src="https://placehold.co/300x200/b2b2b2/ffffff?text=Cargando..." alt="Vista previa de la imagen" class="img-fluid rounded" style="max-height: 250px; display: block; margin: 0 auto;">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-6">
+                    <div class="form-floating mb-3">
+                        <input type="text" class="form-control" id="productBasePrice" name="basePrice" placeholder="Precio del Producto" required>
+                        <label for="productBasePrice">Precio base del producto</label>
+                        <div class="invalid-feedback">El precio del producto es necesario...</div>
+                    </div>
+
+                    <label for="productActive" class="form-label">Estado del producto 
+                        <span id="statusBadge" class="badge ms-2"></span> </label>
+                        <select class="form-select" id="productActive" name="active" aria-label="Estado del producto" required>
+                            <option value="" disabled>Selecciona el estado del producto</option>
+                            <option value="1">Activo</option>
+                            <option value="0">Inactivo</option>
+                        </select>
+                        <div class="invalid-feedback">Por favor, selecciona el estado del producto.</div>
+                </div>
+                
+
+                <div class="col-12 text-end mt-4">
+                    <button type="submit" class="btn btn-verde btn-lg">Guardar Cambios</button>
+                </div>
+                
+                    
+            </div>
+        </form>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script type="module" src="./js/admin-guard.js"></script>
+    <script src="./js/admin-product-edit.js" type="module"></script>
+    <script type="module" src="../js/main.js"></script>
+</body>
+</html>
