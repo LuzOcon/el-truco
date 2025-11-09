@@ -3,7 +3,10 @@ class ProductService {
         this.products = [];
         this.storageKey = 'productsDB';
         this.useDatabase = true; // true usa la base de datos y false usa local storage
-        this.BASE_URL = 'http://localhost:8080/api';
+        this.BASE_URL = 'http://localhost:8080';
+
+        this.timestampKey = 'productsDB_timestamp';
+        this.cacheDuration = 10 * 60 * 1000;
     }
 
    
@@ -11,30 +14,44 @@ class ProductService {
         if (!this.useDatabase) {
             this.loadFromLocalStorage();
             return;
-    }
+        }
 
-    //si ya hay datos en local los agarramos de ahí
-    const stored = localStorage.getItem(this.storageKey);
-    if (stored) {
-        this.products = JSON.parse(stored);
-        console.log('Productos cargados desde localStorage');
-        return;
-    }
+    //si ya hay datos en local se usan
+        const stored = localStorage.getItem(this.storageKey);
+        const timestamp = localStorage.getItem(this.timestampKey);
+        const now = Date.now();
+
+        // si hay datos y no han expirado
+        if (stored && timestamp && (now - parseInt(timestamp)) < this.cacheDuration) {
+            this.products = JSON.parse(stored);
+            return;
+        }
 
         try {
-        const response = await fetch(`${this.BASE_URL}/products`);
+        const response = await fetch(`${this.BASE_URL}/api/products`);
        
         if (!response.ok) {
             throw new Error(`API_ERROR: Failed to fetch all products (Status: ${response.status})`);
         }
         
         this.products = await response.json(); 
+
+        localStorage.setItem(this.storageKey, JSON.stringify(this.products));
+        localStorage.setItem(this.timestampKey, now.toString());
+
+
         console.log('Productos cargados desde la base de datos');
-    } catch (error) {
+        } catch (error) {
         console.error('Error al cargar productos desde la BD:', error);
         
         this.loadFromLocalStorage();
+        }
     }
+
+    async forceRefresh() {
+        localStorage.removeItem(this.storageKey);
+        localStorage.removeItem(this.timestampKey);
+        await this.init();
     }
 
    //Cargamos desde localstorage
@@ -57,8 +74,7 @@ class ProductService {
 
     //Cargamos desde base de datos
     async loadFromDatabase() {
-        const BASE_URL = 'http://localhost:8080/api';
-        const response = await fetch(`${BASE_URL}/products`);
+        const response = await fetch(`${this.BASE_URL}/api/products`);
     
         if (!response.ok) {
             throw new Error(`API_ERROR: Failed to fetch all products (Status: ${response.status})`);
@@ -160,10 +176,34 @@ class ProductService {
 
     //datos para el carrito y para el menu collapse
     const optionsHTML = product.variants.map(v => `<option value="${v.id}" data-name="${v.name}" data-price="${v.price}" data-image="${v.image}"> ${v.name} - $${v.price.toFixed(2)} MXN </option>`).join('');
+    const backendRootUrl = this.BASE_URL; // http://localhost:8080
+    
+    let imageUrl;
+    if (product.mainImage) {
+
+        if (product.mainImage.startsWith('img/')) {
+            imageUrl = product.mainImage; // Ya es relativo
+        }
+        // Solo nombre de archivo (formato correcto desde BD)
+        else if (!product.mainImage.includes('/')) {
+            imageUrl = `${backendRootUrl}/images/products/${product.mainImage}`;
+        }
+        // Ruta vieja "public/images/products/..."
+        else if (product.mainImage.startsWith('public/')) {
+            const filename = product.mainImage.split('/').pop();
+            imageUrl = `${backendRootUrl}/images/products/${filename}`;
+        } 
+        else {
+            imageUrl = product.mainImage;
+        }
+    } else {
+        imageUrl = 'https://placehold.co/300x200/b2b2b2/ffffff?text=Sin+Imagen';
+    }
+
 
     col.innerHTML = `
         <div class="card border-0 producto-card">
-            <img src="${product.mainImage}" alt="${product.name}" class="card-img-products">
+            <img src="${imageUrl}" alt="${product.name}" class="card-img-products">
             <div class="card-body text-center">
                 <h5 class="card-title">${product.name}</h5>
                 <p class="card-price">Desde $${product.basePrice.toFixed(2)} MXN</p>
@@ -191,7 +231,7 @@ class ProductService {
     `;
 
     return col;
-}
+    }
    
 
 //renderiza pagina individual con el Id de cada producto

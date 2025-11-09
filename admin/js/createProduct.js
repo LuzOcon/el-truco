@@ -1,90 +1,163 @@
-document.addEventListener("DOMContentLoaded", () => {
-  const form = document.getElementById("productForm");
-  const variantsContainer = document.getElementById("variantsContainer");
-  const addVariantBtn = document.getElementById("addVariantBtn");
-  let variantCount = 0;
+import { createProduct, uploadProductImage } from './admin-api.js';
 
-  // Agregar una nueva variante
-  addVariantBtn.addEventListener("click", () => {
-    variantCount++;
-    const variantHTML = `
-      <div class="border p-3 rounded mb-2 variant-item">
-        <h6>Variante ${variantCount}</h6>
-        <input type="text" class="form-control mb-2 variant-name" placeholder="Nombre (Ej. Paquete de 6 Huevos)">
-        <input type="number" class="form-control mb-2 variant-price" placeholder="Precio (Ej. 24.00)">
-        <input type="text" class="form-control mb-2 variant-image" placeholder="Imagen (Ej. ../img/sixeggs.webp)">
-        <input type="number" class="form-control mb-2 variant-stock" placeholder="Stock disponible">
-        <button type="button" class="btn btn-outline-danger btn-sm remove-variant">Eliminar</button>
-      </div>`;
-    variantsContainer.insertAdjacentHTML("beforeend", variantHTML);
-  });
+document.addEventListener('DOMContentLoaded', () => {
 
-  variantsContainer.addEventListener("click", e => {
-    if (e.target.classList.contains("remove-variant")) {
-      e.target.closest(".variant-item").remove();
-    }
-  });
+  // DOM
+  const productForm = document.getElementById('productForm');
+  const mainImage = document.getElementById('mainImage');
+  const imagePreview = document.getElementById('imagePreview');
+  const jsonOutput = document.getElementById('jsonOutput');
+  const notificationContainer = document.getElementById('notificationContainer');
 
-  form.addEventListener("submit", e => {
-    e.preventDefault();
+  if (!productForm) {
+    return;
+  }
 
-    const name = document.getElementById("name").value.trim();
-    const description = document.getElementById("description").value.trim();
-    const base_price = parseFloat(document.getElementById("base_price").value);
-    const category = document.getElementById("category").value;
-    const main_image = document.getElementById("main_image").value.trim();
-    const active = parseInt(document.getElementById("active").value);
+  //  Alertas para el usuario 
+  const showNotification = (message, type) => {
+    notificationContainer.innerHTML = ''; 
+    const wrapper = document.createElement('div');
+    wrapper.innerHTML = `
+      <div class="alert alert-${type} alert-dismissible fade show" role="alert">
+        ${message}
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Cerrar"></button>
+      </div>
+    `;
+    notificationContainer.appendChild(wrapper);
+  };
 
-    if (!name || !description || !base_price || !category || !main_image) {
-      alert("Por favor completa los campos obligatorios.");
-      return;
-    }
+  //  Lógica del Formulario para la imagen 
+  mainImage.addEventListener('change', (event) => {
+    const file = event.target.files[0];
+    if (file) {
+      const maxSize = 10 * 1024 * 1024; // 10 MB
+      const allowedTypes = ['image/jpeg', 'image/png', 'image/webp'];
 
-    const variantElements = document.querySelectorAll(".variant-item");
-    if (variantElements.length === 0) {
-      alert("Agrega al menos una variante.");
-      return;
-    }
-
-    const variants = [];
-    variantElements.forEach((el, i) => {
-      const vName = el.querySelector(".variant-name").value.trim();
-      const vPrice = parseFloat(el.querySelector(".variant-price").value);
-      const vImage = el.querySelector(".variant-image").value.trim();
-      const vStock = parseInt(el.querySelector(".variant-stock").value);
-
-      if (!vName || !vPrice || !vImage || !vStock) {
-        alert(`Completa todos los campos en la variante ${i + 1}.`);
-        throw new Error("Campos incompletos");
+      if (!allowedTypes.includes(file.type)) {
+        showNotification('Tipo de imagen no permitido. Solo JPG, PNG o WEBP.', 'danger');
+        mainImage.value = '';
+        imagePreview.src = '';
+        return;
       }
 
-      variants.push({
-        id: i + 1,
-        product_id: Date.now(),
-        name: vName,
-        price: vPrice,
-        image: vImage,
-        stock: vStock
-      });
-    });
+      if (file.size > maxSize) {
+        showNotification('La imagen es demasiado grande. Máximo permitido: 10 MB.', 'danger');
+        mainImage.value = '';
+        imagePreview.src = '';
+        return;
+      }
 
-    const newProduct = {
-      id: Date.now(),
-      name,
-      description,
-      base_price,
-      category,
-      main_image,
-      active,
-      variants
-    };
-
-    console.log("Producto creado: ");
-    console.log(JSON.stringify(newProduct, null, 2));
-
-    alert("Producto creado correctamente (ver consola para el JSON).");
-    form.reset();
-    variantsContainer.innerHTML = "";
-    variantCount = 0;
+      // Si pasa validación, mostrar preview
+      const reader = new FileReader();
+      reader.onload = (e) => {
+        imagePreview.src = e.target.result;
+        imagePreview.style.display = 'block';
+      };
+      reader.readAsDataURL(file);
+    }
   });
+
+
+
+  const handleRemoveItem = (event) => {
+    if (event.target.classList.contains('remove-item')) {
+      event.target.closest('.dynamic-field-wrapper').remove();
+    }
+  };
+
+  productForm.addEventListener('submit', async (event) => {
+    event.preventDefault(); 
+    notificationContainer.innerHTML = '';
+    
+    if (!productForm.checkValidity()) {
+      event.stopPropagation();
+      productForm.classList.add('was-validated'); 
+      showNotification('Por favor, corrige los errores marcados en el formulario.', 'danger');
+      return; 
+    }
+    productForm.classList.add('was-validated');
+    
+    const submitButton = productForm.querySelector('button[type="submit"]');
+    submitButton.disabled = true;
+    submitButton.textContent = 'Guardando...';
+
+    let savedProduct;
+    let productData;
+
+    try {
+      const formData = new FormData(productForm);
+      productData = {
+        name: formData.get('name'),
+        description: formData.get('description'),
+        category: formData.get('category'),
+        basePrice: parseFloat(formData.get('basePrice')), 
+        active: formData.get('active') === "1"
+      };
+      savedProduct = await createProduct(productData);
+
+    } catch (createError) {
+
+      console.error('Error al crear el producto:', createError);
+
+      let userMessage = createError.message;
+
+      if (userMessage.includes('Duplicate entry') && userMessage.includes('products.UK2yg91gejn5gopghwqbh5k25fp')) {
+        userMessage = 'Ya existe un producto con este nombre. Por favor, elige un nombre diferente.';
+      }
+
+      // Mostramos el mensaje (traducido o no)
+      showNotification(`Hubo un error al guardar el producto: ${userMessage}`, 'danger');
+      productForm.classList.remove('was-validated');
+      submitButton.disabled = false;
+      submitButton.textContent = 'Guardar Producto';
+      return;
+    }
+
+    const productName = productData.name;
+    const imageToUpload = mainImage.files[0];
+
+    console.log('Imagen a subir:', imageToUpload);
+    
+    if (imageToUpload) {
+      try {
+        const imageFormData = new FormData();
+        imageFormData.append('image', imageToUpload); 
+
+        console.log('📤 Subiendo imagen para producto ID:', savedProduct.id); // ✅ AGREGA
+        await uploadProductImage(savedProduct.id, imageFormData);
+        
+        // Receta e imagen se guardaron correctamente
+        const notification = { 
+          type: 'success', 
+          message: `¡El producto "${productName}" se guardó exitosamente!` 
+        };
+        sessionStorage.setItem('showNotification', JSON.stringify(notification));
+        
+      } catch (imageError) {
+        // Solo se guardó la receta
+        console.error('Error al subir la imagen:', imageError);
+        const notification = { 
+          type: 'warning', 
+          message: `El producto "${productName}" se creó, pero la imagen no subió: ${imageError.message}` 
+        };
+        sessionStorage.setItem('showNotification', JSON.stringify(notification));
+      }
+    
+    } else {
+      // Notificamos que la receta se guardó pero la imagen no
+      const notification = { type: 'success', message: 'Producto guardado exitosamente!' };
+      sessionStorage.setItem('showNotification', JSON.stringify(notification));
+    }
+
+    // Si se creó la receta (con o sin imagen) se redirige a la tabla de recetas
+    window.location.href = 'admin-products.html';
+  });
+
+  productForm.addEventListener('input', () => {
+    if (productForm.classList.contains('was-validated')) {
+      productForm.classList.remove('was-validated');
+    }
+    notificationContainer.innerHTML = ''; 
+  });
+
 });
