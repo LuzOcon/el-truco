@@ -61,76 +61,79 @@
 
   <!-- FORMULARIO -->
   <section class="container my-5">
-    <div class="text-center mb-4">
-      <h1>Crear Nuevo Producto</h1>
-    </div>
-
-    <form id="productForm" >
-      <!-- Datos generales -->
-      <div class="mb-3">
-        <label for="name" class="form-label fw-semibold">Nombre del producto</label>
-        <input type="text" id="name" class="form-control" placeholder="Ej. Huevos Orgánicos">
-      </div>
-
-      <div class="mb-3">
-        <label for="description" class="form-label fw-semibold">Descripción</label>
-        <textarea id="description" class="form-control" rows="3" placeholder="Describe el producto..."></textarea>
-      </div>
-
-      <div class="row">
-        <div class="col-md-4 mb-3">
-          <label for="base_price" class="form-label fw-semibold">Precio base</label>
-          <input type="number" id="base_price" class="form-control" min="0" step="0.01" placeholder="Ej. 24.00">
+        <div class="text-center mb-4">
+            <h1>Crear Nuevo Producto</h1>
         </div>
 
-        <div class="col-md-4 mb-3">
-          <label for="category" class="form-label fw-semibold">Categoría</label>
-          <select id="category" class="form-select">
-            <option value="">Selecciona una categoría</option>
-            <option value="huevos">Huevos</option>
-            <option value="abono">Abono</option>
-            <option value="aves">Aves</option>
-          </select>
-        </div>
+        <!--  Contenedor de notificaciones -->
+        <div id="notificationContainer" class="mb-3"></div>
 
-        <div class="col-md-4 mb-3">
-          <label for="active" class="form-label fw-semibold">Activo</label>
-          <select id="active" class="form-select">
-            <option value="1" selected>Sí</option>
-            <option value="0">No</option>
-          </select>
-        </div>
-      </div>
+        <form id="productForm" novalidate>
+            <!-- Datos generales -->
+            <div class="mb-3">
+                <label for="name" class="form-label fw-semibold">Nombre del producto</label>
+                <input type="text" id="name" name="name" class="form-control" placeholder="Ej. Huevos Orgánicos" required>
+                <div class="invalid-feedback">El nombre del producto es obligatorio.</div>
+            </div>
 
-      <div class="mb-3">
-        <label for="main_image" class="form-label fw-semibold">Imagen principal (URL o ruta)</label>
-        <input type="text" id="main_image" class="form-control" placeholder="img/sixeggs.webp">
-      </div>
+            <div class="mb-3">
+                <label for="description" class="form-label fw-semibold">Descripción</label>
+                <textarea id="description" name="description" class="form-control" rows="3" placeholder="Describe el producto..." required minlength="10"></textarea>
+                <div class="invalid-feedback">La descripción debe tener al menos 10 caracteres.</div>
+            </div>
 
-      <!-- Variantes -->
-      <div class="mt-4">
-        <h5 class="fw-bold mb-2">Variantes del producto</h5>
-        <p class="text-muted small mb-3">Agrega las presentaciones o tamaños disponibles (por ejemplo: 6, 12, 30 huevos).</p>
-        <div id="variantsContainer"></div>
-        <button type="button" id="addVariantBtn" class="btn btn-verde btn-sm mt-2">
-          <i class="bi bi-plus-circle"></i> Agregar Variante
-        </button>
-      </div>
+            <div class="row">
+                <div class="col-md-4 mb-3">
+                    <label for="basePrice" class="form-label fw-semibold">Precio base</label>
+                    <input type="number" id="basePrice" name="basePrice" class="form-control" min="0" step="0.01" placeholder="24.00" required>
+                    <div class="invalid-feedback">El precio base es obligatorio.</div>
+                </div>
 
-      <!-- Botón Guardar -->
-      <div class="text-center mt-4">
-        <button type="submit" class="btn btn-verde px-4">
-          Guardar Producto
-        </button>
-      </div>
-    </form>
-  </section>
+                <div class="col-md-4 mb-3">
+                    <label for="category" class="form-label fw-semibold">Categoría</label>
+                    <select id="category" name="category" class="form-select" required>
+                        <option value="" selected disabled>Selecciona una categoría</option>
+                        <option value="huevos">Huevos</option>
+                        <option value="abono">Abono</option>
+                        <option value="aves">Aves</option>
+                    </select>
+                    <div class="invalid-feedback">Debes seleccionar una categoría.</div>
+                </div>
+
+                <div class="col-md-4 mb-3">
+                    <label for="active" class="form-label fw-semibold">Estado</label>
+                    <select id="active" name="active" class="form-select" required>
+                        <option value="1" selected>Activo</option>
+                        <option value="0">Inactivo</option>
+                    </select>
+                </div>
+            </div>
+
+            <!--  Input de archivo para imagen -->
+            <div class="mb-3">
+                <label for="mainImage" class="form-label fw-semibold">Imagen principal</label>
+                <input type="file" id="mainImage" name="mainImage" class="form-control" accept="image/webp, image/jpeg, image/png" required>
+                <div class="invalid-feedback">Debes agregar una imagen.</div>
+            </div>
+
+            <div class="text-center mb-4">
+                <img id="imagePreview" src="https://placehold.co/300x200/b2b2b2/ffffff?text=Sin+Imagen" alt="Vista previa" class="img-fluid rounded" style="max-height: 250px; display: none;">
+            </div>
+
+            <!-- Botón Guardar -->
+            <div class="text-center mt-4">
+                <button type="submit" class="btn btn-verde btn-lg px-5">
+                    Guardar Producto
+                </button>
+            </div>
+        </form>
+    </section>
 
 
   <!-- JS -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
   <script type="module" src="./js/admin-guard.js"></script>
-  <script src="./js/createProduct.js"></script>
+  <script type="module" src="./js/createProduct.js"></script>
   <script type="module" src="../js/main.js"></script>
 </body>
 </html>

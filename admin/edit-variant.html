@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    
+    <title>Editar Variante - Admin El Truco</title>
+
+    <link rel="icon" href="../img/favicon.ico" type="image/x-icon">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="../css/style.css" />
+    <link rel="stylesheet" href="admin.css" />
+</head>
+<body>
+
+    <!--NavBar-->
+    <div class="navbar-container sticky-top py-3">
+      <nav class="navbar navbar-expand-lg navbar-dark navbar-farm px-4">
+        <a class="navbar-brand" href="admin-dashboard.html">
+          <img src="../img/LogoB.svg" alt="Logo de El Truco" class="navbar-logo">
+        </a>
+
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav navbar-nav-absolute-centered">
+            <li class="nav-item">
+              <a class="nav-link" href="admin-dashboard.html">Inicio</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="admin-products.html">Productos</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="admin-recipes.html">Recetas</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="admin-newsletter.html">Noticias</a>
+            </li>
+            <li class="nav-item d-lg-none">
+              <a class="nav-link" href="#">Cerrar sesión</a>
+            </li>
+          </ul>
+          
+          <div class="d-none d-lg-flex align-items-center ms-auto">
+            <a href="#" id="logoutButton" class="me-3 navbar-icon" aria-label="Cerrar sesión">
+                <i class="bi bi-box-arrow-right fs-5"></i>
+            </a>
+          </div>
+        </div>
+      </nav>
+    </div>
+    <!--END NavBar-->
+
+    <div class="container my-5">
+        
+        <h1 class="mb-2 ">Editar Variante</h1>
+        <p class="text-muted mb-4" id="productInfo">
+            <span class="spinner-border spinner-border-sm me-2" role="status"></span>
+            Cargando información...
+        </p>
+
+        <div id="notificationContainer" class="mb-3"></div>
+
+        <form id="variantForm" novalidate>
+            <div class="row g-4">
+            
+                <!-- Nombre de la variante -->
+                <div class="col-md-6">
+                    <div class="form-floating mb-3">
+                        <input type="text" class="form-control" id="variantName" name="name" placeholder="Nombre de la Variante" required>
+                        <label for="variantName">Nombre de la Variante</label>
+                        <div class="invalid-feedback">El nombre de la variante es necesario...</div>
+                    </div>
+                </div>
+
+                <!-- Precio -->
+                <div class="col-md-3">
+                    <div class="form-floating mb-3">
+                        <input type="number" class="form-control" id="variantPrice" name="price" placeholder="Precio" step="0.01" min="0" required>
+                        <label for="variantPrice">Precio</label>
+                        <div class="invalid-feedback">El precio es necesario...</div>
+                    </div>
+                </div>
+
+                <!-- Stock -->
+                <div class="col-md-3">
+                    <div class="form-floating mb-3">
+                        <input type="number" class="form-control" id="variantStock" name="stock" placeholder="Stock" min="0" value="0">
+                        <label for="variantStock">Stock Disponible</label>
+                    </div>
+                </div>
+
+                <!-- Imagen -->
+                <div class="col-12">
+                    <div class="mb-3">
+                        <label for="imageFile" class="form-label">Cambiar Imagen (Opcional)</label>
+                        <input class="form-control" type="file" id="imageFile" name="imageFile" accept="image/webp, image/jpeg, image/png">
+                        <small class="form-text text-muted">Si no se agrega imagen, se mantendrá la actual.</small>
+                        
+                        <div class="text-center mt-3">
+                            <img id="imagePreview" src="https://placehold.co/300x200/b2b2b2/ffffff?text=Cargando..." alt="Vista previa de la imagen" class="img-fluid rounded" style="max-height: 250px; display: block; margin: 0 auto;">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Botones -->
+                <div class="col-12 d-flex justify-content-end gap-3 mt-4">
+                    <button type="submit" class="btn btn-verde btn-lg px-5">
+                        <i class="bi bi-check-circle me-2"></i>Guardar Cambios
+                    </button>
+                </div>
+                
+            </div>
+        </form>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script type="module" src="./js/admin-guard.js"></script>
+    <script src="./js/admin-variant-edit.js" type="module"></script>
+    <script type="module" src="../js/main.js"></script>
+</body>
+</html>

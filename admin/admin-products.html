@@ -71,14 +71,17 @@
                         <tr>
                             <th scope="col">Imagen</th>
                             <th scope="col">Nombre</th>
+                            <th scope="col">Precio base</th>
                             <th scope="col">Categoría</th>
+                            <th scope="col">No. de Variantes</th>
+                            <th scope="col">Activo</th>
                             <th scope="col" class="text-end">Acciones</th>
                         </tr>
                     </thead>
                     <tbody id="adminProductList">
                         
                         <tr>
-                            <td colspan="4" class="text-center p-4">
+                            <td colspan="7" class="text-center p-4">
                                 <div class="spinner-border text-dark" role="status">
                                     <span class="visually-hidden">Cargando productos...</span>
                                 </div>
@@ -100,7 +103,7 @@
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
                     </div>
                     <div class="modal-body">
-                        ¿Estás seguro de que deseas eliminar este producto? Esta acción no se puede deshacer.
+                        ¿Estás seguro de que deseas eliminar este producto? Esta acción no se puede deshacer y eliminará todas sus variantes.
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
@@ -109,6 +112,31 @@
                 </div>
             </div>
         </div>
+
+        <!-- Modal de confirmación para eliminar variante -->
+        <div class="modal fade" id="deleteVariantModal" tabindex="-1" aria-labelledby="deleteVariantModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header bg-danger text-white">
+                        <h5 class="modal-title" id="deleteVariantModalLabel">
+                            <i class="bi bi-exclamation-triangle-fill me-2"></i>Confirmar Eliminación de Variante
+                        </h5>
+                        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+                    </div>
+                    <div class="modal-body">
+                        <p>¿Estás seguro de que deseas eliminar esta variante?</p>
+                        <p class="text-muted mb-0">Esta acción no se puede deshacer.</p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                        <button type="button" class="btn btn-danger" id="confirmDeleteVariantBtn">
+                            <i class="bi bi-trash-fill me-1"></i>Eliminar Variante
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
 
         <!-- Modal para las imagenes -->
         <div class="modal fade" id="imagePreviewModal" aria-labelledby="imagePreviewModalLabel" aria-hidden="true">
