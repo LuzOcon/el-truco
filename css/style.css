@@ -262,90 +262,222 @@ img {
 /* FIN INDEX */
 
 /* ABOUT US */
-.about-body{
+.about-body {
   font-size: 1.2rem;
-}
-/* Formato imágenes About Us */
-.imagen-columna-ajustada {
-  height: 100%;       
-  width: auto;         
-  object-fit: cover;   /* mantiene proporciones recortando si es necesario */
-  border-radius: 15px;
-  box-shadow: -16px -16px 0 #667d3c;
-}
-.imagen-columna-ajustada-der {
-  height: 100%;       
-  width: auto;         
-  object-fit: cover;   /* mantiene proporciones recortando si es necesario */
-  border-radius: 15px;
-  box-shadow: 16px 16px 0 var(--text-highlight-alt);
+  line-height: 1.8;
+  margin-bottom: 2rem;
 }
 
-.valores-section {
-  background: #ff9b734e;
-  padding: 80px 0;
-  margin: 80px 0;
-  overflow: hidden;
-}
-.about-strong {
-  font-family: 'Bowlby One', sans-serif;
-  font-size: var(--h3-size);
-  color: #ee684c;
-}
-.about-strong-alt {
-  font-family: 'Bowlby One', sans-serif;
-  font-size: var(--h3-size);
-  color: #596e34;
-}
-.mision-section {
-  background: #ff9b734e;
-  padding: 80px 0;
-  margin: 80px 0;
-  overflow: hidden;
+.about-body p {
+  margin-bottom: 1rem;
 }
 
 .valores-section h2, .mision-section h2 {
   color: rgb(209, 88, 58);
+  font-family: 'Bowlby One', sans-serif;
   margin-bottom: 50px;
 }
-      
-.valor-item {
-  background: rgb(253, 247, 237);
-  border-radius: 15px;
-  padding: 30px;
-  margin-bottom: 20px;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-  height: 100%;
-}
-      
-.valor-item:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+
+.about-strong {
+  font-family: 'Bowlby One', sans-serif;
+  font-size: var(--h3-size);
+  color: #ee684c;  
 }
 
-.valor-item h5 {
+.about-strong-alt {
+  font-family: 'Bowlby One', sans-serif;
+  font-size: var(--h3-size);
+  color: #596e34;  
+}
+
+/* imágenes About Us */
+.imagen-columna-ajustada {
+  height: 100%;       
+  width: auto;         
+  object-fit: cover;
+  border-radius: 15px;
+  box-shadow: -16px -16px 0 #667d3c;
+}
+
+.imagen-columna-ajustada-der {
+  height: 100%;       
+  width: auto;         
+  object-fit: cover;
+  border-radius: 15px;
+  box-shadow: 16px 16px 0 var(--text-highlight-alt);
+}
+.historia-section {
+  margin-top: 80px;
+  margin-bottom: 0;
+  padding-bottom: 40px;
+}
+
+.mision-section {
+  background: linear-gradient(to bottom, 
+    transparent 0%,
+    rgba(248, 155, 97, 0.15) 15%,
+    rgba(248, 155, 97, 0.3) 30%,
+    rgba(248, 155, 97, 0.15) 95%,
+    transparent 100%
+  );
+  padding: 20px 0;
+  margin: 0;
+  overflow: visible;
+}
+
+.vision-section {
+  margin-top: 0;
+  margin-bottom: 0;
+  padding: 40px 0;
+}
+
+.valores-section {
+  background: linear-gradient(to bottom,
+    transparent 0%,
+    rgba(248, 155, 97, 0.15) 15%,
+    rgba(248, 155, 97, 0.3) 30%,
+    rgba(248, 155, 97, 0.15) 95%,
+    transparent 100%
+  );
+  padding: 80px 0 100px 0;
+  margin: 0;
+  overflow: hidden;
+}
+
+/*  TARJETAS HOVER */
+
+.valores-section .row {
+  justify-content: center;
+}
+
+.valor-item {
+  background: #ffd1b3;
+  border-radius: 15px;
+  padding: 0;
+  margin-bottom: 20px;
+  transition: all 0.4s ease;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+  height: 320px;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+}
+
+.valor-item:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 35px rgba(0,0,0,0.2);
+  height: 420px;
+}
+
+.valor-item-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.valor-front {
+  background: #FFF2E0;
+  padding: 25px;
+  display: flex;
+  flex-direction: column;
+  height: 320px;
+  position: relative;
+  z-index: 2;
+}
+
+.valor-front h5 {
   color: var(--text-highlight-alt);
   font-weight: 700;
   margin-bottom: 15px;
-  font-size: 1.3rem;
+  font-size: 1.4rem;
+  text-align: center;
 }
 
+.valor-img {
+  width: 200%;
+  height: 160px;
+  object-fit: contain;
+  border-radius: 10px;
+  margin: auto;
+}
+
+.valor-back {
+  background: var(--text-highlight-alt);
+  padding: 25px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 100px;
+  transform: translateY(100%);
+  transition: transform 0.4s ease;
+  z-index: 1;
+}
+
+.valor-item:hover .valor-back {
+  transform: translateY(0);
+}
+
+.valor-back p {
+  color: #fff;
+  font-size: 1.05rem;
+  line-height: 1.5;
+  text-align: center;
+  margin: 0;
+  font-weight: 600;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .valor-item {
+    height: 280px;
+  }
+  
+  .valor-item:hover {
+    height: 370px;
+  }
+  
+  .valor-front {
+    height: 280px;
+  }
+  
+  .valor-front h5 {
+    font-size: 1.2rem;
+  }
+  
+  .valor-img {
+    width: 60%;
+    height: 120px;
+  }
+  
+  .valor-back {
+    height: 90px;
+  }
+  
+  .valor-back p {
+    font-size: 0.95rem;
+  }
+}
 
 /* Convertir una imagen a fondo (Marca de agua) */
 .contenedor {
-  position: relative;   /* necesario para que la imagen se posicione dentro */
+  position: relative;
 }
 
 .fondo-img {
-  position: absolute;   /* saca la imagen del flujo normal */
-  right: 0;             /* la alinea a la derecha */
-  bottom: 0;               /* empieza desde arriba */
+  position: absolute;
+  right: 0;
+  bottom: 0;
   width: auto;
-  height: 100%;         /* alto ajustado a tamaño del contenedor */
-  opacity: 0.35;       /* baja opacidad */
-  z-index: -1;          /* la pone detrás del texto */
-  border-radius: 100%;  /* pone borde a la imagen */
+  height: 100%;
+  opacity: 0.35;
+  z-index: -1;
+  border-radius: 100%;
 }
 
 /* FOOTER */
