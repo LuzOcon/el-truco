@@ -433,7 +433,28 @@ img {
 }
 
 /* Responsive */
+
+.img-vision-1 {
+  display: none;
+}
+
+.img-vision-2 {
+  display: block;
+}
+
+@media (min-width: 992px) {
+  .img-vision-1 {
+    display: block;
+  }
+
+  .img-vision-2 {
+    display: none;
+  }
+}
+
 @media (max-width: 768px) {
+
+
   .valor-item {
     height: 280px;
   }
