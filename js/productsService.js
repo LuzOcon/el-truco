@@ -113,7 +113,7 @@ class ProductService {
                 mainImage: 'img/abono.webp',
                 active: 1,
                 variants: [
-                    { id: 5, productId: 2, name: 'Bolsa de 1 Kg', price: 80.00, image: '../img/abono.webp', stock: 200 },
+                    { id: 5, productId: 2, name: 'Costal de abono orgánico (1 kg)', price: 80.00, image: '../img/abono.webp', stock: 200 },
                     { id: 6, productId: 2, name: 'Bolsaza de 6 Kg', price: 280.00, image: '../img/abono.webp', stock: 100 },
                     { id: 7, productId: 2, name: 'Costal de 10 Kg', price: 320.00, image: '../img/abono.webp', stock: 80 },
                     { id: 8, productId: 2, name: 'Costal de 15 Kg', price: 400.00, image: '../img/abono.webp', stock: 60 },
