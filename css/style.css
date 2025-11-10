@@ -981,11 +981,11 @@ img {
   color: var(--black-color);
 }
 
-.home .navbar-container.sticky-top {
-position: fixed; 
-top: 0; left: 0; right: 0;
-z-index: 1100;
-width: 95%; 
+.navbar-container.sticky-top {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 1100;
+  width: 95%;
 }
 
 
