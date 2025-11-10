@@ -150,7 +150,7 @@ class ProductService {
     //para el carrito
     getVariantById(variantId) {
     for (let product of this.products) {
-        const variant = product.variants.find(v => v.id === variantId);
+        const variant = product.variants.find(v => v.id == variantId);
         if (variant) return { product, variant };
     }
     return null;
