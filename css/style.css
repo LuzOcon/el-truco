@@ -349,16 +349,22 @@ img {
 }
 
 /* FOOTER */
-.custom-footer{
+.custom-footer {
     background-color: var(--color-card-1);
+    background-image: url('../img/pattern.svg'); 
+    background-repeat: repeat; 
+    background-position: top left; 
+    background-size: 300px auto; 
+    background-attachment: scroll; 
 }
+
 .footer-icons i {
-  color: #000; 
-  transition: color 0.3s;
+    color: #000; 
+    transition: color 0.3s;
 }
 
 .footer-icons i:hover {
-  color: var(--text-highlight-alt);
+    color: var(--text-highlight-alt);
 }
 
 /* END FOOTER */
@@ -391,7 +397,16 @@ img {
 
 .bg-trans-custom{
   background-color: #9dc94d2a;
-}
+   background-image: linear-gradient(
+        to bottom, 
+        #fff2e0 0%, /* Inicia con el color beige superior */
+        #fff2e000 100% 
+    );
+    background-size: 100% 162px; 
+    background-repeat: no-repeat;
+    background-position: top;
+    padding-top: 160px;
+} 
 .text-green{
   color: #384520;
 }
@@ -639,7 +654,113 @@ img {
 .shadow-top-left {
   box-shadow: -16px -16px 0 var(--text-color-alt); 
 }
-/* Nuestras gallinas */
+
+
+.list-unstyled li {
+    margin-bottom: 1rem;
+    line-height: 1.6;
+}
+.list-unstyled li strong {
+    color: #8c4731;
+    font-weight: 700;
+    font-size: 1.05rem;
+}
+.col-md-6 p.fs-5 {
+    color: #2e2117;
+    line-height: 1.8;
+    text-align: justify;
+}
+
+/* Imágenes */
+.ratio img {
+    transition: transform 0.3s ease;
+}
+.ratio:hover img {
+    transform: scale(1.05);
+}
+
+/* CARRUSEL GALERÍA */
+
+.gallery-scroll {
+    display: flex;
+    gap: 1rem;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    padding: 20px 0;
+    animation: autoScroll 30s linear infinite;
+}
+
+/* Scroll */
+@keyframes autoScroll {
+    0% {
+        scroll-behavior: smooth;
+    }
+    100% {
+        scroll-behavior: smooth;
+    }
+}
+.gallery-scroll img {
+    width: 300px;
+    height: 200px;
+    min-width: 300px;
+    object-fit: cover;
+    scroll-snap-align: start;
+    border-radius: 15px;
+    transition: all 0.4s ease;
+    cursor: pointer;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* Hover  */
+.gallery-scroll img:hover {
+    transform: scale(1.15) translateY(-10px);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.3);
+    z-index: 10;
+}
+
+/* Ocultar scrollbar */
+.gallery-scroll::-webkit-scrollbar {
+    height: 8px;
+}
+.gallery-scroll::-webkit-scrollbar-track {
+    background: transparent;
+}
+.gallery-scroll::-webkit-scrollbar-thumb {
+    background: #8c4731;
+    border-radius: 10px;
+}
+.gallery-scroll::-webkit-scrollbar-thumb:hover {
+    background: #a67856;
+}
+/* Pausa al hacer hover */
+.gallery-scroll:hover {
+    animation-play-state: paused;
+}
+
+/* Responsive carrusel */
+@media (max-width: 768px) {
+    .gallery-scroll img {
+        width: 250px;
+        height: 170px;
+        min-width: 250px;
+    }
+    .gallery-scroll img:hover {
+        transform: scale(1.1) translateY(-8px);
+    }
+}
+
+@media (max-width: 576px) {
+    .gallery-scroll img {
+        width: 200px;
+        height: 140px;
+        min-width: 200px;
+    }
+    .gallery-scroll {
+        gap: 0.5rem;
+    }
+}
+
+/* END gallinas */
 
 
 /* NavBar */
