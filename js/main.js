@@ -116,6 +116,45 @@ if (navbarContainer && navCollapse) {
             bsCollapse.hide();
         }
     });
+
+    // Ajuste dinámico del padding-top del body para evitar que el contenido quede
+    // debajo del navbar fijo en páginas que no son la 'home' (donde el hero es full-screen).
+    const adjustBodyPadding = () => {
+        const body = document.body;
+        if (!navbarContainer) return;
+
+        // En la página home queremos que el hero ocupe toda la pantalla, por eso
+        // no aplicamos padding-top ahí.
+        if (body.classList.contains('home')) {
+            body.style.paddingTop = '';
+        } else {
+            body.style.paddingTop = `${navbarContainer.offsetHeight}px`;
+        }
+    };
+
+    // Debounce helper
+    const debounce = (fn, wait = 80) => {
+        let t;
+        return (...args) => {
+            clearTimeout(t);
+            t = setTimeout(() => fn(...args), wait);
+        };
+    };
+
+    // Ajustar al inicio y en cambios relevantes
+    adjustBodyPadding();
+
+    // Ajustar después de cambios de estado del collapse (cuando se abre/cierra el menú)
+    navCollapse.addEventListener('shown.bs.collapse', () => { setTimeout(adjustBodyPadding, 60); });
+    navCollapse.addEventListener('hidden.bs.collapse', () => { setTimeout(adjustBodyPadding, 60); });
+
+    // Ajustar en resize (debounced)
+    window.addEventListener('resize', debounce(() => {
+        if (window.innerWidth >= LG_BREAKPOINT) {
+            navCollapse.classList.remove('show');
+        }
+        adjustBodyPadding();
+    }, 80));
 }
 /* OCULTAR NAVBAR FIN */
 
